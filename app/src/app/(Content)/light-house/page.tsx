@@ -58,7 +58,7 @@ const Page = () => {
   const handleEvaluate = async () => {
     try {
       console.log("🚀 Sending API Request with URLs:", urls);
-      const response = await axios.post("lighthouse-api-server-production.up.railway.app", {
+      const response = await axios.post("https://lighthouse-api-server-production.up.railway.app/", {
         url: urls
       });
       console.log("✅ API Response:", response.data);
