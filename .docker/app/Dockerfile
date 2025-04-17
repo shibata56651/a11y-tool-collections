@@ -1,42 +1,41 @@
-# ✅ Node.js の公式イメージを使用（bookworm ベース）
 FROM node:22.13.1-bookworm
 
-# ✅ Lighthouse CLI をグローバルにインストール
+# ✅ Lighthouse CLI
 RUN npm install -g lighthouse
 
-# ✅ 必要なパッケージをインストール
-# RUN apt update && apt install -y wget curl gnupg2 ca-certificates
-
-# 必要なパッケージをインストール
+# ✅ 必要なパッケージ
 RUN apt update && apt install -y wget curl gnupg2 ca-certificates dbus
 
-# ✅ 最新の Google Chrome の GPG キーを取得（新しいキー）
+# ✅ Chrome の GPGキーとリポジトリ
 RUN mkdir -p /etc/apt/keyrings && \
     curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /etc/apt/keyrings/google-chrome.gpg && \
     chmod a+r /etc/apt/keyrings/google-chrome.gpg
 
-# ✅ Google Chrome のリポジトリを追加
 RUN echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" \
-    | tee /etc/apt/sources.list.d/google-chrome.list
+    > /etc/apt/sources.list.d/google-chrome.list
 
-# ✅ APT キャッシュを更新 & Google Chrome を手動でインストール
+# ✅ Chrome インストール
 RUN apt update && apt install -y --no-install-recommends google-chrome-stable || \
     (curl -fsSL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -o /tmp/chrome.deb && \
     dpkg -i /tmp/chrome.deb || apt --fix-broken install -y && rm /tmp/chrome.deb)
 
-# ✅ npm を最新バージョンに更新
+# ✅ 最新 npm
 RUN npm install -g npm
 
-# ✅ `node` ユーザーとして実行
-USER node
+# ✅ 作業ディレクトリ（rootユーザーのうちに設定・コピー）
+WORKDIR /home/node/app
+COPY . .
+
+# ✅ npm install / build を rootユーザーで行う
+RUN npm install
+RUN npm run build
 
 # ✅ CHROME_PATH 環境変数をセット
-ENV CHROME_PATH="/usr/bin/chromium"
+ENV CHROME_PATH="/opt/google/chrome/google-chrome"
+ENV NODE_ENV=production
 
-EXPOSE 9222
+# ✅ 最後に node ユーザーへ切り替え（実行時のみ）
+USER node
 
-# ✅ 環境変数を設定
-ENV NODE_ENV development
-
-# ✅ 作業ディレクトリ
-WORKDIR /home/node/app
+# ✅ アプリの実行
+CMD ["node", "dist/index.js"]
