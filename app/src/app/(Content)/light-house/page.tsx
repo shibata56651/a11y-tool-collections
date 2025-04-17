@@ -59,7 +59,11 @@ const Page = () => {
     try {
       console.log("🚀 Sending API Request with URLs:", urls);
       const response = await axios.post("https://lighthouse-api-server-production.up.railway.app/api/lighthouse", {
-        url: urls
+        urls: urls.filter((url) => url.trim() !== ""),
+      }, {
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       console.log("✅ API Response:", response.data);
       setResults(response.data);
