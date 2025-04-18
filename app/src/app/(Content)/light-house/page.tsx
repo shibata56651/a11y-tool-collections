@@ -119,6 +119,27 @@ const Page = () => {
         Start Evaluation
       </Button>
 
+      <Card variant="outlined" style={{ marginTop: 16 }}>
+        <CardContent>
+          <Typography variant="h5">Audit Detailsの見方</Typography>
+          <Typography variant="body1">
+            First Contentful Paint：FCPは知覚的なパフォーマンスに直接影響するため、重要な指標です。サイトの表示速度が遅い場合、サイトにアクセスすると、コンテンツが読み込まれるまで真っ白な画面が表示されることがあります。これでは訪問者のユーザー体験を損なうことになります。
+          </Typography>
+          <Typography variant="body1">
+            Largest Contentful Paint：LCPは、ウェブページのメインコンテンツが読み込まれるまでの時間を測定するパフォーマンス指標です。より技術的に言えば、Largest Contentful Paintは、ページの読み込みを開始してから、最大のテキストブロック、画像、または動画がビューポート内にレンダリングされるまでの時間が測定されます。
+          </Typography>
+          <Typography variant="body1">
+            Total Blocking Time：TBTは、ページの読み込みや画像の表示など重要なプログラムの処理が行われる場所がブロックされている時間の合計です。
+          </Typography>
+          <Typography variant="body1">
+            Cumulative Layout Shift：CLSは、ウェブサイトのページのレイアウトがどれだけ安定しているかを測定する指標です。ユーザーが予期しないレイアウトのずれを目にする頻度を定量化することで、視覚的な安定性を評価します。
+          </Typography>
+          <Typography variant="body1">
+          Speed Index：SIは、Webページのコンテンツが表示されるまでの時間を測定した指標で、ページの読み込み性能を表します。ページの可視部分が表示されるまでの平均時間をミリ秒単位で表し、スコアが小さいほど良い値となります。
+          </Typography>
+        </CardContent>
+      </Card>
+
       <Box mt={4}>
         <Typography variant="h5" gutterBottom>
           Results
