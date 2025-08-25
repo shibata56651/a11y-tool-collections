@@ -1,0 +1,110 @@
+@use '../base/variables' as *;
+
+.top-lyt-img {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 32px;
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+  &__img-inner {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  &__text-inner {
+  @media (width <= 1024px) {
+    width: 100%;
+  }
+
+    .button-block {
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      + .button-block {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  @media (width <= 1024px) {
+    flex-flow: column wrap;
+  }
+}
+
+.top-lyt-col2 {
+  margin-top: 40px;
+  display: flex;
+  gap: 40px;
+
+  @media (width <= 1024px) {
+    flex-flow: column wrap;
+    align-items: center;
+  }
+
+  &__item {
+    width: 100%;
+
+    @media (width <= 1024px) {
+      max-width: 472px;
+    }
+  }
+}
+
+.lyt-img {
+  display: flex;
+  gap: 52px;
+
+  @media (width <= 1024px) {
+    flex-flow: column wrap;
+  }
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+  &__img-inner {
+    max-width: 432px;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+
+    @media (width <= 1024px) {
+      margin: 0 auto;
+    }
+  }
+
+  &__text-inner {
+    @media (width <= 1024px) {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    display: block;
+    text-align: center;
+    font-size: 3.6rem;
+    font-weight: 600;
+    color: $light-orange;
+
+    + p {
+      margin-top: 24px;
+
+      @media (width <= 768px) {
+        margin-top: 16px;
+      }
+    }
+  }
+
+  &__name {
+    display: block;
+    text-align: right;
+    margin-top: 38px;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+}

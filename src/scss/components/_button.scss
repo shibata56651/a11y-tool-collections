@@ -1,0 +1,285 @@
+@use '../base/variables' as *;
+
+.button-block {
+  margin-top: 56px;
+  text-align: center;
+
+  + .button-block {
+    margin-top: 16px;
+  }
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+
+  // padding: 20px 36px;
+  padding: 20px 68px;
+  border-radius: $border-radius-full;
+  font-weight: 700;
+  transition: $transition;
+
+  @media (width >= 769px) {
+    min-width: 380px;
+  }
+
+  @media (width <= 769px) {
+    max-width: 380px;
+    width: 100%;
+    padding: 14px 60px;
+  }
+
+  &--text-center {
+    text-align: center;
+  }
+
+  &--type-border-orange {
+    color: $black;
+    border: solid 2px $primary-orange;
+    background: $white;
+    padding: 20px 68px;
+    overflow: hidden;
+
+  @media (width >= 769px) {
+    min-width: 436px;
+  }
+
+  @media (width <= 768px) {
+    padding: 14px 60px;
+  }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: $primary-orange;
+      transition: $transition;
+      z-index: 0;
+    }
+
+    .button__text {
+      position: relative;
+      display: block;
+      width: 100%;
+      font-size: 1.8rem;
+      z-index: 1;
+      transition: $transition;
+
+      @media (width <= 768px) {
+        font-size: 1.6rem;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: calc(50% - 17px);
+        right: -46px;
+        width: 34px;
+        height: 34px;
+        border-radius: $border-radius-full;
+        background: $primary-orange;
+        transition: $transition;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        right: -36px;
+        top: calc(50% - 5px);
+        width: 13px;
+        height: 11px;
+        background: url("/assets/img/icon/arrow-right.svg") no-repeat center;
+        background-size: contain;
+        transition: $transition;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        width: 100%;
+      }
+
+      .button__text {
+        color: $white;
+
+        &::before {
+          background: $white;
+        }
+
+        &::after {
+          filter: brightness(0) saturate(100%) invert(59%) sepia(93%) saturate(5284%) hue-rotate(19deg) brightness(102%) contrast(97%);
+        }
+      }
+    }
+  }
+
+  &--type-border-green {
+    color: $black;
+    border: solid 2px $primary-green;
+    background: $white;
+    overflow: hidden;
+
+  @media (width >= 769px) {
+    min-width: 436px;
+  }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: $primary-green;
+      transition: $transition;
+      z-index: 0;
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        width: 100%;
+      }
+
+      .button__text {
+        color: $white;
+
+        &::before {
+          background: $white;
+        }
+
+        &::after {
+          filter: brightness(0) saturate(100%) invert(46%) sepia(63%) saturate(1737%) hue-rotate(72deg) brightness(95%) contrast(87%);
+        }
+      }
+    }
+
+    .button__text {
+      position: relative;
+      display: block;
+      width: 100%;
+      z-index: 1;
+      font-size: 1.8rem;
+      transition: $transition;
+
+      @media (width <= 768px) {
+        font-size: 1.6rem;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: calc(50% - 17px);
+        right: -46px;
+        width: 34px;
+        height: 34px;
+        border-radius: $border-radius-full;
+        background: $primary-green;
+        transition: $transition;
+      }
+
+      &::after {
+        position: absolute;
+        content: '';
+        right: -36px;
+        top: calc(50% - 5px);
+        width: 13px;
+        height: 11px;
+        background: url("/assets/img/icon/arrow-right.svg") no-repeat center;
+        background-size: contain;
+        transition: $transition;
+      }
+    }
+  }
+
+  &--type-orange {
+    color: $black;
+    background: linear-gradient(90deg, $btn-pale-orange 0%, $btn-orange 50%, $btn-pale-orange 100%);
+    background-size: 200% 100%;
+    background-position: 0% 0%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: calc(50% - 17px);
+      right: 22px;
+      width: 34px;
+      height: 34px;
+      border-radius: $border-radius-full;
+      background: $primary-orange;
+      transition: $transition;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      right: 33px;
+      top: calc(50% - 5px);
+      width: 13px;
+      height: 10px;
+      background: url("/assets/img/icon/arrow-right.svg") no-repeat center;
+      transition: $transition;
+    }
+
+    &:hover,
+    &:focus {
+      background-position: 100% 0%;
+
+      &::before {
+        right: 16px;
+      }
+
+      &::after {
+        right: 27px;
+      }
+    }
+  }
+
+  &--type-green {
+    color: $black;
+    background: linear-gradient(90deg, $btn-pale-blue 0%, $btn-pale-green 50%, $btn-pale-blue 100%);
+    background-size: 200% 100%;
+    background-position: 0% 0%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: calc(50% - 17px);
+      right: 22px;
+      width: 34px;
+      height: 34px;
+      border-radius: $border-radius-full;
+      background: $primary-green;
+      transition: $transition;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      right: 33px;
+      top: calc(50% - 5px);
+      width: 13px;
+      height: 10px;
+      background: url("/assets/img/icon/arrow-right.svg") no-repeat center;
+      transition: $transition;
+    }
+
+    &:hover,
+    &:focus {
+      background-position: 100% 0%;
+
+      &::before {
+        right: 16px;
+      }
+
+      &::after {
+        right: 27px;
+      }
+    }
+  }
+}

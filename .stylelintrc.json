@@ -1,0 +1,54 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "plugins": ["stylelint-scss"],
+  "fix": true,
+  "rules": {
+    "no-duplicate-selectors": true,
+    "color-hex-length": "short",
+    "color-named": null,
+    "declaration-no-important": true,
+    "font-family-name-quotes": "always-where-recommended",
+    "comment-whitespace-inside": "always",
+    "comment-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "scss/dollar-variable-colon-space-after": "always",
+    "scss/dollar-variable-colon-space-before": "never",
+    "scss/dollar-variable-no-missing-interpolation": true,
+    "scss/dollar-variable-pattern": null,
+    "scss/percent-placeholder-pattern": null,
+    "scss/at-extend-no-missing-placeholder": null,
+    "max-nesting-depth": 4,
+    "selector-max-compound-selectors": 4,
+    "selector-no-qualifying-type": [
+      true,
+      {
+        "ignore": ["attribute", "class"]
+      }
+    ],
+    "selector-class-pattern": null,
+    "custom-property-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "color-function-notation": "legacy",
+    "color-function-alias-notation": null,
+    "alpha-value-notation": "number",
+    "media-feature-range-notation": "context",
+    "shorthand-property-no-redundant-values": true,
+    "declaration-block-no-redundant-longhand-properties": true,
+    "no-descending-specificity": null
+  },
+  "ignoreFiles": ["dist/**/*", "node_modules/**/*"]
+}

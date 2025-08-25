@@ -1,0 +1,82 @@
+@use '../base/variables' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; // 10px = 1rem
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: $black;
+  padding-top: 98px;
+
+  @media (width <= 1024px) {
+    padding-top: 62px;
+  }
+}
+
+table, tbody {
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// body のスクロール制御
+body.mobile-menu-open {
+  @media (width <= 768px) {
+    overflow: hidden;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+p {
+  font-weight: 400;
+}
+
+.sp-hidden {
+  @media (width <= 768px) {
+    display: none;
+  }
+}

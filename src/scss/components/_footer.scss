@@ -1,0 +1,347 @@
+@use '../base/variables' as *;
+
+.footer-inner {
+    margin-top: 128px;
+
+  @media (width <= 768px) {
+    margin-top: 60px;
+  }
+}
+
+.footer {
+  position: relative;
+  background: $dark-green;
+  border-radius: 40px 40px 0 0;
+  color: $white;
+  padding: 80px 60px 24px;
+  margin-top: -40px;
+
+  @media (width <= 768px) {
+    padding: 40px 20px 20px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 80px 160px;
+
+    @media (width <= 768px) {
+      padding: 0 20px;
+      gap: 24px;
+    }
+  }
+
+  &__copyright {
+    font-size: 1.4rem;
+    color: $white;
+    text-align: right;
+    margin-top: 14px;
+    padding-top: 6px;
+    border-top: solid 1px $white;
+  }
+}
+
+.footer-contact {
+  &__inner {
+    margin-top: 32px;
+  }
+
+  &__icon {
+    width: 20px;
+    display: flex;
+    align-items: center;
+
+    > img {
+      height: auto;
+      filter: brightness(10);
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    border: solid 2px $white;
+    border-radius: $border-radius-full;
+    color: $white;
+    background: $dark-green;
+    padding: 16px;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: $white;
+      transition: $transition;
+      z-index: 0;
+    }
+
+    &:hover {
+      color: $dark-green;
+
+      .footer-contact__icon {
+        > img {
+          filter: invert(27%) sepia(100%) saturate(1500%) hue-rotate(125deg) brightness(0) contrast(1.2);
+        }
+      }
+
+      &::before {
+        width: 100%;
+        transition: $transition;
+      }
+    }
+  }
+
+  &__link-text {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.footer-company {
+  &__inner {
+    max-width: 324px;
+  }
+
+  &__logo-inner {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__logo {
+    width: 286px;
+  }
+
+  &__address {
+    margin-top: 24px;
+  }
+
+  &__address-text {
+    display: block;
+    text-align: center;
+  }
+}
+
+.footer-list {
+  > ul {
+    @media (width >= 769px) {
+      display: flex;
+      gap: 80px;
+    }
+  }
+
+  &__item {
+    position: relative;
+
+    @media (width >= 769px) {
+      padding-left: 20px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 4px;
+        background: $white;
+        border-radius: $border-radius-full;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: $white;
+    font-size: 1.6rem;
+    display: inline-block;
+
+    &::after {
+      background: $white;
+      content: '';
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform-origin: right top;
+      transform: scale(0, 1);
+      transition: transform .3s;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      &::after {
+        transform-origin: left top;
+        transform: scale(1, 1);
+      }
+    }
+
+    @media (width <= 768px) {
+      display: block;
+      padding: 16px 40px 16px 0;
+      border-bottom: solid 1px rgba($color: #fff, $alpha: 0.2);
+    }
+  }
+
+
+  &__inner {
+    @media (width <= 768px) {
+      width: 100%;
+    }
+  }
+}
+
+.footer-desc {
+  @media (width >= 769px) {
+    margin-top: 56px;
+  }
+
+  > dl {
+    @media (width >= 769px) {
+      display: flex;
+      gap: 40px;
+    }
+  }
+
+  &__item {
+    @media (width >= 769px) {
+      width: 244px;
+    }
+  }
+
+  &__text {
+    @media (width <= 768px) {
+      position: relative;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: $white;
+
+    @media (width >= 769px) {
+      opacity: .7;
+      border-bottom: solid 1px $white;
+    }
+
+    @media (width <= 768px) {
+      position: relative;
+      padding: 16px 40px 16px 0;
+      text-decoration: none;
+      border-bottom: solid 1px rgba($color: #fff, $alpha: .2);
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%) rotate(180deg);
+        width: 12px;
+        height: 12px;
+        background: url("/assets/img/icon/chevron.svg") no-repeat center;
+        background-size: contain;
+        filter: brightness(10);
+        transition: $transition;
+      }
+
+      &[aria-expanded="true"]::after {
+        transform: translateY(-50%) rotate(0deg);
+      }
+    }
+  }
+
+  &__detail {
+    @media (width <= 768px) {
+      padding: 0 14px;
+      background: $footer-bg;
+      max-height: 0;
+      overflow: hidden;
+      transition: $transition;
+
+      &[aria-hidden="false"] {
+        max-height: 200px;
+      }
+    }
+  }
+
+  + .footer-list {
+    @media (width >= 769px) {
+      margin-top: 56px;
+    }
+
+    @media (width <= 768px) {
+      .footer-list__item:last-child .footer-list__link {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .footer-list {
+    @media (width >= 769px) {
+      margin-top: 24px;
+    }
+
+    > ul {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+}
+
+.footer-to-top {
+  display: flex;
+  justify-content: flex-end;
+
+  @media (width <= 768px) {
+    margin-top: 12px;
+  }
+
+  &__icon {
+    width: 12px;
+    height: auto;
+
+    @media (width <= 769px) {
+      display: none;
+    }
+  }
+
+  &__link {
+    &:hover {
+      @media (width >= 769px) {
+        background: $white;
+      }
+
+      .footer-to-top__icon {
+        filter: invert(27%) sepia(100%) saturate(1500%) hue-rotate(125deg) brightness(0) contrast(1.2);
+      }
+    }
+
+    @media (width >= 769px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 42px;
+      height: 42px;
+      background: $dark-green;
+      border-radius: $border-radius-full;
+      border: solid 2px $white;
+      font-size: 0;
+      color: transparent;
+      transition: $transition;
+    }
+
+    @media (width <= 768px) {
+      color: $white;
+    }
+  }
+}

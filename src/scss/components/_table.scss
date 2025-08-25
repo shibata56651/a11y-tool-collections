@@ -1,0 +1,32 @@
+@use '../base/variables' as *;
+
+.table-tbody-only {
+  border-top: solid 1px $light-gray;
+  border-bottom: solid 1px $light-gray;
+
+  &__row {
+    width: 100%;
+
+    &:nth-of-type(n+2) {
+      border-top: solid 1px $light-gray;
+    }
+  }
+
+  &__header {
+    width: 280px;
+    text-align: left;
+    background: $primary-cream;
+    padding: 24px 40px;
+    font-size: 1.7rem;
+
+    @media (width <= 768px) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__data {
+    padding: 24px 40px;
+    font-size: 1.7rem;
+  }
+}

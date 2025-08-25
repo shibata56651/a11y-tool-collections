@@ -1,0 +1,40 @@
+# SSI（Server Side Includes）を有効化
+Options +Includes
+AddType text/html .html
+AddOutputFilter INCLUDES .html
+
+# HTMLファイルでSSIを処理
+<Files "*.html">
+    SetOutputFilter INCLUDES
+</Files>
+
+# キャッシュ制御（開発時）
+<IfModule mod_headers.c>
+    # HTMLファイルのキャッシュを無効化（開発環境）
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires 0
+    </FilesMatch>
+
+    # 静的ファイルのキャッシュ設定
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+</IfModule>
+
+# MIME type設定
+AddType application/javascript .js
+
+# 圧縮設定
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>

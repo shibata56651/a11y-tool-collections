@@ -1,12 +1,48 @@
 {
-  "name": "si-a11y-tools-biome",
-  "version": "0.1.0",
-  "private": true,
+  "name": "yours",
+  "version": "1.0.0",
+  "description": "SCSS, HTML, TypeScript development environment",
+  "main": "index.js",
   "scripts": {
-    "format": "biome check --write app/*"
+    "dev": "NODE_ENV=development concurrently \"npm run watch:scss\" \"npm run watch:ts\" \"npm run serve\"",
+    "serve": "NODE_ENV=development node ssi-server.js",
+    "serve:ssi": "NODE_ENV=development node ssi-server.js",
+    "watch:scss": "sass --watch src/scss:dist/css --style compressed",
+    "watch:ts": "tsc --watch",
+    "build": "npm run build:scss && npm run build:ts",
+    "build:demo": "BUILD_ENV=demo node scripts/build-production.js",
+    "build:production": "BUILD_ENV=production node scripts/build-production.js",
+    "build:scss": "sass src/scss:dist/css --style compressed",
+    "build:ts": "tsc",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --apply .",
+    "format": "biome format .",
+    "format:write": "biome format --write .",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "lint:scss": "stylelint \"src/scss/**/*.scss\"",
+    "lint:scss:fix": "stylelint \"src/scss/**/*.scss\" --fix",
+    "format:scss": "prettier --write \"src/scss/**/*.scss\"",
+    "format:all": "npm run format:write && npm run format:scss",
+    "lint:all": "npm run lint && npm run lint:scss",
+    "lint:all:fix": "npm run lint:fix && npm run lint:scss:fix"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@biomejs/cli-darwin-arm64": "^1.9.4"
+    "@biomejs/biome": "^2.1.2",
+    "browser-sync": "^3.0.4",
+    "concurrently": "^8.2.2",
+    "prettier": "^3.6.2",
+    "prettier-plugin-organize-imports": "^4.2.0",
+    "sass": "^1.70.0",
+    "stylelint": "^16.22.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-scss": "^6.12.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
   }
 }

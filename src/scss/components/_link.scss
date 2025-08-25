@@ -1,0 +1,64 @@
+@use '../base/variables' as *;
+
+.link-text {
+  margin-top: 56px;
+  font-weight: 500;
+  text-align: right;
+
+  @media (width <= 768px) {
+    margin-top: 28px;
+  }
+
+  &__text {
+    position: relative;
+    padding-right: 58px;
+    font-size: 1.8rem;
+
+    @media (width <= 768px) {
+      padding-right: 40px;
+      font-size: 1.6rem;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: calc(50% - 17px);
+      right: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: $border-radius-full;
+      background: $primary-orange;
+      transition: $transition;
+
+      @media (width <= 768px) {
+        width: 28px;
+        height: 28px;
+        top: calc(50% - 14px);
+      }
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      right: 11px;
+      top: calc(50% - 5px);
+      width: 13px;
+      height: 10px;
+      transition: $transition;
+      background: url("/assets/img/icon/arrow-right.svg") no-repeat center;
+    }
+
+    &:hover,
+    &:focus {
+      background-position: 100% 0%;
+
+      &::before {
+        right: -6px;
+      }
+
+      &::after {
+        right: 5px;
+      }
+    }
+  }
+}

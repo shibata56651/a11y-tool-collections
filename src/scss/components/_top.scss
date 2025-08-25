@@ -1,0 +1,505 @@
+@use '../base/animation' as *;
+@use '../base/variables' as *;
+
+// MV カルーセル
+.mv {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 690px;
+
+    // PC時の左右余白
+    @media (width >= 769px) {
+      padding: 0 40px;
+    }
+
+    // SP時は画面高さ - 16px
+    @media (width < 768px) {
+      height: calc(100vh - 60px);
+      padding: 0;
+    }
+  }
+
+  &__carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+
+    @media (width < 768px) {
+      border-radius: 0;
+    }
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+
+    &--active {
+      opacity: 1;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    padding: 20px 40px;
+    z-index: 1;
+
+    @media (width < 768px) {
+      padding: 1.5rem;
+    }
+  }
+
+  &__title {
+    font-size: 3.6rem;
+    line-height: 1.7;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: $dark-green;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+
+    &--em {
+      font-size: 4rem;
+      font-weight: 700;
+
+      @media (width < 768px) {
+        font-size: 3.7rem;
+      }
+    }
+
+    @media (width < 768px) {
+      font-size: 3rem;
+    }
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.6;
+    color: $dark-green;
+
+    @media (width < 768px) {
+      font-size: 1.5rem;
+      max-width: 100%;
+    }
+  }
+
+  &__controls {
+    position: absolute;
+    top: 20px;
+    right: 60px;
+    z-index: 10;
+
+    @media (width < 768px) {
+      top: 20px;
+      right: 20px;
+    }
+  }
+
+  &__play-pause {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: $light-gray;
+    color: $white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+    position: relative;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    @media (width < 768px) {
+      width: 40px;
+      height: 40px;
+    }
+
+    // 一時停止アイコン（デフォルト）
+    &::before {
+      content: "";
+      width: 3px;
+      height: 14px;
+      background: $white;
+      border-radius: 1px;
+      margin-right: 2px;
+      transition: all .3s ease;
+
+      @media (width < 768px) {
+        width: 2px;
+        height: 10px;
+      }
+    }
+
+    &::after {
+      content: "";
+      width: 3px;
+      height: 14px;
+      background: $white;
+      border-radius: 1px;
+      margin-left: 2px;
+      transition: all .3s ease;
+
+      @media (width < 768px) {
+        width: 2px;
+        height: 10px;
+      }
+    }
+
+    // 再生アイコン（停止時）
+    &.mv__play-pause--paused {
+      &::before {
+        width: 0;
+        height: 0;
+        background: transparent;
+        border-left: 10px solid $white;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+        border-radius: 0;
+        margin-right: 0;
+        margin-left: 2px;
+
+        @media (width < 768px) {
+          border-left-width: 8px;
+          border-top-width: 5px;
+          border-bottom-width: 5px;
+          margin-left: 1px;
+        }
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.mv-text-wrapper {
+  position: relative;
+  padding: 20px 46px;
+  background: rgba(255, 255, 255, 0.4);
+  margin-top: 72px;
+  border-radius: $border-radius-full;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    right: -40px;
+    width: 243px;
+    height: 46px;
+    background: url("/assets/img/top/mv-text.svg") no-repeat center;
+    background-size: contain;
+
+    @media (width < 768px) {
+      right: 0;
+      width: 180px;
+      height: 36px;
+    }
+  }
+
+  @media (width < 768px) {
+    margin-top: 40px;
+  }
+}
+
+// トップページのコンテンツ
+.top-content {
+  margin-top: 80px;
+  padding: 0 40px;
+
+  @media (width < 768px) {
+    margin-top: 60px;
+    padding: 0 20px;
+  }
+}
+
+.top-section {
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+
+  &--type-a {
+    position: relative;
+    background: $light-cream;
+    max-width: none;
+    width: calc(100% + 80px);
+    margin-left: -40px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 40%;
+      left: 0;
+      width: 100%;
+      height: 300px;
+      background: url("/assets/img/top/top-decoration-line-01.png") no-repeat center;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 80px;
+      left: 0;
+      width: 100%;
+      height: 300px;
+      background: url("/assets/img/top/top-decoration-line-02.png") no-repeat center;
+    }
+
+    @media (width <= 768px) {
+      width: calc(100% + 40px);
+      margin-left: -20px;
+    }
+  }
+
+  &__inner {
+    position: relative;
+    max-width: 1120px;
+    padding: 120px 20px 168px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  + .top-section {
+    margin-top: 80px;
+  }
+}
+
+.top-lead {
+  text-align: center;
+
+  &__text {
+    display: block;
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 1.8;
+    letter-spacing: 2px;
+    color: $dark-green;
+
+    @media (width <= 768px) {
+      font-size: 2rem;
+      line-height: 1.7;
+    }
+  }
+
+  &__brand {
+    position: relative;
+    display: inline-block;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background-image:
+        radial-gradient(circle at center, $light-orange 35%, transparent 35%),
+        radial-gradient(circle at center, $light-orange 35%, transparent 35%),
+        radial-gradient(circle at center, $light-orange 35%, transparent 35%),
+        radial-gradient(circle at center, $light-orange 35%, transparent 35%);
+      background-position:
+        0% center,
+        35% center,
+        67% center,
+        100% center;
+      background-size: 25% 100%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__detail-text {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-top: 24px;
+
+    @media (width <= 768px) {
+      font-size: 1.4rem;
+      margin-top: 24px;
+    }
+  }
+}
+
+// ニュース
+.news-content {
+  margin-top: 56px;
+  padding: 40px 100px;
+  background: $primary-cream;
+  border-radius: 24px;
+
+  @media (width <= 768px) {
+    margin-top: 28px;
+    padding: 20px 20px 30px;
+  }
+}
+
+.industry-block {
+  position: relative;
+  margin-top: 56px;
+
+  @media (width <= 768px) {
+    margin-top: 40px;
+  }
+}
+
+// トップページ下のスライダー
+.top-slider {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 20px;
+  margin-top: 40px;
+
+  @media (width <= 768px) {
+    height: 300px;
+    margin-top: 20px;
+  }
+
+  // ユーザーがモーション削減を設定している場合はアニメーションを停止
+  @media (prefers-reduced-motion: reduce) {
+    .top-slider__track {
+      animation: none;
+    }
+  }
+
+  &__track {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    animation: slide-horizontal 20s linear infinite;
+    will-change: transform;
+
+    &.paused {
+      animation-play-state: paused;
+    }
+  }
+
+  &__image {
+    width: 50%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  &__play-pause {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: $light-gray;
+    border: none;
+    border-radius: $border-radius-full;
+    cursor: pointer;
+    transition: $transition;
+
+    @media (width <= 768px) {
+      width: 40px;
+      height: 40px;
+      top: 15px;
+      right: 15px;
+    }
+
+    // 一時停止アイコン（デフォルト）
+    &::before {
+      content: "";
+      width: 3px;
+      height: 14px;
+      background: $white;
+      border-radius: 1px;
+      margin-right: 2px;
+      transition: all .3s ease;
+      position: absolute;
+      top: 50%;
+      left: 44%;
+      transform: translate(-50%, -50%);
+
+      @media (width <= 768px) {
+        width: 2px;
+        height: 10px;
+      }
+    }
+
+    &::after {
+      content: "";
+      width: 3px;
+      height: 14px;
+      background: $white;
+      border-radius: 1px;
+      margin-left: 2px;
+      transition: all .3s ease;
+      position: absolute;
+      top: 50%;
+      left: 54%;
+      transform: translate(-50%, -50%);
+
+      @media (width <= 768px) {
+        width: 2px;
+        height: 10px;
+      }
+    }
+
+    // 再生アイコン（停止時）
+    &.paused {
+      &::before {
+        width: 0;
+        height: 0;
+        background: transparent;
+        border-left: 10px solid $white;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+        border-radius: 0;
+        margin-right: 0;
+        margin-left: 2px;
+
+        @media (width <= 768px) {
+          border-left-width: 8px;
+          border-top-width: 5px;
+          border-bottom-width: 5px;
+          margin-left: 1px;
+        }
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+  }
+}

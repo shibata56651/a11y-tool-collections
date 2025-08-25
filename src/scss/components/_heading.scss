@@ -1,0 +1,229 @@
+@use '../base/variables' as *;
+
+.hdg-leaf {
+  &__block {
+    text-align: center;
+
+    + * {
+      margin-top: 30px;
+
+      @media (width <= 768px) {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &__text {
+    position: relative;
+    display: inline-block;
+    font-size: 4rem;
+    font-weight: 700;
+    color: $dark-green;
+    line-height: 1.4;
+
+    @media (width <= 768px) {
+      font-size: 3rem;
+    }
+  }
+}
+
+.hdg-line {
+  position: relative;
+  font-size: 2.8rem;
+  font-weight: 500;
+  padding: 0 0 10px;
+  border-bottom: solid 2px $light-orange;
+
+  @media (width <= 768px) {
+    font-size: 2.3rem;
+    padding: 0 0 4px;
+  }
+
+  + .lyt-img {
+    margin-top: 72px;
+
+    @media (width <= 768px) {
+      margin-top: 40px;
+    }
+  }
+
+  + p {
+    margin-top: 16px;
+    font-size: 1.8rem;
+    font-weight: 400;
+
+    @media (width <= 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(100% / 3);
+    height: 8px;
+    background: $light-orange;
+
+    @media (width <= 768px) {
+      height: 5px;
+    }
+  }
+}
+
+.hdg-simple {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.7;
+  text-align: center;
+
+    +.list-toc {
+    margin-top: 42px;
+
+    @media (width <= 768px) {
+      margin-top: 30px;
+    }
+  }
+}
+
+.hdg-main {
+  &__text {
+    font-size: 3.6rem;
+    font-weight: 700;
+
+    @media (width <= 768px) {
+      font-size: 2.8rem;
+    }
+  }
+
+  &__small-text {
+    display: block;
+    font-size: 1.8rem;
+    line-height: 1;
+    font-weight: 400;
+    margin-top: 8px;
+    text-align: center;
+
+    @media (width <= 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("/assets/img/hdg/hdg-bg.jpg") no-repeat center center/cover;
+    border-radius: 20px;
+    padding: 120px 20px;
+
+    &--recruit {
+      background: url("/assets/img/hdg/hdg-bg-recruit.jpg") no-repeat center center/cover;
+    }
+
+    @media (width <= 768px) {
+      padding: clamp(40px, calc(40px + 20 * (100vw - 375px) / (768 - 375)), 60px) 10px;
+    }
+  }
+}
+
+.hdg-vision {
+  &--type-a {
+    max-width: 529px;
+  }
+
+  &--type-b {
+    max-width: 768px;
+  }
+}
+
+.hdg-interview {
+  @media (width <= 768px) {
+    padding: 0 20px;
+  }
+
+  &__inner {
+    display: flex;
+    width: calc(100% + 80px);
+    margin-left: -40px;
+    background: url("/assets/img/hdg/hdg-bg-line.png") no-repeat center center / cover;
+    padding: 0 40px;
+
+    @media (width <= 1024px) {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
+
+  &__img-inner {
+    max-width: 728px;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  &__text-inner {
+    max-width: 498px;
+    width: 100%;
+    text-align: center;
+
+    @media (width <= 768px) {
+      margin-top: 16px;
+    }
+  }
+
+  &__lead {
+    position: relative;
+    text-align: center;
+
+    @media (width >= 1025px) {
+      padding-top: 56px;
+    }
+  }
+
+  &__lead-text {
+    font-size: 3.2rem;
+    font-weight: 700;
+    background: $light-yellow;
+    line-height: 1.8;
+    box-decoration-break: clone;
+
+    @media (width <= 768px) {
+      font-size: 2.2rem;
+      line-height: 1.7;
+    }
+
+    @media (width >= 1025px) {
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 44%;
+        width: 62px;
+        height: 40px;
+        background: url("/assets/img/icon/leaf.svg") no-repeat center center / cover;
+        transform: rotateY(180deg);
+      }
+    }
+  }
+
+  &__small-text {
+    display: block;
+    margin-top: 16px;
+    font-size: 1.8rem;
+
+    @media (width <= 768px) {
+      font-size: 1.6rem;
+    }
+
+    + .hdg-interview__small-text {
+      font-size: 1.4rem;
+      margin-top: 8px;
+
+      @media (width <= 768px) {
+      font-size: 1.2rem;
+    }
+    }
+  }
+}
