@@ -4,6 +4,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  + p {
+    margin-top: 16px;
+  }
 }
 
 html {
@@ -22,6 +26,13 @@ body {
   @media (width <= 1024px) {
     padding-top: 62px;
   }
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
 }
 
 table, tbody {
@@ -73,6 +84,10 @@ img {
 
 p {
   font-weight: 400;
+
+  + * {
+    margin-top: 16px;
+  }
 }
 
 .sp-hidden {

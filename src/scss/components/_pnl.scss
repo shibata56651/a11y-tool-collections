@@ -161,9 +161,16 @@
 }
 
 .pnl-simple {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 36px;
+  > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+
+    @media (width <= 425px) {
+      gap: 26px;
+      justify-content: center;
+    }
+  }
 
   &__link {
     display: block;
@@ -177,16 +184,15 @@
   &__img-inner {
     padding: 32px;
     text-align: center;
+
+    @media (width <= 768px) {
+      padding: 22px;
+    }
   }
 
   &__img {
-    width: auto;
     height: 118px;
-
-    &--icon {
-      width: 20px;
-      height: 20px;
-    }
+    object-fit: contain;
   }
 
   &__text-inner {
@@ -195,6 +201,10 @@
     align-items: center;
     background: $light-cream;
     padding: 24px 32px;
+
+    @media (width <= 768px) {
+      padding: 16px 24px;
+    }
   }
 
   &__text {
@@ -206,7 +216,11 @@
   &--col3 {
     .pnl-simple {
       &__item {
-        width: calc(100% / 3 - 24px);
+        min-width: 320px;
+
+        @media (width <= 768px) {
+          width: calc(100% / 2 - 24px);
+        }
       }
     }
   }

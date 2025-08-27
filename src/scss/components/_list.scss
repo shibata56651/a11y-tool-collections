@@ -69,6 +69,10 @@
     }
   }
 
+  + * {
+    margin-top: 34px;
+  }
+
   &__item {
     padding: 4px 32px;
     font-size: 2rem;
@@ -96,8 +100,6 @@
 }
 
 .list-note {
-  margin-top: 34px;
-
   &__item {
     font-size: 1.5rem;
   }
@@ -614,27 +616,243 @@
     }
   }
 
+  &__link {
+    &:hover {
+      .list-employee__img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
   &__item {
-    width: calc(100% / 4);
-    overflow: hidden;
-    border-radius: 20px;
+    width: calc((100% / 4) - 24px);
 
     @media (width <= 768px) {
       width: calc(100% / 2);
       border-radius: 16px;
     }
+  }
 
-    &__img-inner {
+  &__img-inner {
+    height: 314px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  &__img {
+    transition: $transition;
+  }
+
+  &__text-inner {
+    margin-top: 8px;
+  }
+
+  &__date {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding-bottom: 8px;
+
+    @media (width <= 768px) {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__job {
+    display: block;
+    padding-top: 8px;
+    border-top: dashed 3px $primary-orange;
+  }
+}
+
+.list-btn {
+  margin-top: 40px;
+
+  > ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+    @media (width <= 768px) {
+      gap: 20px;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__item {
+    max-width: 440px;
+    width: 100%;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    text-align: center;
+    border-radius: 20px;
+    border: solid 1px $primary-green;
+    padding: 24px 50px;
+    font-weight: 700;
+    background: $light-cream;
+    transition: $transition;
+
+    @media (width <= 768px) {
+      padding: 16px 40px;
     }
 
-    &__text {
-      padding: 16px;
-      font-size: 1.6rem;
-      font-weight: 600;
+    &:hover {
+      background: $primary-cream;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 35%;
+    right: 24px;
+
+    @media (width <= 768px) {
+      right: 14px;
+    }
+  }
+
+  &__text {
+    color: $darker-green;
+    font-size: 1.8rem;
+  }
+}
+
+.list-strength {
+  &--green {
+    .list-strength__text {
+      background: $light-green;
+    }
+  }
+
+  &__item {
+    + .list-strength__item {
+      margin-top: 32px;
 
       @media (width <= 768px) {
-        font-size: 1.4rem;
+        margin-top: 20px;
       }
+    }
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    font-weight: 700;
+
+    @media (width <= 768px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__text {
+    background: $pale-orange;
+    border-radius: 10px;
+    padding: 32px;
+    margin-top: 8px;
+    font-size: 2rem;
+
+    @media (width <= 768px) {
+      padding: 18px;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.list-desc-box {
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__detail {
+    margin-top: 6px;
+  }
+
+  &__item {
+    + .list-desc-box__item {
+      margin-top: 16px;
+    }
+  }
+}
+
+.list-flow {
+  &__item {
+    display: flex;
+    gap: 40px;
+    align-items: start;
+
+    @media (width <= 425px) {
+      gap: 20px;
+    }
+
+    &:last-of-type {
+      .list-flow__content::before {
+        display: none;
+      }
+    }
+
+    + .list-flow__item {
+      margin-top: 32px;
+    }
+  }
+
+  &__step {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 175%;
+    color: $dark-green;
+    flex-shrink: 0;
+
+    @media (width <= 425px) {
+      font-size: 2rem;
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -35px;
+      left: -92px;
+      width: 2px;
+      height: calc(100% + -16px);
+      background: $medium-green;
+
+      @media (width <= 425px) {
+        bottom: -27px;
+        left: -57px;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 48px;
+
+    @media (width <= 425px) {
+      font-size: 1.8rem;
+      line-height: 36px;
+    }
+  }
+
+  &__detail {
+    margin-top: 8px;
+    font-size: 1.6rem;
+    font-weight: 400;
+    background: $light-green;
+    border-radius: 10px;
+    padding: 8px 16px;
+
+    @media (width <= 425px) {
+      font-size: 1.4rem;
+      padding: 8px 12px;
     }
   }
 }

@@ -425,7 +425,7 @@
     gap: 2px;
     padding: 4px 16px;
     color: $black;
-    background: $medium-green;
+    background: $pale-green;
     border-radius: $border-radius-full;
     font-size: 1.4rem;
     transition: $transition;
@@ -439,7 +439,7 @@
 
     &:hover,
     &:focus {
-      background: rgba($color: $medium-green, $alpha: .7);
+      background: rgba($color: $pale-green, $alpha: .7);
     }
   }
 
@@ -457,7 +457,8 @@
     transform: translateY(0);
   }
 
-  .header__main-item--has-submenu:focus-within ~ .header__overlay {
+  .header__main-item--has-submenu:focus-within ~ .header__overlay,
+  .header__submenu-trigger:focus ~ .header__overlay {
     opacity: 1;
     visibility: visible;
   }

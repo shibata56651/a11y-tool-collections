@@ -35,6 +35,14 @@
   }
 }
 
+.care-inner {
+  margin-top: 64px;
+
+  @media (width <= 768px) {
+    margin-top: 40px;
+  }
+}
+
 .interview-talk {
   &__inner {
     background: $light-cream;

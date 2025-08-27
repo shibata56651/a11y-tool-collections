@@ -18,11 +18,27 @@ export class Header {
     this.isDesktop = window.innerWidth > 768;
 
     this.init();
+    this.initializeSubmenuFocus();
   }
 
   private init(): void {
     this.setupEventListeners();
     this.handleResize();
+  }
+
+  private initializeSubmenuFocus(): void {
+    // 初期状態で全てのサブメニューリンクをフォーカス順序から除外
+    this.submenuTriggers.forEach(trigger => {
+      const submenuId = trigger.getAttribute('aria-controls');
+      const submenu = submenuId ? querySelector(`#${submenuId}`) : null;
+      
+      if (submenu) {
+        const submenuLinks = submenu.querySelectorAll('.header__submenu-link');
+        submenuLinks.forEach(link => {
+          (link as HTMLElement).setAttribute('tabindex', '-1');
+        });
+      }
+    });
   }
 
   private setupEventListeners(): void {
@@ -35,6 +51,7 @@ export class Header {
     this.submenuTriggers.forEach(trigger => {
       addEventListener(trigger, 'click', this.toggleSubmenu.bind(this));
       addEventListener(trigger, 'keydown', this.handleSubmenuKeydown.bind(this));
+      addEventListener(trigger, 'focus', this.handleSubmenuFocus.bind(this));
 
       // PC用マウスイベント（チラつき防止のため遅延処理を追加）
       const parentItem = trigger.closest('.header__main-item--has-submenu');
@@ -48,6 +65,12 @@ export class Header {
         if (submenu) {
           addEventListener(submenu, 'mouseenter', this.handleSubmenuMouseEnter.bind(this, trigger));
           addEventListener(submenu, 'mouseleave', this.handleSubmenuMouseLeave.bind(this, trigger));
+          
+          // サブメニュー内のリンクにキーボードイベントを追加
+          const submenuLinks = submenu.querySelectorAll('.header__submenu-link');
+          submenuLinks.forEach(link => {
+            addEventListener(link, 'keydown', this.handleSubmenuLinkKeydown.bind(this, trigger));
+          });
         }
       }
     });
@@ -118,12 +141,25 @@ export class Header {
   private showSubmenu(trigger: HTMLAnchorElement): void {
     if (!this.isDesktop) return;
 
+    // 他のサブメニューを閉じる
+    this.submenuTriggers.forEach(otherTrigger => {
+      if (otherTrigger !== trigger) {
+        this.hideSubmenu(otherTrigger);
+      }
+    });
+
     const submenuId = trigger.getAttribute('aria-controls');
     const submenu = submenuId ? querySelector(`#${submenuId}`) : null;
 
     if (submenu) {
       trigger.setAttribute('aria-expanded', 'true');
       submenu.setAttribute('aria-hidden', 'false');
+      
+      // サブメニューのリンクはtabindex="-1"を維持（矢印キーのみでの操作）
+      const submenuLinks = submenu.querySelectorAll('.header__submenu-link');
+      submenuLinks.forEach(link => {
+        (link as HTMLElement).setAttribute('tabindex', '-1');
+      });
 
       if (this.overlay) {
         this.overlay.classList.add('is-active');
@@ -140,6 +176,12 @@ export class Header {
     if (submenu) {
       trigger.setAttribute('aria-expanded', 'false');
       submenu.setAttribute('aria-hidden', 'true');
+      
+      // サブメニューのリンクをtabindexで無効化（フォーカス順序から除外）
+      const submenuLinks = submenu.querySelectorAll('.header__submenu-link');
+      submenuLinks.forEach(link => {
+        (link as HTMLElement).setAttribute('tabindex', '-1');
+      });
 
       if (this.overlay) {
         this.overlay.classList.remove('is-active');
@@ -218,6 +260,13 @@ export class Header {
     this.hideSubmenu(trigger);
   }
 
+  private handleSubmenuFocus(event: FocusEvent): void {
+    if (!this.isDesktop) return;
+    
+    const trigger = event.target as HTMLAnchorElement;
+    this.showSubmenu(trigger);
+  }
+
   private handleSubmenuKeydown(event: KeyboardEvent): void {
     const trigger = event.target as HTMLAnchorElement;
 
@@ -250,6 +299,21 @@ export class Header {
           this.focusPreviousMenuItem(event.target as HTMLElement);
         }
         break;
+      case 'Tab':
+        if (this.isDesktop) {
+          const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+          if (isExpanded) {
+            // サブメニューが開いている場合はサブメニューを閉じて次/前のメインメニューへ
+            event.preventDefault();
+            this.hideSubmenu(trigger);
+            if (event.shiftKey) {
+              this.focusPreviousMainMenuItem(trigger);
+            } else {
+              this.focusNextMainMenuItem(trigger);
+            }
+          }
+        }
+        break;
     }
   }
 
@@ -277,6 +341,104 @@ export class Header {
     const currentIndex = menuItems.indexOf(currentElement);
     const previousIndex = currentIndex === 0 ? menuItems.length - 1 : currentIndex - 1;
     (menuItems[previousIndex] as HTMLElement).focus();
+  }
+
+  private focusNextMainMenuItem(currentTrigger: HTMLAnchorElement): void {
+    const allMainLinks = Array.from(querySelectorAll('.header__main-link'));
+    const currentIndex = allMainLinks.indexOf(currentTrigger);
+    const nextIndex = (currentIndex + 1) % allMainLinks.length;
+    (allMainLinks[nextIndex] as HTMLElement).focus();
+  }
+
+  private focusPreviousMainMenuItem(currentTrigger: HTMLAnchorElement): void {
+    const allMainLinks = Array.from(querySelectorAll('.header__main-link'));
+    const currentIndex = allMainLinks.indexOf(currentTrigger);
+    const previousIndex = currentIndex === 0 ? allMainLinks.length - 1 : currentIndex - 1;
+    (allMainLinks[previousIndex] as HTMLElement).focus();
+  }
+
+  private handleSubmenuLinkKeydown(trigger: HTMLAnchorElement, event: KeyboardEvent): void {
+    const target = event.target as HTMLElement;
+    
+    switch (event.key) {
+      case 'Escape':
+        event.preventDefault();
+        this.hideSubmenu(trigger);
+        trigger.focus();
+        break;
+      case 'ArrowUp':
+        event.preventDefault();
+        this.focusPreviousSubmenuLink(trigger, target);
+        break;
+      case 'ArrowDown':
+        event.preventDefault();
+        this.focusNextSubmenuLink(trigger, target);
+        break;
+      case 'Tab':
+        if (this.isDesktop) {
+          const submenuId = trigger.getAttribute('aria-controls');
+          const submenu = submenuId ? querySelector(`#${submenuId}`) : null;
+          
+          if (submenu) {
+            const links = Array.from(submenu.querySelectorAll('.header__submenu-link'));
+            const currentIndex = links.indexOf(target);
+            
+            if (event.shiftKey) {
+              // Shift+Tab: 前の要素へ
+              if (currentIndex === 0) {
+                // 最初のリンクの場合、トリガーに戻る
+                event.preventDefault();
+                trigger.focus();
+              } else {
+                // 前のサブメニューリンクへ（デフォルト動作を許可）
+              }
+            } else {
+              // 通常のTab: サブメニュー内のどこからでも次のヘッダーメニューへ
+              event.preventDefault();
+              this.hideSubmenu(trigger);
+              this.focusNextMainMenuItem(trigger);
+            }
+          }
+        }
+        break;
+    }
+  }
+
+  private focusPreviousSubmenuLink(trigger: HTMLAnchorElement, currentLink: HTMLElement): void {
+    const submenuId = trigger.getAttribute('aria-controls');
+    const submenu = submenuId ? querySelector(`#${submenuId}`) : null;
+    
+    if (submenu) {
+      const links = Array.from(submenu.querySelectorAll('.header__submenu-link'));
+      const currentIndex = links.indexOf(currentLink);
+      
+      if (currentIndex === 0) {
+        // 最初のリンクの場合、トリガーに戻る
+        trigger.focus();
+      } else {
+        // 前のリンクにフォーカス
+        (links[currentIndex - 1] as HTMLElement).focus();
+      }
+    }
+  }
+
+  private focusNextSubmenuLink(trigger: HTMLAnchorElement, currentLink: HTMLElement): void {
+    const submenuId = trigger.getAttribute('aria-controls');
+    const submenu = submenuId ? querySelector(`#${submenuId}`) : null;
+    
+    if (submenu) {
+      const links = Array.from(submenu.querySelectorAll('.header__submenu-link'));
+      const currentIndex = links.indexOf(currentLink);
+      
+      if (currentIndex === links.length - 1) {
+        // 最後のリンクの場合、次のメインメニューに移動
+        this.hideSubmenu(trigger);
+        this.focusNextMainMenuItem(trigger);
+      } else {
+        // 次のリンクにフォーカス
+        (links[currentIndex + 1] as HTMLElement).focus();
+      }
+    }
   }
 
   private closeAllSubmenus(): void {

@@ -1,6 +1,6 @@
 @use '../base/variables' as *;
 
-.accordion {
+.lead-more {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
@@ -14,7 +14,7 @@
   &--expanded {
     background: $light-cream;
 
-    .accordion__toggle {
+    .lead-more__toggle {
       &:hover {
         background: $primary-cream;
       }
@@ -83,7 +83,7 @@
     }
 
     &[aria-expanded="true"] {
-      .accordion__toggle-text::before {
+      .lead-more__toggle-text::before {
         transform: rotate(180deg);
       }
     }
@@ -107,7 +107,7 @@
   }
 }
 
-.accordion-desc {
+.lead-more-desc {
   padding-bottom: 40px;
   border-bottom: solid 1px $light-gray;
 
@@ -185,6 +185,62 @@
 
       @media (width <= 768px) {
         margin-top: 8px;
+      }
+    }
+  }
+}
+
+.accordion {
+  border-radius: 10px;
+  border: solid 3px $darker-green;
+
+  + .accordion {
+    margin-top: 32px;
+
+    @media (width <= 768px) {
+      margin-top: 20px;
+    }
+  }
+
+  &__content {
+    display: none;
+    overflow: hidden;
+    max-height: 0;
+    padding: 30px;
+    transition: max-height .3s ease-out, padding-top .3s ease-out, padding-bottom .3s ease-out;
+
+    &[aria-hidden="false"] {
+      display: block;
+    }
+  }
+
+  &__icon {
+    width: 14px;
+    transition: $transition;
+    object-fit: contain;
+    filter: invert(16%) sepia(97%) saturate(3087%) hue-rotate(116deg) brightness(50%) contrast(108%);
+  }
+
+  &__toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: 600;
+    font-size: 2.2rem;
+    padding: 16px 32px 16px 16px;
+    color: $black;
+    transition: $transition;
+
+    @media (width <= 768px) {
+      font-size: 1.8rem;
+    }
+
+    &[aria-expanded="true"] {
+      color: $darker-green;
+
+      .accordion__icon {
+        transform: rotate(180deg);
       }
     }
   }

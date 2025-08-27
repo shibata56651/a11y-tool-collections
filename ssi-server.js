@@ -3,23 +3,7 @@ const path = require('path');
 const http = require('http');
 const { spawn } = require('child_process');
 
-const net = require('net');
-
-// 空いているポートを見つける関数
-function findAvailablePort(startPort = 3000) {
-  return new Promise((resolve, reject) => {
-    const server = net.createServer();
-    server.listen(startPort, () => {
-      const port = server.address().port;
-      server.close(() => {
-        resolve(port);
-      });
-    });
-    server.on('error', () => {
-      findAvailablePort(startPort + 1).then(resolve).catch(reject);
-    });
-  });
-}
+const PORT = 3001;
 
 const mimeTypes = {
   '.html': 'text/html',
@@ -86,7 +70,7 @@ const server = http.createServer((req, res) => {
 <script>
 (function() {
   function connectWebSocket() {
-    const ws = new WebSocket(\`ws://localhost:\${window.location.port}\`);
+    const ws = new WebSocket('ws://localhost:3001');
     ws.onmessage = function(event) {
       if (event.data === 'reload') {
         window.location.reload();
@@ -143,29 +127,18 @@ function watchFiles() {
   });
 }
 
-// サーバー起動を非同期関数に変更
-async function startServer() {
-  try {
-    const PORT = await findAvailablePort(3000);
-    
-    server.listen(PORT, () => {
-      console.log(`SSI Server with auto-reload running on http://localhost:${PORT}`);
-      
-      // WebSocketサーバーをHTTPサーバーと同じポートで起動
-      wss = new WebSocket.Server({ server });
-      
-      wss.on('connection', (ws) => {
-        clients.add(ws);
-        ws.on('close', () => {
-          clients.delete(ws);
-        });
-      });
-      
-      watchFiles();
+server.listen(PORT, () => {
+  console.log(`SSI Server with auto-reload running on http://localhost:${PORT}`);
+  
+  // WebSocketサーバーをHTTPサーバーと同じポートで起動
+  wss = new WebSocket.Server({ server });
+  
+  wss.on('connection', (ws) => {
+    clients.add(ws);
+    ws.on('close', () => {
+      clients.delete(ws);
     });
-  } catch (error) {
-    console.error('Failed to start server:', error);
-  }
-}
-
-startServer();
+  });
+  
+  watchFiles();
+});

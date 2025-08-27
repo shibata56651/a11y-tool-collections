@@ -16,24 +16,25 @@ export class Accordion {
         this.bindEvents();
     }
     findElements() {
-        const toggle = this.element.querySelector('.accordion__toggle');
-        const content = this.element.querySelector('.accordion__content');
-        const toggleText = this.element.querySelector('.accordion__toggle-text');
-        if (!toggle || !content || !toggleText) {
+        const toggle = this.element.querySelector('.js-accordion__toggle');
+        const content = this.element.querySelector('.js-accordion__content');
+        if (!toggle || !content) {
             throw new Error('Required accordion elements not found');
         }
         this.toggleButton = toggle;
         this.content = content;
-        this.toggleText = toggleText;
     }
     setInitialState() {
         this.toggleButton.setAttribute('aria-expanded', 'false');
         this.content.setAttribute('aria-hidden', 'true');
+        const buttonText = this.toggleButton.textContent?.trim() || '';
+        this.toggleButton.setAttribute('aria-label', `${buttonText} 折りたたみメニュー（閉じています）`);
         this.isExpanded = false;
     }
     bindEvents() {
         addEventListener(this.toggleButton, 'click', this.handleToggleClick.bind(this));
         addEventListener(this.toggleButton, 'keydown', this.handleKeydown.bind(this));
+        addEventListener(window, 'resize', this.handleResize.bind(this));
     }
     handleToggleClick(event) {
         event.preventDefault();
@@ -57,17 +58,65 @@ export class Accordion {
         this.isExpanded = true;
         this.toggleButton.setAttribute('aria-expanded', 'true');
         this.content.setAttribute('aria-hidden', 'false');
-        addClass(this.element, 'accordion--expanded');
-        this.toggleText.textContent = this.toggleText.getAttribute('data-text-expanded') || '閉じる';
+        addClass(this.element, 'js-accordion--expanded');
+        const buttonText = this.toggleButton.textContent?.trim() || '';
+        this.toggleButton.setAttribute('aria-label', `${buttonText} 折りたたみメニュー（開いています）`);
+        this.content.style.display = 'block';
+        this.content.style.paddingTop = '';
+        this.content.style.paddingBottom = '';
+        this.setContentHeight();
         this.announceChange('展開しました');
     }
     collapse() {
         this.isExpanded = false;
         this.toggleButton.setAttribute('aria-expanded', 'false');
         this.content.setAttribute('aria-hidden', 'true');
-        removeClass(this.element, 'accordion--expanded');
-        this.toggleText.textContent = this.toggleText.getAttribute('data-text-collapsed') || '詳しくみる';
+        removeClass(this.element, 'js-accordion--expanded');
+        const buttonText = this.toggleButton.textContent?.trim() || '';
+        this.toggleButton.setAttribute('aria-label', `${buttonText} 折りたたみメニュー（閉じています）`);
+        const computedStyle = getComputedStyle(this.content);
+        const currentPaddingTop = computedStyle.paddingTop;
+        const currentPaddingBottom = computedStyle.paddingBottom;
+        const currentHeight = this.content.scrollHeight;
+        this.content.style.maxHeight = `${currentHeight}px`;
+        this.content.style.paddingTop = currentPaddingTop;
+        this.content.style.paddingBottom = currentPaddingBottom;
+        this.content.offsetHeight;
+        requestAnimationFrame(() => {
+            this.content.style.maxHeight = '0px';
+            this.content.style.paddingTop = '0px';
+            this.content.style.paddingBottom = '0px';
+            setTimeout(() => {
+                if (!this.isExpanded) {
+                    this.content.style.display = 'none';
+                }
+            }, 300);
+        });
         this.announceChange('閉じました');
+    }
+    setContentHeight() {
+        const originalDisplay = this.content.style.display;
+        const originalVisibility = this.content.style.visibility;
+        const originalPosition = this.content.style.position;
+        const originalMaxHeight = this.content.style.maxHeight;
+        this.content.style.display = 'block';
+        this.content.style.visibility = 'hidden';
+        this.content.style.position = 'absolute';
+        this.content.style.maxHeight = 'auto';
+        const height = this.content.scrollHeight;
+        this.content.style.display = originalDisplay;
+        this.content.style.visibility = originalVisibility;
+        this.content.style.position = originalPosition;
+        this.content.style.maxHeight = originalMaxHeight;
+        this.content.style.maxHeight = '0px';
+        requestAnimationFrame(() => {
+            this.content.style.maxHeight = `${height}px`;
+        });
+    }
+    handleResize() {
+        if (this.isExpanded) {
+            this.setContentHeight();
+        }
     }
     announceChange(message) {
         const announcement = document.createElement('div');
@@ -104,9 +153,11 @@ export class Accordion {
             this.collapse();
         }
     }
+    destroy() {
+    }
 }
 export function initAccordions() {
-    const accordions = document.querySelectorAll('.accordion');
+    const accordions = document.querySelectorAll('.js-accordion');
     accordions.forEach((accordion, index) => {
         try {
             if (!accordion.id) {

@@ -10,6 +10,14 @@
     &:nth-of-type(n+2) {
       border-top: solid 1px $light-gray;
     }
+
+    @media (width <= 768px) {
+      display: block;
+
+      &:nth-of-type(n+2) {
+        border-top: solid 1px $light-gray;
+      }
+    }
   }
 
   &__header {
@@ -20,13 +28,23 @@
     font-size: 1.7rem;
 
     @media (width <= 768px) {
+      display: block;
       width: 100%;
       text-align: center;
+      padding: 12px 40px;
+      border-bottom: solid 1px $light-gray;
     }
   }
 
   &__data {
     padding: 24px 40px;
     font-size: 1.7rem;
+
+    @media (width <= 768px) {
+      display: block;
+      width: 100%;
+      padding: 12px 40px;
+      text-align: center;
+    }
   }
 }

@@ -10,10 +10,23 @@ export class Header {
         this.overlay = querySelector('.header__overlay');
         this.isDesktop = window.innerWidth > 768;
         this.init();
+        this.initializeSubmenuFocus();
     }
     init() {
         this.setupEventListeners();
         this.handleResize();
+    }
+    initializeSubmenuFocus() {
+        this.submenuTriggers.forEach(trigger => {
+            const submenuId = trigger.getAttribute('aria-controls');
+            const submenu = submenuId ? querySelector(`#${submenuId}`) : null;
+            if (submenu) {
+                const submenuLinks = submenu.querySelectorAll('.header__submenu-link');
+                submenuLinks.forEach(link => {
+                    link.setAttribute('tabindex', '-1');
+                });
+            }
+        });
     }
     setupEventListeners() {
         if (this.burger && this.nav) {
@@ -22,6 +35,7 @@ export class Header {
         this.submenuTriggers.forEach(trigger => {
             addEventListener(trigger, 'click', this.toggleSubmenu.bind(this));
             addEventListener(trigger, 'keydown', this.handleSubmenuKeydown.bind(this));
+            addEventListener(trigger, 'focus', this.handleSubmenuFocus.bind(this));
             const parentItem = trigger.closest('.header__main-item--has-submenu');
             if (parentItem) {
                 addEventListener(parentItem, 'mouseenter', this.handleMouseEnter.bind(this, trigger));
@@ -31,6 +45,10 @@ export class Header {
                 if (submenu) {
                     addEventListener(submenu, 'mouseenter', this.handleSubmenuMouseEnter.bind(this, trigger));
                     addEventListener(submenu, 'mouseleave', this.handleSubmenuMouseLeave.bind(this, trigger));
+                    const submenuLinks = submenu.querySelectorAll('.header__submenu-link');
+                    submenuLinks.forEach(link => {
+                        addEventListener(link, 'keydown', this.handleSubmenuLinkKeydown.bind(this, trigger));
+                    });
                 }
             }
         });
@@ -83,11 +101,20 @@ export class Header {
     showSubmenu(trigger) {
         if (!this.isDesktop)
             return;
+        this.submenuTriggers.forEach(otherTrigger => {
+            if (otherTrigger !== trigger) {
+                this.hideSubmenu(otherTrigger);
+            }
+        });
         const submenuId = trigger.getAttribute('aria-controls');
         const submenu = submenuId ? querySelector(`#${submenuId}`) : null;
         if (submenu) {
             trigger.setAttribute('aria-expanded', 'true');
             submenu.setAttribute('aria-hidden', 'false');
+            const submenuLinks = submenu.querySelectorAll('.header__submenu-link');
+            submenuLinks.forEach(link => {
+                link.setAttribute('tabindex', '-1');
+            });
             if (this.overlay) {
                 this.overlay.classList.add('is-active');
             }
@@ -101,6 +128,10 @@ export class Header {
         if (submenu) {
             trigger.setAttribute('aria-expanded', 'false');
             submenu.setAttribute('aria-hidden', 'true');
+            const submenuLinks = submenu.querySelectorAll('.header__submenu-link');
+            submenuLinks.forEach(link => {
+                link.setAttribute('tabindex', '-1');
+            });
             if (this.overlay) {
                 this.overlay.classList.remove('is-active');
             }
@@ -160,6 +191,12 @@ export class Header {
             return;
         this.hideSubmenu(trigger);
     }
+    handleSubmenuFocus(event) {
+        if (!this.isDesktop)
+            return;
+        const trigger = event.target;
+        this.showSubmenu(trigger);
+    }
     handleSubmenuKeydown(event) {
         const trigger = event.target;
         switch (event.key) {
@@ -193,6 +230,21 @@ export class Header {
                     this.focusPreviousMenuItem(event.target);
                 }
                 break;
+            case 'Tab':
+                if (this.isDesktop) {
+                    const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+                    if (isExpanded) {
+                        event.preventDefault();
+                        this.hideSubmenu(trigger);
+                        if (event.shiftKey) {
+                            this.focusPreviousMainMenuItem(trigger);
+                        }
+                        else {
+                            this.focusNextMainMenuItem(trigger);
+                        }
+                    }
+                }
+                break;
         }
     }
     focusFirstSubmenuLink(trigger) {
@@ -216,6 +268,88 @@ export class Header {
         const currentIndex = menuItems.indexOf(currentElement);
         const previousIndex = currentIndex === 0 ? menuItems.length - 1 : currentIndex - 1;
         menuItems[previousIndex].focus();
+    }
+    focusNextMainMenuItem(currentTrigger) {
+        const allMainLinks = Array.from(querySelectorAll('.header__main-link'));
+        const currentIndex = allMainLinks.indexOf(currentTrigger);
+        const nextIndex = (currentIndex + 1) % allMainLinks.length;
+        allMainLinks[nextIndex].focus();
+    }
+    focusPreviousMainMenuItem(currentTrigger) {
+        const allMainLinks = Array.from(querySelectorAll('.header__main-link'));
+        const currentIndex = allMainLinks.indexOf(currentTrigger);
+        const previousIndex = currentIndex === 0 ? allMainLinks.length - 1 : currentIndex - 1;
+        allMainLinks[previousIndex].focus();
+    }
+    handleSubmenuLinkKeydown(trigger, event) {
+        const target = event.target;
+        switch (event.key) {
+            case 'Escape':
+                event.preventDefault();
+                this.hideSubmenu(trigger);
+                trigger.focus();
+                break;
+            case 'ArrowUp':
+                event.preventDefault();
+                this.focusPreviousSubmenuLink(trigger, target);
+                break;
+            case 'ArrowDown':
+                event.preventDefault();
+                this.focusNextSubmenuLink(trigger, target);
+                break;
+            case 'Tab':
+                if (this.isDesktop) {
+                    const submenuId = trigger.getAttribute('aria-controls');
+                    const submenu = submenuId ? querySelector(`#${submenuId}`) : null;
+                    if (submenu) {
+                        const links = Array.from(submenu.querySelectorAll('.header__submenu-link'));
+                        const currentIndex = links.indexOf(target);
+                        if (event.shiftKey) {
+                            if (currentIndex === 0) {
+                                event.preventDefault();
+                                trigger.focus();
+                            }
+                            else {
+                            }
+                        }
+                        else {
+                            event.preventDefault();
+                            this.hideSubmenu(trigger);
+                            this.focusNextMainMenuItem(trigger);
+                        }
+                    }
+                }
+                break;
+        }
+    }
+    focusPreviousSubmenuLink(trigger, currentLink) {
+        const submenuId = trigger.getAttribute('aria-controls');
+        const submenu = submenuId ? querySelector(`#${submenuId}`) : null;
+        if (submenu) {
+            const links = Array.from(submenu.querySelectorAll('.header__submenu-link'));
+            const currentIndex = links.indexOf(currentLink);
+            if (currentIndex === 0) {
+                trigger.focus();
+            }
+            else {
+                links[currentIndex - 1].focus();
+            }
+        }
+    }
+    focusNextSubmenuLink(trigger, currentLink) {
+        const submenuId = trigger.getAttribute('aria-controls');
+        const submenu = submenuId ? querySelector(`#${submenuId}`) : null;
+        if (submenu) {
+            const links = Array.from(submenu.querySelectorAll('.header__submenu-link'));
+            const currentIndex = links.indexOf(currentLink);
+            if (currentIndex === links.length - 1) {
+                this.hideSubmenu(trigger);
+                this.focusNextMainMenuItem(trigger);
+            }
+            else {
+                links[currentIndex + 1].focus();
+            }
+        }
     }
     closeAllSubmenus() {
         this.showTimeouts.forEach((timeout) => {

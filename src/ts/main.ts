@@ -6,6 +6,7 @@ import { Carousel } from './modules/carousel.js';
 import { TopSlider } from './modules/top-slider.js';
 import { SmoothScroll } from './modules/smooth-scroll.js';
 import { initAccordions } from './modules/accordion.js';
+import { initLeadMores } from './modules/lead-more.js';
 import { addEventListener } from './utils/events.js';
 
 
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initButtons();
   initSmoothScroll();
   initAccordions();
+  initLeadMores();
 });
 
 function initHeader(): void {

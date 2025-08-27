@@ -108,3 +108,28 @@
     font-weight: 600;
   }
 }
+
+.lyt-img-col3 {
+  margin-top: 64px;
+
+  @media (width <= 1024px) {
+    margin-top: 32px;
+  }
+
+  > ul {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+
+    @media (width <= 425px) {
+      gap: 10px;
+    }
+  }
+
+  &__item {
+    width: calc(100% / 3);
+    max-width: 350px;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+}

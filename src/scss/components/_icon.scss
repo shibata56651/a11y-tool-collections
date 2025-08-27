@@ -1,0 +1,13 @@
+@use '../base/variables' as *;
+
+.icon {
+  &--window {
+    width: 20px;
+    height: 20px;
+  }
+
+  &--bottom-arrow {
+    width: 11px;
+    height: 7px;
+  }
+}

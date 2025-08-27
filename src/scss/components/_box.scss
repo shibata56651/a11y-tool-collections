@@ -1,0 +1,110 @@
+@use '../base/variables' as *;
+
+.box-outline {
+  max-width: 920px;
+  width: 100%;
+  padding: 14px 40px;
+  border: 2px solid $primary-orange;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  @media (width <= 768px) {
+    padding: 14px 20px;
+  }
+
+  + .box-outline {
+    margin-top: 16px;
+  }
+
+  &__text {
+    font-weight: 600;
+  }
+}
+
+.box-filling {
+  max-width: 920px;
+  width: 100%;
+  padding: 40px 20px;
+  background: $light-cream;
+  border-radius: 20px;
+  margin: 0 auto;
+  text-align: center;
+
+  @media (width <= 768px) {
+    padding: 26px 14px;
+  }
+
+  &__tel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: $dark-green;
+  }
+
+    &__tel-icon {
+    width: 30px;
+  }
+
+  &__title {
+    position: relative;
+    display: inline-block;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: $dark-green;
+    padding: 0 82px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (width <= 768px) {
+      font-size: 2rem;
+      padding: 0 70px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 62px;
+      height: 40px;
+      background: url("/assets/img/icon/leaf.svg") no-repeat center;
+      background-size: contain;
+
+      @media (width <= 768px) {
+        top: 18%;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -4px;
+      right: 0;
+      width: 62px;
+      height: 40px;
+      background: url("/assets/img/icon/leaf.svg") no-repeat center;
+      background-size: contain;
+      transform: rotateY(180deg);
+
+      @media (width <= 768px) {
+        top: 18%;
+      }
+    }
+  }
+
+  &__text {
+    display: block;
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: $dark-green;
+  }
+
+  .button-block {
+    margin-top: 16px;
+  }
+}
