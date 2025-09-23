@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コードブロック テストページ</title>
+  <link rel="stylesheet" href="/dist/css/main.css">
+</head>
+<body>
+  <div style="max-width: 800px; margin: 2rem auto; padding: 2rem;">
+    <h1>コードブロック テストページ</h1>
+    <p>HTMLコードがエスケープして表示されているかをテストします。</p>
+
+    <!-- HTMLコードサンプル -->
+    <div class="code-block">
+      <div class="code-block__header">
+        <h3 class="code-block__title">HTMLコードサンプル</h3>
+        <button class="code-block__copy-button" type="button">コピー</button>
+      </div>
+      <div class="code-block__content">
+        <code class="code-block__code">
+<div class="container">
+  <h2>見出し</h2>
+  <p>段落テキストです。</p>
+  <button type="button" class="btn btn-primary">ボタン</button>
+</div>
+        </code>
+      </div>
+    </div>
+
+    <!-- CSSコードサンプル -->
+    <div class="code-block">
+      <div class="code-block__header">
+        <h3 class="code-block__title">CSSコードサンプル</h3>
+        <button class="code-block__copy-button" type="button">コピー</button>
+      </div>
+      <div class="code-block__content">
+        <code class="code-block__code">.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}</code>
+      </div>
+    </div>
+
+    <!-- リストのHTMLコードサンプル -->
+    <div class="code-block">
+      <div class="code-block__header">
+        <h3 class="code-block__title">リストのHTMLコード</h3>
+        <button class="code-block__copy-button" type="button">コピー</button>
+      </div>
+      <div class="code-block__content">
+        <code class="code-block__code">
+<ul class="list">
+  <li class="list__item">
+    <a href="#" class="list__link">
+      <span class="list__text">項目1</span>
+    </a>
+  </li>
+  <li class="list__item">
+    <a href="#" class="list__link">
+      <span class="list__text">項目2</span>
+    </a>
+  </li>
+  <li class="list__item">
+    <a href="#" class="list__link">
+      <span class="list__text">項目3</span>
+    </a>
+  </li>
+</ul>
+        </code>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/dist/js/main.js"></script>
+</body>
+</html>

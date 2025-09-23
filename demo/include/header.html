@@ -1,0 +1,180 @@
+  <header class="header">
+    <div class="header__content">
+      <!-- ロゴ・アイコン -->
+      <div class="header__logo">
+        <h1>
+          <a href="/tmp-yours/" class="header__logo-link">
+            <img src="/tmp-yours/assets/img/logo/header-logo.svg" alt="Yours" class="header__logo-img">
+          </a>
+        </h1>
+      </div>
+
+      <!-- ハンバーガーメニューボタン -->
+      <button class="header__burger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="header-nav"
+              aria-label="メニューを開く">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </button>
+
+      <!-- メインナビゲーション -->
+      <nav class="header__nav" id="header-nav" role="navigation" aria-label="メインナビゲーション">
+        <!-- 上部メニュー -->
+        <div class="header-menu">
+          <ul class="header-menu__list">
+            <li class="header-menu__item">
+              <a href="tel:0120-000-000" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/phone.svg" alt="">
+                </span>
+                0120-000-000
+              </a>
+            </li>
+            <li class="header-menu__item">
+              <a href="/tmp-yours/contact/" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/mail.svg" alt="">
+                </span>
+                お問い合わせ</a>
+            </li>
+            <li class="header-menu__item">
+              <a href="/tmp-yours/recruit/" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/entry.svg" alt="">
+                </span>
+                採用エントリー</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- メインメニュー -->
+        <div class="header__main-menu">
+          <ul class="header__main-list">
+            <li class="header__main-item">
+              <a href="/tmp-yours/" class="header__main-link">トップページ</a>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/company/" class="header__main-link">会社案内</a>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/news/" class="header__main-link">新着情報</a>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/care/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-care">
+                介護保険
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-care" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-01.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">訪問介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/regular-patrol/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">定期巡回・随時対応型訪問介護看護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/care-support/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">居宅介護支援</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/welfare/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-welfare">
+                障害福祉
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-welfare" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-02.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">居宅介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/intensive-home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">重度訪問介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/mobility-support/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">移動支援</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/housing/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-housing">
+                住まい事業
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-housing" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-03.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里とは</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/iogi/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里 井荻</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/syoan/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里 松庵</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/recruit/" class="header__main-link">採用情報</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- ドロップダウン時のオーバーレイ -->
+    <div class="header__overlay" aria-hidden="true"></div>
+  </header>

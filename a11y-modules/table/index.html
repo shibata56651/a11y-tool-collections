@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <!--#include file="/include/head.html" -->
+<body>
+  <!--#include file="/include/header.html" -->
+
+  <div class="main-inner">
+    <div class="list-breadcrumb">
+      <ul>
+        <li class="list-breadcrumb__item"><a href="/a11y-modules/" class="list-breadcrumb__link">a11y考慮モジュール集トップ</a></li>
+        <li class="list-breadcrumb__item"><span class="list-breadcrumb__text">テーブル・スクロール実装時の注意点</span></li>
+      </ul>
+    </div>
+
+    <div class="hdg-main__inner hdg-main__inner--housing">
+      <h2 class="hdg-main__text">テーブル・スクロール実装時の注意点</h2>
+    </div>
+
+    <main class="main-content">
+      <section class="section-general">
+        <h3 class="hdg-line">スクロール可能テーブルの実装</h3>
+        <p>横スクロールが必要な大きなテーブルでの配慮事項：</p>
+        <p><strong>スクロールインジケーター</strong>：スクロール可能であることの視覚的な表示</p>
+        <p><strong>キーボード操作</strong>：矢印キーや Page Up/Down でのスクロール対応</p>
+        <p><strong>フォーカス管理</strong>：スクロール時のフォーカス位置保持</p>
+        <p><strong>固定ヘッダー</strong>：スクロール中もヘッダーが見える設計</p>
+
+        <h3 class="hdg-line">テスト・検証方法</h3>
+        <p>テーブル実装後の確認項目：</p>
+        <p><strong>スクリーンリーダー</strong>：ヘッダーとデータの関係性が正確に読み上げられるか</p>
+        <p><strong>キーボード操作</strong>：すべての機能がキーボードのみで操作可能か</p>
+        <p><strong>ズーム対応</strong>：200%拡大時も内容が確認可能か</p>
+        <p><strong>モバイル表示</strong>：小画面での適切な表示・操作性</p>
+        <p><strong>データ関係性</strong>：複雑なテーブルでの論理的な読み上げ順序</p>
+
+        <h3 class="hdg-line">実際の料金表テーブルスクロール実装例</h3>
+        <p>住宅ページで使用されている実際の料金表の実装例：</p>
+
+        <div class="table-scroll-container js-table-scroll-container" style="margin: 2rem 0;">
+          <div class="table-scroll js-table-scroll" role="region" aria-label="料金表（横スクロール可能）" tabindex="0">
+            <div class="table-scroll__inner">
+              <span class="table-scroll__detail-text">令和6年4月1日現在</span>
+              <table style="width: 100%; border-collapse: collapse; min-width: 800px;">
+                <thead>
+                  <tr class="table-scroll__row" style="background-color: #f8f9fa;">
+                    <th class="table-scroll__header table-scroll__header--medium-wide" rowspan="2" style="padding: 1rem; border: 1px solid #ddd; min-width: 120px;">部屋番号</th>
+                    <th class="table-scroll__header table-scroll__header-small" colspan="2" style="padding: 1rem; border: 1px solid #ddd; text-align: center;">非課税項目</th>
+                    <th class="table-scroll__header table-scroll__header-small" colspan="2" style="padding: 1rem; border: 1px solid #ddd; text-align: center;">課税項目</th>
+                    <th class="table-scroll__header table-scroll__header--large-wide" rowspan="2" style="padding: 1rem; border: 1px solid #ddd; min-width: 120px; background-color: #e3f2fd;">税込合計</th>
+                  </tr>
+                  <tr class="table-scroll__row" style="background-color: #f8f9fa;">
+                    <th class="table-scroll__header" style="padding: 1rem; border: 1px solid #ddd; min-width: 100px;">家賃</th>
+                    <th class="table-scroll__header" style="padding: 1rem; border: 1px solid #ddd; min-width: 100px;">共益費</th>
+                    <th class="table-scroll__header" style="padding: 1rem; border: 1px solid #ddd; min-width: 100px;">管理費<span class="table-scroll__tax" style="font-size: 0.8em; color: #666;">(税込)</span></th>
+                    <th class="table-scroll__header" style="padding: 1rem; border: 1px solid #ddd; min-width: 100px;">食費<span class="table-scroll__tax" style="font-size: 0.8em; color: #666;">(税込)</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-scroll__row">
+                    <th class="table-scroll__header" style="padding: 1rem; border: 1px solid #ddd; background-color: #fafafa;">201号室</th>
+                    <td class="table-scroll__data" style="padding: 1rem; border: 1px solid #ddd; text-align: right;">23,250<span class="table-scroll__unit">円</span></td>
+                    <td class="table-scroll__data" style="padding: 1rem; border: 1px solid #ddd; text-align: right;">19,750<span class="table-scroll__unit">円</span></td>
+                    <td class="table-scroll__data" style="padding: 1rem; border: 1px solid #ddd; text-align: right;">9,900<span class="table-scroll__unit">円</span></td>
+                    <td class="table-scroll__data" style="padding: 1rem; border: 1px solid #ddd; text-align: right;">46,200<span class="table-scroll__unit">円</span></td>
+                    <td class="table-scroll__data table-scroll__data--total" style="padding: 1rem; border: 1px solid #ddd; text-align: right; background-color: #e3f2fd; font-weight: bold;">99,100<span class="table-scroll__unit">円</span></td>
+                  </tr>
+                  <tr class="table-scroll__row">
+                    <th class="table-scroll__header" style="padding: 1rem; border: 1px solid #ddd; background-color: #fafafa;">202号室</th>
+                    <td class="table-scroll__data" style="padding: 1rem; border: 1px solid #ddd; text-align: right;">25,500<span class="table-scroll__unit">円</span></td>
+                    <td class="table-scroll__data" style="padding: 1rem; border: 1px solid #ddd; text-align: right;">19,750<span class="table-scroll__unit">円</span></td>
+                    <td class="table-scroll__data" style="padding: 1rem; border: 1px solid #ddd; text-align: right;">9,900<span class="table-scroll__unit">円</span></td>
+                    <td class="table-scroll__data" style="padding: 1rem; border: 1px solid #ddd; text-align: right;">46,200<span class="table-scroll__unit">円</span></td>
+                    <td class="table-scroll__data table-scroll__data--total" style="padding: 1rem; border: 1px solid #ddd; text-align: right; background-color: #e3f2fd; font-weight: bold;">101,350<span class="table-scroll__unit">円</span></td>
+                  </tr>
+                  <tr class="table-scroll__row">
+                    <th class="table-scroll__header" style="padding: 1rem; border: 1px solid #ddd; background-color: #fafafa;">301号室</th>
+                    <td class="table-scroll__data" style="padding: 1rem; border: 1px solid #ddd; text-align: right;">27,800<span class="table-scroll__unit">円</span></td>
+                    <td class="table-scroll__data" style="padding: 1rem; border: 1px solid #ddd; text-align: right;">19,750<span class="table-scroll__unit">円</span></td>
+                    <td class="table-scroll__data" style="padding: 1rem; border: 1px solid #ddd; text-align: right;">9,900<span class="table-scroll__unit">円</span></td>
+                    <td class="table-scroll__data" style="padding: 1rem; border: 1px solid #ddd; text-align: right;">46,200<span class="table-scroll__unit">円</span></td>
+                    <td class="table-scroll__data table-scroll__data--total" style="padding: 1rem; border: 1px solid #ddd; text-align: right; background-color: #e3f2fd; font-weight: bold;">103,650<span class="table-scroll__unit">円</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <p><strong>横スクロール対応</strong>：画面幅を超えるテーブルでも適切に表示</p>
+        <p><strong>視覚的インジケーター</strong>：スクロール可能性をCSSグラデーションで表示</p>
+        <p><strong>複雑なヘッダー構造</strong>：colspan/rowspanを使った階層的なヘッダー</p>
+        <p><strong>JavaScript制御</strong>：スクロール状態を動的に監視・表示</p>
+        <p><strong>キーボードアクセス</strong>：tabindex="0"でフォーカス可能</p>
+        <p><strong>レスポンシブ対応</strong>：モバイルでも適切な操作性を確保</p>
+
+        <div style="margin-top: 3rem; padding: 2rem; background-color: #f5f5f5; border-radius: 8px;">
+          <h4 style="margin-top: 0;">参考：実装例の確認</h4>
+          <p>上記のテーブル例でキーボード操作（Tab、矢印キー）やスクリーンリーダーでの読み上げを確認してみてください。特にヘッダーとデータの関係性の表現に注目してください。</p>
+          <p>横スクロールが必要な場合は、左右に表示される微妙なグラデーション（影）がスクロール可能性を示します。実際の料金表は<a href="/housing/">住宅ページ</a>で確認できます。</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!--#include file="/include/footer.html" -->
+</body>
+</html>

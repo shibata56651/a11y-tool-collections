@@ -28,6 +28,12 @@ body {
   }
 }
 
+.font-roboto {
+  font-family: Roboto, sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
 button {
   background: none;
   border: none;
@@ -84,6 +90,15 @@ img {
 
 p {
   font-weight: 400;
+  font-size: 1.6rem;
+
+  @media (width <= 768px) {
+    font-size: 1.4rem;
+  }
+
+  + .hdg-line {
+    margin-top: 40px;
+  }
 
   + * {
     margin-top: 16px;

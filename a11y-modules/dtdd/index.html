@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <!--#include file="/include/head.html" -->
+<body>
+  <!--#include file="/include/header.html" -->
+
+  <div class="main-inner">
+    <div class="list-breadcrumb">
+      <ul>
+        <li class="list-breadcrumb__item"><a href="/a11y-modules/" class="list-breadcrumb__link">a11y考慮モジュール集トップ</a></li>
+        <li class="list-breadcrumb__item"><span class="list-breadcrumb__text">dl/dt/dd実装時の注意点</span></li>
+      </ul>
+    </div>
+
+    <div class="hdg-main__inner hdg-main__inner--housing">
+      <h2 class="hdg-main__text">dl/dt/dd実装時の注意点</h2>
+    </div>
+
+    <main class="main-content">
+      <section class="section-general">
+        <h3 class="hdg-line">基本的なセマンティック構造</h3>
+        <p>dl/dt/dd要素は関連する項目とその説明をグループ化するためのセマンティック要素です：</p>
+        <p><strong>&lt;dl&gt;</strong>：説明リスト（Description List）の定義</p>
+        <p><strong>&lt;dt&gt;</strong>：用語・項目名（Description Term）の定義</p>
+        <p><strong>&lt;dd&gt;</strong>：説明・詳細（Description Details）の定義</p>
+        <p><strong>適切な構造</strong>：dlの直下にdtとddのペアを配置し、論理的な関係を表現</p>
+
+        <h3 class="hdg-line">適切な使用場面</h3>
+        <p>dl/dt/dd要素は以下のような場面で有効活用できます：</p>
+        <p><strong>Q&A・FAQ</strong>：質問と回答の関係性を明確に表現</p>
+        <p><strong>用語集・辞書</strong>：単語とその定義の関連付け</p>
+        <p><strong>メタデータ</strong>：商品名と価格、ラベルと値のペア</p>
+        <p><strong>スペック表</strong>：仕様項目とその詳細情報</p>
+        <p><strong>インタビュー・対談</strong>：質問者と回答者の発言構造</p>
+
+        <h3 class="hdg-line">アクセシビリティにおける重要性</h3>
+        <p>dl/dt/dd構造を正しく使用することで、スクリーンリーダーユーザーに以下の利益をもたらします：</p>
+        <p><strong>論理的な読み上げ</strong>：「質問：...、回答：...」といった構造的な読み上げ</p>
+        <p><strong>関係性の理解</strong>：どの説明がどの項目に対応するかの明確化</p>
+        <p><strong>ナビゲーション支援</strong>：項目間の移動が効率的に行える</p>
+        <p><strong>文脈の提供</strong>：単独では意味が分からない情報の文脈を提供</p>
+
+        <h3 class="hdg-line">このサイトで実装されているdt/dd構造の特徴</h3>
+
+        <h4>静的な質問・回答形式（インタビューページ）</h4>
+        <p>インタビューや対談での質問と回答を構造的に表現した実装例：</p>
+
+        <div class="list-talk" style="margin: 2rem 0;">
+          <dl>
+            <div class="list-talk__item">
+              <dt class="list-talk__question">介護の仕事をはじめたきっかけ</dt>
+              <dd class="list-talk__answer">介護の仕事に興味を持ったのは、母からの勧めがきっかけでした。<br>人と接することが好きだった私にとって、誰かの役に立てる仕事として自然と関心が湧き、「やってみたい」と思えたんです。</dd>
+            </div>
+            <div class="list-talk__item">
+              <dt class="list-talk__question">現場で感じる"やりがい"とは</dt>
+              <dd class="list-talk__answer">現場で学びながら資格を取得し、ご利用者様の生活をサポートしていく中で、「この仕事を選んで良かった」と思う瞬間がたくさんあります。<br>たとえば、ご家族様から「最期をここで過ごせて本当に良かった」と言っていただけたとき、深い感動があります。</dd>
+            </div>
+            <div class="list-talk__item">
+              <dt class="list-talk__question">職場の雰囲気と、働きやすさ</dt>
+              <dd class="list-talk__answer">ユアーズの魅力は、社長やスタッフの人柄の良さ。年齢や立場に関係なく、誰もが親身になってくれる温かい職場です。<br>子どもの体調不良で急なお休みが必要なときにも、快く調整してもらえて、本当に働きやすいと実感しています。</dd>
+            </div>
+          </dl>
+        </div>
+
+        <p><strong>セマンティック構造</strong>：dl/dt/dd要素による明確な質問・回答関係</p>
+        <p><strong>視覚的構造化</strong>：質問は背景色付き、回答は白背景で明確に区別</p>
+        <p><strong>レスポンシブ対応</strong>：モバイルでもレイアウトが適切に調整</p>
+        <p><strong>読みやすさ</strong>：適切な行間と文字サイズで可読性を確保</p>
+
+        <h3 class="hdg-line">dl/dt/dd構造の設計指針</h3>
+        
+        <h4>適切な関係性の表現</h4>
+        <p>dt要素とdd要素の関係を明確にする実装：</p>
+        <p>• <strong>1:1関係</strong>：1つのdtに対して1つのddが対応</p>
+        <p>• <strong>1:n関係</strong>：1つのdtに対して複数のddが存在（複数の説明）</p>
+        <p>• <strong>n:1関係</strong>：複数のdtに対して1つのddが対応（同義語など）</p>
+
+        <h4>グループ化とラッピング</h4>
+        <p>関連するdt/ddペアのグループ化方法：</p>
+        <p>• <strong>div要素での包含</strong>：関連するdt/ddをdivで囲んでCSSスタイリングを容易にする</p>
+        <p>• <strong>class属性の統一</strong>：同じグループの要素に共通のクラスを付与</p>
+        <p>• <strong>視覚的分離</strong>：境界線や背景色でグループを明確に区別</p>
+
+        <h3 class="hdg-line">アクセシビリティテストの方法</h3>
+        <p>dl/dt/dd構造の実装後確認項目：</p>
+        <p><strong>スクリーンリーダー</strong>：項目と説明の関係性が正しく読み上げられるか</p>
+        <p><strong>構造の理解</strong>：「説明リスト、3項目」等の概要が伝わるか</p>
+        <p><strong>ナビゲーション</strong>：項目間の移動が効率的に行えるか</p>
+        <p><strong>文脈の保持</strong>：個別の要素も全体の文脈内で理解できるか</p>
+        <p><strong>視覚的確認</strong>：CSSを無効にしても構造が理解できるか</p>
+
+        <div style="margin-top: 3rem; padding: 2rem; background-color: #f5f5f5; border-radius: 8px;">
+          <h4 style="margin-top: 0;">参考：実装例の確認</h4>
+          <p>上記のdl/dt/dd構造例をスクリーンリーダーで確認してみてください。「説明リスト」「用語」「定義」といった読み上げで、構造的な関係性が理解できるはずです。</p>
+          <p>また、Tab キーでの移動やブラウザの見出しナビゲーション機能での項目間移動も確認してみてください。</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!--#include file="/include/footer.html" -->
+</body>
+</html>

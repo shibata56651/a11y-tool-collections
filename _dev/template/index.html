@@ -5,105 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>コードスニペット デモページ</title>
   <link rel="stylesheet" href="/dist/css/main.css">
-  <link rel="stylesheet" href="/template/assets/css/code-block.css">
+  <link rel="stylesheet" href="/_dev/template/assets/css/code-block.css">
 </head>
 <body>
   <div style="max-width: 800px; margin: 0 auto; padding: 2rem;">
     <h1>コードスニペット デモページ</h1>
     <p>このページではコードブロックのコピー機能をテストできます。</p>
 
+    <div class="list-simple">
+      <ul>
+        <li class="list-simple__item">本番を想定した模擬試験+対策講座</li>
+        <li class="list-simple__item">過去問を徹底分析した問題を出題</li>
+        <li class="list-simple__item">模擬試験で今の実力と苦手科目をチェック</li>
+      </ul>
+    </div>
+
     <div class="code-block">
       <div class="code-block__header">
-        <h3 class="code-block__title">MVセクションのHTMLコード</h3>
+        <h3 class="code-block__title">.list-simpleのHTMLコード</h3>
         <button class="code-block__copy-button" type="button">コピー</button>
       </div>
       <div class="code-block__content">
-        <code class="code-block__code">&lt;div class="mv__container"&gt;
-  &lt;div class="mv__carousel" data-carousel&gt;
-    &lt;div class="mv__slide mv__slide--active" data-slide="0"&gt;
-      &lt;img src="/assets/img/top/mv-01.jpg" alt="" class="mv__image"&gt;
-    &lt;/div&gt;
-    &lt;div class="mv__slide" data-slide="1"&gt;
-      &lt;img src="/assets/img/top/mv-02.jpg" alt="" class="mv__image"&gt;
-    &lt;/div&gt;
-    &lt;div class="mv__slide" data-slide="2"&gt;
-      &lt;img src="/assets/img/top/mv-03.jpg" alt="" class="mv__image"&gt;
-    &lt;/div&gt;
-    &lt;div class="mv__slide" data-slide="3"&gt;
-      &lt;img src="/assets/img/top/mv-04.jpg" alt="" class="mv__image"&gt;
-    &lt;/div&gt;
-    &lt;div class="mv__slide" data-slide="4"&gt;
-      &lt;img src="/assets/img/top/mv-05.jpg" alt="" class="mv__image"&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;div class="mv__content"&gt;
-    &lt;span class="mv__title"&gt;&lt;span class="mv__title--em"&gt;やすらぎ&lt;/span&gt;と&lt;br&gt;&lt;span class="mv__title--em"&gt;安心&lt;/span&gt;を&lt;br&gt;&lt;span class="mv__title--em"&gt;あなた&lt;/span&gt;に&lt;/span&gt;
-  &lt;/div&gt;
-
-  &lt;div class="mv__controls"&gt;
-    &lt;button class="mv__play-pause" data-play-pause aria-label="再生・停止"&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code>
+        <code class="code-block__code">
+          <div class="list-simple">
+            <ul>
+              <li class="list-simple__item">本番を想定した模擬試験+対策講座</li>
+              <li class="list-simple__item">過去問を徹底分析した問題を出題</li>
+              <li class="list-simple__item">模擬試験で今の実力と苦手科目をチェック</li>
+            </ul>
+          </div>
+        </code>
       </div>
     </div>
 
-    <p>上記のMVセクションのHTMLコード例です。コピーボタンでクリップボードにコピーできます。</p>
-
-    <div class="code-block">
-      <div class="code-block__header">
-        <h3 class="code-block__title">ボタンのCSSサンプル</h3>
-        <button class="code-block__copy-button" type="button">コピー</button>
+    <div class="lyt-img lyt-img--point">
+      <div class="lyt-img__img-inner">
+        <img loading="lazy" src="/assets/img/recruit/img-reason-01.jpg" alt="">
       </div>
-      <div class="code-block__content">
-        <code class="code-block__code">.button {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #007bff;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #0056b3;
-}</code>
+      <div class="lyt-img__text-inner">
+        <div class="lyt-img__point-inner">
+          <span class="lyt-img__point">POINT 1</span>
+        </div>
+        <span class="text-lead text-center">幅広い年代の職員が活躍できる！</span>
+        <p>20代から80代まで幅広い年代の職員が活躍しています。一人ひとりの働き方に合わせたシフト調整が可能なため、勤続年数10年以上の職員も多数在籍！</p>
       </div>
     </div>
 
     <div class="code-block">
       <div class="code-block__header">
-        <h3 class="code-block__title">JavaScriptサンプル</h3>
+        <h3 class="code-block__title">.lyt-imgのHTMLコード</h3>
         <button class="code-block__copy-button" type="button">コピー</button>
       </div>
       <div class="code-block__content">
-        <code class="code-block__code">function initCarousel() {
-  const carousel = document.querySelector('[data-carousel]');
-  if (!carousel) return;
-
-  const slides = carousel.querySelectorAll('.mv__slide');
-  let currentSlide = 0;
-
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('mv__slide--active', i === index);
-    });
-  }
-
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }
-
-  setInterval(nextSlide, 3000);
-}</code>
+        <code class="code-block__code">
+          <div class="lyt-img lyt-img--point">
+            <div class="lyt-img__img-inner">
+              <img loading="lazy" src="/assets/img/recruit/img-reason-01.jpg" alt="">
+            </div>
+            <div class="lyt-img__text-inner">
+              <div class="lyt-img__point-inner">
+                <span class="lyt-img__point">POINT 1</span>
+              </div>
+              <span class="text-lead text-center">幅広い年代の職員が活躍できる！</span>
+              <p>20代から80代まで幅広い年代の職員が活躍しています。一人ひとりの働き方に合わせたシフト調整が可能なため、勤続年数10年以上の職員も多数在籍！</p>
+            </div>
+          </div>
+        </code>
       </div>
     </div>
-
   </div>
 
-  <script src="/template/assets/js/code-block.js"></script>
+  <script src="/_dev/template/assets/js/code-block.js"></script>
 </body>
 </html>

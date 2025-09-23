@@ -57,10 +57,85 @@
 
 .lyt-img {
   display: flex;
+  gap: 40px;
+
+  + .lyt-img {
+    margin-top: 40px;
+  }
+
+  @media (width <= 768px) {
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+  &--point {
+    @media (width <= 768px) {
+      gap: 0;
+    }
+  }
+
+  &__img-inner {
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 524px;
+    width: 100%;
+  }
+
+  &__point-inner {
+    text-align: center;
+  }
+
+  &__point {
+    position: relative;
+    display: inline-block;
+    font-size: 3.6rem;
+    font-weight: 600;
+    color: $light-orange;
+    padding: 0 72px;
+
+    @media (width <= 768px) {
+      font-size: 3rem;
+      padding: 0 80px;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 25%;
+      width: 62px;
+      height: 40px;
+      background: url("/assets/img/icon/leaf.svg") no-repeat center;
+      background-size: contain;
+
+      @media (width <= 768px) {
+        top: 16%;
+      }
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+      transform: rotateY(180deg);
+    }
+  }
+}
+
+.lyt-ceo {
+  display: flex;
   gap: 52px;
 
   @media (width <= 1024px) {
     flex-flow: column wrap;
+    gap: 12px;
   }
 
   &--reverse {
@@ -90,6 +165,10 @@
     font-size: 3.6rem;
     font-weight: 600;
     color: $light-orange;
+
+    &--green {
+      color: $dark-green;
+    }
 
     + p {
       margin-top: 24px;
@@ -121,7 +200,7 @@
     justify-content: center;
     gap: 35px;
 
-    @media (width <= 425px) {
+    @media (width <= 445px) {
       gap: 10px;
     }
   }
@@ -131,5 +210,311 @@
     max-width: 350px;
     overflow: hidden;
     border-radius: 20px;
+  }
+}
+
+.lyt-box {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 20px;
+  border: solid 2px $dark-orange;
+  background: $white;
+
+  &__title-inner {
+    text-align: center;
+  }
+
+  &__title {
+    position: relative;
+    font-size: 2.4rem;
+    font-weight: 600;
+    padding-bottom: 8px;
+
+    @media (width <= 768px) {
+      font-size: 2rem;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      bottom: 0;
+      width: calc(100% - 24px);
+      height: 4px;
+      background: $primary-orange;
+    }
+  }
+}
+
+.lyt-box-col3 {
+  max-width: 1120px;
+  margin: 0 auto;
+
+  +.lyt-box {
+    margin-top: 24px;
+  }
+
+  > ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+
+    @media (width <= 768px) {
+      gap: 20px;
+    }
+  }
+
+  &--center {
+    > ul {
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    width: calc(100% / 3 - 20px);
+    max-width: 360px;
+    padding: 12px;
+    border-radius: 20px;
+    border: solid 2px $dark-orange;
+    background: $white;
+
+    @media (width <= 768px) {
+      width: calc(100% / 2 - 20px);
+    }
+
+    @media (width <= 445px) {
+      width: 100%;
+    }
+
+    &--flex {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 24px;
+
+      @media (width <= 1024px) {
+        width: calc(100% / 2 - 20px);
+      }
+
+      @media (width <= 768px) {
+        width: 100%;
+      }
+    }
+
+    &--not-padding {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 12px 12px 0;
+    }
+  }
+
+  &__title-inner {
+    text-align: center;
+  }
+
+  &__title {
+    position: relative;
+    font-size: 2.4rem;
+    font-weight: 600;
+    padding-bottom: 8px;
+
+    @media (width <= 768px) {
+      font-size: 2rem;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      bottom: 0;
+      width: calc(100% - 24px);
+      height: 4px;
+      background: $primary-orange;
+    }
+  }
+
+  &__text {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  &__detail-text {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  &__img-inner {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  &__img {
+    &--width-auto {
+      max-width: 248px;
+    }
+  }
+
+  &__icon-inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 64px;
+  }
+
+  &__number {
+    display: block;
+    text-align: center;
+    background: linear-gradient(to right, #FFB005, #F47E00);
+    background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 8rem;
+    font-weight: 600;
+    
+    &.js-count {
+      visibility: visible;
+    }
+    
+    &.js-countup {
+      opacity: 1;
+      transform: none;
+    }
+
+    &--unit {
+      -webkit-text-fill-color: $primary-orange;
+      color: $primary-orange;
+      font-size: 2.6rem;
+    }
+
+    &--percent {
+      -webkit-text-fill-color: $primary-orange;
+      color: $primary-orange;
+      font-size: 5rem;
+    }
+  }
+}
+
+.lyt-box-education {
+  > ul {
+    @media (width >= 769px) {
+      display: flex;
+      align-items: end;
+      gap: 22px;
+    }
+  }
+
+  &__item {
+    width: calc(100% / 3 - 20px);
+    border-radius: 20px;
+    border: solid 4px $primary-green;
+    background: $white;
+    padding: 24px;
+
+    + .lyt-box-education__item {
+      @media (width <= 768px) {
+        margin-top: 20px;
+      }
+    }
+
+    @media (width <= 768px) {
+      width: 100%;
+    }
+
+    &--short {
+      @media (width >= 769px) {
+        min-height: 455px;
+      }
+    }
+
+    &--medium {
+      @media (width >= 769px) {
+        min-height: 518px;
+      }
+    }
+
+    &--long {
+      @media (width >= 769px) {
+        min-height: 580px;
+      }
+    }
+  }
+
+  &__title {
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: $darker-green;
+
+    @media (width <= 768px) {
+      width: 100%;
+      font-size: 2.4rem;
+    }
+
+    &--big {
+      font-size: 4.6rem;
+
+      @media (width <= 768px) {
+        font-size: 3.8rem;
+      }
+    }
+
+    + .text-lead {
+      margin-top: 18px;
+    }
+  }
+
+  &__icon-inner {
+    max-width: 142px;
+    margin: 75px 0 0 auto;
+
+    @media (width <= 768px) {
+      margin: 46px 0 0 auto;
+    }
+  }
+
+  .list-desc-general {
+    margin-top: 56px;
+
+    @media (width <= 768px) {
+      margin-top: 26px;
+    }
+  }
+
+  .list-simple {
+    margin-top: 56px;
+
+    @media (width <= 768px) {
+      margin-top: 26px;
+    }
+
+    &__item {
+      font-size: 1.6rem;
+
+      + .list-simple__item {
+        /* stylelint-disable-next-line declaration-no-important */
+        margin-top: 0 !important;
+      }
+    }
+  }
+}
+
+// 汎用フェードインアニメーション用クラス
+.js-fade-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.js-fade-in {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

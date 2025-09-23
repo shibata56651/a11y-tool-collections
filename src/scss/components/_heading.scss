@@ -19,6 +19,51 @@
         margin-top: 40px;
       }
     }
+
+    &--small {
+      .hdg-leaf__text {
+        position: relative;
+        display: inline-block;
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: $black;
+        padding: 0 82px;
+        margin-left: auto;
+        margin-right: auto;
+
+        + * {
+          margin-top: 16px;
+        }
+
+        @media (width <= 768px) {
+          font-size: 2rem;
+          padding: 0 70px;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: -4px;
+          left: 0;
+          width: 62px;
+          height: 40px;
+          background: url("/assets/img/icon/leaf.svg") no-repeat center;
+          background-size: contain;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: -4px;
+          right: 0;
+          width: 62px;
+          height: 40px;
+          background: url("/assets/img/icon/leaf.svg") no-repeat center;
+          background-size: contain;
+          transform: rotateY(180deg);
+        }
+      }
+    }
   }
 
   &__text {
@@ -72,33 +117,10 @@
 
 .hdg-line {
   position: relative;
-  font-size: 2.8rem;
+  font-size: 2.4rem;
   font-weight: 500;
   padding: 0 0 10px;
   border-bottom: solid 2px $light-orange;
-
-  @media (width <= 768px) {
-    font-size: 2.3rem;
-    padding: 0 0 4px;
-  }
-
-  + .lyt-img {
-    margin-top: 72px;
-
-    @media (width <= 768px) {
-      margin-top: 40px;
-    }
-  }
-
-  + p {
-    margin-top: 16px;
-    font-size: 1.8rem;
-    font-weight: 400;
-
-    @media (width <= 768px) {
-      font-size: 1.5rem;
-    }
-  }
 
   &::before {
     content: '';
@@ -116,7 +138,7 @@
 }
 
 .hdg-simple {
-  font-size: 2.8rem;
+  font-size: 1.8rem;
   font-weight: 700;
   line-height: 1.7;
   text-align: center;
@@ -154,7 +176,7 @@
     font-weight: 700;
 
     @media (width <= 768px) {
-      font-size: 2.8rem;
+      font-size: 1.8rem;
     }
   }
 
@@ -200,6 +222,10 @@
 
     &--welfare {
       background: url("/assets/img/hdg/hdg-bg-welfare.jpg") no-repeat center center/cover;
+    }
+
+    &--housing {
+      background: url("/assets/img/hdg/hdg-bg-housing.jpg") no-repeat center center/cover;
     }
 
     @media (width <= 768px) {

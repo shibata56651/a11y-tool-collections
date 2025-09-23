@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <base href="/tmp-yours/tmp-yours/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yours</title>
+  <link rel="stylesheet" href="/tmp-yours/dist/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script type="module" defer src="/tmp-yours/dist/js/main.js"></script>
+</head>
+<body>
+    <header class="header">
+    <div class="header__content">
+      <!-- ロゴ・アイコン -->
+      <div class="header__logo">
+        <h1>
+          <a href="/tmp-yours/" class="header__logo-link">
+            <img src="/tmp-yours/assets/img/logo/header-logo.svg" alt="Yours" class="header__logo-img">
+          </a>
+        </h1>
+      </div>
+
+      <!-- ハンバーガーメニューボタン -->
+      <button class="header__burger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="header-nav"
+              aria-label="メニューを開く">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </button>
+
+      <!-- メインナビゲーション -->
+      <nav class="header__nav" id="header-nav" role="navigation" aria-label="メインナビゲーション">
+        <!-- 上部メニュー -->
+        <div class="header-menu">
+          <ul class="header-menu__list">
+            <li class="header-menu__item">
+              <a href="tel:0120-000-000" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/phone.svg" alt="">
+                </span>
+                0120-000-000
+              </a>
+            </li>
+            <li class="header-menu__item">
+              <a href="/tmp-yours/contact/" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/mail.svg" alt="">
+                </span>
+                お問い合わせ</a>
+            </li>
+            <li class="header-menu__item">
+              <a href="/tmp-yours/recruit/" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/entry.svg" alt="">
+                </span>
+                採用エントリー</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- メインメニュー -->
+        <div class="header__main-menu">
+          <ul class="header__main-list">
+            <li class="header__main-item">
+              <a href="/tmp-yours/" class="header__main-link">トップページ</a>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/company/" class="header__main-link">会社案内</a>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/news/" class="header__main-link">新着情報</a>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/care/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-care">
+                介護保険
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-care" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-01.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">訪問介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/regular-patrol/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">定期巡回・随時対応型訪問介護看護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/care-support/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">居宅介護支援</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/welfare/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-welfare">
+                障害福祉
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-welfare" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-02.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">居宅介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/intensive-home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">重度訪問介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/mobility-support/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">移動支援</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/housing/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-housing">
+                住まい事業
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-housing" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-03.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里とは</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/iogi/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里 井荻</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/syoan/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里 松庵</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/recruit/" class="header__main-link">採用情報</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- ドロップダウン時のオーバーレイ -->
+    <div class="header__overlay" aria-hidden="true"></div>
+  </header>
+
+  <div class="main-inner">
+    <div class="list-breadcrumb">
+      <ul>
+        <li class="list-breadcrumb__item"><a href="/tmp-yours/" class="list-breadcrumb__link">トップ</a></li>
+        <li class="list-breadcrumb__item"><a href="/tmp-yours/housing/" class="list-breadcrumb__link">やすらぎの里</a></li>
+        <li class="list-breadcrumb__item"><span class="list-breadcrumb__text">やすらぎの里とは</span></li>
+      </ul>
+    </div>
+
+    <div class="hdg-main__inner hdg-main__inner--housing">
+      <h2 class="hdg-main__text">やすらぎの里
+        <span class="hdg-main__sub-text">- やすらぎの里について -</span>
+        <span class="hdg-main__small-text">Care & Support Services</span>
+      </h2>
+    </div>
+
+    <main class="main-content">
+      <section class="section-general">
+        <h3 class="hdg-small">― 最期まで穏やかに、自分らしく ―</h3>
+
+        <p>「やすらぎの里」は、ご高齢の方や障害のある方が、住み慣れた自宅のような温もりを感じながら、安心して毎日を過ごせる“終の棲家”です。お体のご状況、抱えている疾病や必要な介護の内容、身寄りがない、経済的な理由などから、一般的な老人ホームでは受け入れが難しいケースも少なくありません。しかし、私たちは「どんな状況の方でも断らない」ことを原則とし、介護・医療・看護のチーム連携で、多様なニーズに応えられる体制を整えています。小規模な戸建住宅型ホームだからこそ実現できる、家庭的な雰囲気と目の行き届くケア。ご入居者同士のあたたかな交流や、スタッフとの深い信頼関係の中で、穏やかに、豊かに、最期まで暮らしていただけることを目指しています。「この場所があって本当によかった」そう思っていただけるよう、私たちは今日も、一人ひとりの人生に寄り添っています。</p>
+
+        <div class="button-block">
+          <a href="dummy" class="button-square">
+            <span class="list-btn__text">入居申込書はこちら</span>
+            <img class="list-btn__icon icon--window" alt="別窓で開く" src="/tmp-yours/assets/img/icon/window.svg">
+          </a>
+        </div>
+      </section>
+
+      <section class="section-general">
+        <div class="box-general box-general--green box-general--center">
+          <img class="box-general__icon" src="/tmp-yours/assets/img/logo/logo-green.svg" alt="">
+          <h3 class="box-general__hdg">やすらぎの里を知る</h3>
+        </div>
+
+        <div class="list-anchor">
+          <ul>
+            <li class="list-anchor__item">
+              <a href="#anc-01" class="list-anchor__link">こんな方におすすめ</a>
+            </li>
+            <li class="list-anchor__item">
+              <a href="#anc-02" class="list-anchor__link">やすらぎの里の特色</a>
+            </li>
+            <li class="list-anchor__item">
+              <a href="#anc-03" class="list-anchor__link">施設一覧</a>
+            </li>
+            <li class="list-anchor__item">
+              <a href="#anc-04" class="list-anchor__link">ご入居までの流れ</a>
+            </li>
+            <li class="list-anchor__item">
+              <a href="#anc-05" class="list-anchor__link">入居の条件</a>
+            </li>
+            <li class="list-anchor__item">
+              <a href="#anc-06" class="list-anchor__link">やすらぎSTORY</a>
+            </li>
+            <li class="list-anchor__item">
+              <a href="#anc-07" class="list-anchor__link">お客様の声</a>
+            </li>
+            <li class="list-anchor__item">
+              <a href="#anc-08" class="list-anchor__link">よくある質問</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="anc-01" class="section-general">
+        <h3 class="hdg-line">こんな方におすすめ</h3>
+
+        <div class="general-inner">
+          <div class="list-lyt-col3">
+            <ul>
+              <li class="list-lyt-col3__item">
+                <span class="list-lyt-col3__img-inner">
+                  <img loading="lazy" class="list-lyt-col3__img" src="/tmp-yours/assets/img/housing/list-img-01.jpg" alt="">
+                </span>
+                  <span class="list-lyt-col3__text">認知症や寝たきりなど、身体が不自由で、ご自宅での生活が困難な方</span>
+              </li>
+              <li class="list-lyt-col3__item">
+                <span class="list-lyt-col3__img-inner">
+                  <img loading="lazy" class="list-lyt-col3__img" src="/tmp-yours/assets/img/housing/list-img-02.jpg" alt="">
+                </span>
+                  <span class="list-lyt-col3__text">不安のない毎日を過ごしたい方</span>
+              </li>
+              <li class="list-lyt-col3__item">
+                <span class="list-lyt-col3__img-inner">
+                  <img loading="lazy" class="list-lyt-col3__img" src="/tmp-yours/assets/img/housing/list-img-03.jpg" alt="">
+                </span>
+                  <span class="list-lyt-col3__text">家庭的な施設を探している方</span>
+              </li>
+              <li class="list-lyt-col3__item">
+                <span class="list-lyt-col3__img-inner">
+                  <img loading="lazy" class="list-lyt-col3__img" src="/tmp-yours/assets/img/housing/list-img-04.jpg" alt="">
+                </span>
+                  <span class="list-lyt-col3__text">楽しく余生を過ごしたい方</span>
+              </li>
+              <li class="list-lyt-col3__item">
+                <span class="list-lyt-col3__img-inner">
+                  <img loading="lazy" class="list-lyt-col3__img" src="/tmp-yours/assets/img/housing/list-img-05.jpg" alt="">
+                </span>
+                  <span class="list-lyt-col3__text">特別養護老人ホームなどの順番を待っている方</span>
+              </li>
+              <li class="list-lyt-col3__item">
+                <span class="list-lyt-col3__img-inner">
+                  <img loading="lazy" class="list-lyt-col3__img" src="/tmp-yours/assets/img/housing/list-img-06.jpg" alt="">
+                </span>
+                  <span class="list-lyt-col3__text">独居で不安な方、さびしい方</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="anc-02" class="section-general">
+        <h3 class="hdg-line">やすらぎの里の特色</h3>
+
+        <div class="general-inner">
+          <div class="list-point">
+            <ul>
+              <li class="list-point__item">
+                <span class="list-point__point">POINT
+                  <span class="list-point__num">1</span>
+                </span>
+                <span class="list-point__hdg">少人数制ならではの家庭的な雰囲気で生活できる！</span>
+                <p>少人数制のため、大規模な老人ホームなどと比べてとても家庭的な雰囲気です。入居者の皆さまと十分にコミュニケーションをとることができ、面会や外出も自由に行えます。また、お食事に関しては、毎食スタッフが温かい料理をご用意。必要に応じて、体調や持病などに合わせた料理（水分制限、刻み、ミキサー、トロミ食など）にも対応いたしますので、お気軽にご相談ください。</p>
+              </li>
+              <li class="list-point__item">
+                <span class="list-point__point">POINT
+                  <span class="list-point__num">2</span>
+                </span>
+                <span class="list-point__hdg">介護福祉士などのスタッフがいるので安心！</span>
+                <p>『やすらぎの里』には、介護福祉士などの資格を持ったスタッフがいるので、安心してご入居いただけます。小規模なので、入居者様一人ひとりの様子をしっかりと把握でき、体調やメンタルの変化に適切な対応・介護を行うことができます。<br>また、生活上の悩みや健康の悩み、今後に対する不安などについても相談することが可能です。安心して毎日を過ごしていただけるよう、確かな技術・知識を持つスタッフが親身になって対応いたします。</p>
+              </li>
+              <li class="list-point__item">
+                <span class="list-point__point">POINT
+                  <span class="list-point__num">3</span>
+                </span>
+                <span class="list-point__hdg">ケアプランに基づいた複数の介護サービスも利用できる！</span>
+                <p>入居しながら、複数の介護サービス（訪問看護・訪問入浴など）をご利用いただくことも可能です。また、入居者様一人ひとりに最適なケアプランを作成することもできますので、詳しくはお気軽にご相談ください。介護度の高い方でも、ケアプランに基づいた介護サービスで、最期まできちんとお世話させていただきます。</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="anc-03" class="section-general">
+        <h3 class="hdg-line">施設一覧</h3>
+
+        <div class="general-inner">
+          <div class="box-general">
+            <div class="box-general-lyt">
+              <div class="box-general-lyt__img-inner">
+                <img loading="lazy" class="box-general-lyt__img" src="/tmp-yours/assets/img/housing/img-facility-01.jpg" alt="">
+              </div>
+              <div class="box-general-lyt__text-inner">
+                <span class="box-general-lyt__hdg">やすらぎの里 井荻</span>
+
+                <div class="list-desc">
+                  <dl>
+                    <div class="list-desc__item">
+                      <dt class="list-desc__text">所在地</dt>
+                      <dd class="list-desc__detail">東京都杉並区井草3-8-19</dd>
+                    </div>
+                    <div class="list-desc__item">
+                      <dt class="list-desc__text">アクセス</dt>
+                      <dd class="list-desc__detail">西武新宿線「井荻」駅北口　徒歩1分</dd>
+                    </div>
+                    <div class="list-desc__item">
+                      <dt class="list-desc__text">定員</dt>
+                      <dd class="list-desc__detail">9名</dd>
+                    </div>
+                  </dl>
+                </div>
+
+                <div class="button-block">
+                  <a href="dummy" class="button button--narrow button--type-border-green">
+                    <span class="button__text button--text-center">くわしく見る</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="box-general">
+            <div class="box-general-lyt">
+              <div class="box-general-lyt__img-inner">
+                <img loading="lazy" class="box-general-lyt__img" src="/tmp-yours/assets/img/housing/img-facility-02.jpg" alt="">
+              </div>
+              <div class="box-general-lyt__text-inner">
+                <span class="box-general-lyt__hdg">やすらぎの里 井荻</span>
+
+                <div class="list-desc">
+                  <dl>
+                    <div class="list-desc__item">
+                      <dt class="list-desc__text">所在地</dt>
+                      <dd class="list-desc__detail">東京都杉並区井草3-8-19</dd>
+                    </div>
+                    <div class="list-desc__item">
+                      <dt class="list-desc__text">アクセス</dt>
+                      <dd class="list-desc__detail">西武新宿線「井荻」駅北口　徒歩1分</dd>
+                    </div>
+                    <div class="list-desc__item">
+                      <dt class="list-desc__text">定員</dt>
+                      <dd class="list-desc__detail">9名</dd>
+                    </div>
+                  </dl>
+                </div>
+
+                <div class="button-block">
+                  <a href="dummy" class="button button--narrow button--type-border-green">
+                    <span class="button__text button--text-center">くわしく見る</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="anc-04" class="section-general">
+        <h3 class="hdg-line">ご入居までの流れ</h3>
+
+        <div class="general-inner">
+          <div class="list-flow">
+            <ul>
+              <li class="list-flow__item">
+                <span class="list-flow__step">STEP01</span>
+                <div class="list-flow__content">
+                  <span class="list-flow__title">お問い合わせ</span>
+                  <div class="list-flow__detail">
+                    <p>下記のお電話にて見学の予約をお願いします。<br>土日祝のご対応や、複数名でお越しになりたいなどお気軽に相談ください。</p>
+
+                    <div class="list-flow__another-content">
+                      <span class="list-flow__tel">
+                        <img class="list-flow__icon list-flow__icon--phone" src="/tmp-yours/assets/img/icon/fill-phone.svg" alt="">
+                        <span class="list-flow__tel-num">03-1234-5678</span>
+                        （受付時間：9:00〜18:00）
+                      </span>
+                      <span class="list-flow__mail">
+                        <img class="list-flow__icon list-flow__icon--mail" src="/tmp-yours/assets/img/icon/mail.svg" alt="">
+                        <a class="list-flow__mail-link" href="dummy">メールでのお問い合わせ</a>
+                        （24時間受付）
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="list-flow__item">
+                <span class="list-flow__step">STEP02</span>
+                <div class="list-flow__content">
+                  <span class="list-flow__title">見学</span>
+                  <div class="list-flow__detail">
+                    <p>見学の際は、担当スタッフがご案内いたします。<br>ご不明な点がございましたら、どのようなことでもお尋ねください。</p>
+                  </div>
+                </div>
+              </li>
+              <li class="list-flow__item">
+                <span class="list-flow__step">STEP03</span>
+                <div class="list-flow__content">
+                  <span class="list-flow__title">お試しステイ</span>
+                  <div class="list-flow__detail">
+                    <p>まずは2～3日程度の「体験入居」でやすらぎの里での生活を体験してください。</p>
+                  </div>
+                </div>
+              </li>
+              <li class="list-flow__item">
+                <span class="list-flow__step">STEP04</span>
+                <div class="list-flow__content">
+                  <span class="list-flow__title">契約</span>
+                  <div class="list-flow__detail">
+                    <p>各市区町村の窓口で要介護認定の申請を提出<br>ケアマネジャーはこの申請代行も行いますので、気軽にお近くの事業所にご相談ください。</p>
+                  </div>
+                </div>
+              </li>
+              <li class="list-flow__item">
+                <span class="list-flow__step">STEP05</span>
+                <div class="list-flow__content">
+                  <span class="list-flow__title">入居</span>
+                  <div class="list-flow__detail">
+                    <p>ご自宅のように、楽しく生活をお送りください。<br>スタッフ一同、皆様の入居を心よりお待ちいたしております。</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="anc-05" class="section-general">
+        <h3 class="hdg-line">入居の条件</h3>
+
+        <div class="general-inner">
+          <p class="text-center">20年以上の歴史を持つやすらぎの里には、様々な状況の方が暮らしています。<br>ほんの一部ですが、エピソードをご紹介します。</p>
+
+          <div class="list-story">
+            <ul>
+              <li class="list-story__item">
+                <span class="list-story__story">STORY
+                  <span class="list-story__num">1</span>
+                </span>
+                <div class="list-divider list-divider--center list-divider--bold">
+                  <ul>
+                    <li class="list-divider__item">96歳</li>
+                    <li class="list-divider__item">女性</li>
+                    <li class="list-divider__item">入居期間10年</li>
+                    <li class="list-divider__item">要介護5</li>
+                    <li class="list-divider__item">重度認知症、寝たきり、食事/排泄全介助</li>
+                  </ul>
+                </div>
+                <div class="lyt-ceo">
+                  <div class="lyt-ceo__img-inner">
+                    <img loading="lazy" src="/tmp-yours/assets/img/housing/img-condition-01.jpg" alt="">
+                  </div>
+                  <div class="lyt-ceo__text">
+                    <p>こちらの女性は高齢のため肌が脆くなり、少しの刺激で皮膚が<br class="sp-hidden">剥けてしまう状態でした。<br class="sp-hidden">スタッフ間で連携をとり、細心の注意を払ってサポートを行い、亡くなるまで綺麗な肌を保つことができました。最期を迎えた時、主治医はその肌の状態に感動し、やすらぎの里に感謝状を出してくれました。</p>
+                  </div>
+                </div>
+              </li>
+              <li class="list-story__item">
+                <span class="list-story__story">STORY
+                  <span class="list-story__num">2</span>
+                </span>
+                <div class="list-divider list-divider--center list-divider--bold">
+                  <ul>
+                    <li class="list-divider__item">96歳</li>
+                    <li class="list-divider__item">女性</li>
+                    <li class="list-divider__item">入居期間10年</li>
+                    <li class="list-divider__item">要介護5</li>
+                    <li class="list-divider__item">重度認知症、寝たきり、食事/排泄全介助</li>
+                  </ul>
+                </div>
+                <div class="lyt-ceo">
+                  <div class="lyt-ceo__img-inner">
+                    <img loading="lazy" src="/tmp-yours/assets/img/housing/img-condition-02.jpg" alt="">
+                  </div>
+                  <div class="lyt-ceo__text">
+                    <p>こちらの女性は高齢のため肌が脆くなり、少しの刺激で皮膚が<br class="sp-hidden">剥けてしまう状態でした。<br class="sp-hidden">スタッフ間で連携をとり、細心の注意を払ってサポートを行い、亡くなるまで綺麗な肌を保つことができました。最期を迎えた時、主治医はその肌の状態に感動し、やすらぎの里に感謝状を出してくれました。</p>
+                  </div>
+                </div>
+              </li>
+              <li class="list-story__item">
+                <span class="list-story__story">STORY
+                  <span class="list-story__num">3</span>
+                </span>
+                <div class="list-divider list-divider--center list-divider--bold">
+                  <ul>
+                    <li class="list-divider__item">96歳</li>
+                    <li class="list-divider__item">女性</li>
+                    <li class="list-divider__item">入居期間10年</li>
+                    <li class="list-divider__item">要介護5</li>
+                    <li class="list-divider__item">重度認知症、寝たきり、食事/排泄全介助</li>
+                  </ul>
+                </div>
+                <div class="lyt-ceo">
+                  <div class="lyt-ceo__img-inner">
+                    <img loading="lazy" src="/tmp-yours/assets/img/housing/img-condition-03.jpg" alt="">
+                  </div>
+                  <div class="lyt-ceo__text">
+                    <p>こちらの女性は高齢のため肌が脆くなり、少しの刺激で皮膚が<br class="sp-hidden">剥けてしまう状態でした。<br class="sp-hidden">スタッフ間で連携をとり、細心の注意を払ってサポートを行い、亡くなるまで綺麗な肌を保つことができました。最期を迎えた時、主治医はその肌の状態に感動し、やすらぎの里に感謝状を出してくれました。</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="general-inner">
+          <p class="text-center">他にも、このような状況の方と共に暮らしてきた実績があります。<br>「うちは大丈夫かな？」とお悩みの方は、一度ご相談ください。</p>
+          <div class="box-outline">
+            <div class="list-divider">
+              <ul>
+                <li class="list-divider__item">96歳</li>
+                <li class="list-divider__item">女性</li>
+                <li class="list-divider__item">要介護5</li>
+                <li class="list-divider__item list-divider__item--full">心不全、白内障、高血圧、狭心症、認知症</li>
+              </ul>
+            </div>
+            <div class="list-divider">
+              <ul>
+                <li class="list-divider__item">72歳</li>
+                <li class="list-divider__item">男性</li>
+                <li class="list-divider__item">要介護5/障害支援区分6</li>
+                <li class="list-divider__item list-divider__item--full">後縦靱帯骨化症、脳出血、寝たきり</li>
+              </ul>
+            </div>
+            <div class="list-divider">
+              <ul>
+                <li class="list-divider__item">99歳</li>
+                <li class="list-divider__item">男性</li>
+                <li class="list-divider__item">要介護5</li>
+                <li class="list-divider__item list-divider__item--full">心不全、白内障、高血圧、狭心症、認知症</li>
+              </ul>
+            </div>
+            <div class="list-divider">
+              <ul>
+                <li class="list-divider__item">65歳</li>
+                <li class="list-divider__item">男性</li>
+                <li class="list-divider__item">要介護3</li>
+                <li class="list-divider__item list-divider__item--full">脳梗塞の後遺症による半身まひ、車いす移動</li>
+              </ul>
+            </div>
+            <div class="list-divider">
+              <ul>
+                <li class="list-divider__item">86歳</li>
+                <li class="list-divider__item">女性</li>
+                <li class="list-divider__item">要介護4</li>
+                <li class="list-divider__item list-divider__item--full">口腔がん（看取り期）、アルツハイマー型認知症</li>
+              </ul>
+            </div>
+            <div class="list-divider">
+              <ul>
+                <li class="list-divider__item">79歳</li>
+                <li class="list-divider__item">男性</li>
+                <li class="list-divider__item">要介護4</li>
+                <li class="list-divider__item list-divider__item--full">肺がん、COPD、腎細胞癌、転移性脳腫瘍、左上肢麻痺、両下肢脱力で歩行困難、脊髄動静脈奇形、難聴</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="anc-06" class="section-general">
+        <h3 class="hdg-line">入居の条件</h3>
+
+        <div class="general-inner">
+          <div class="box-general box-general--orange box-general--center">
+            <p class="text-center text-bold">要介護2から5までの方</p>
+          </div>
+          <div class="box-general box-general--orange box-general--center">
+            <p class="text-center text-bold">他の入居者様に迷惑をかけないで暮らせる方</p>
+          </div>
+
+          <p>以上の条件を満たしている方であれば、他の施設で断られた方なども一度ご相談ください。<br>原則として、即座に断ることはいたしません。また、入居希望者の方には2～3日程度の「体験入居」をお願いしています。<br>これは、入居後に「やっぱり違った」「うちではお受けできない」など、ご入居者様と当施設の間で生じるトラブルを防ぐためにとても重要です。<br>実際に生活していただいたうえで入居をお決めください。</p>
+        </div>
+      </section>
+
+      <section id="anc-07" class="section-general">
+        <h3 class="hdg-line">お客様の声</h3>
+
+        <div class="general-inner">
+          <div class="box-general box-general--green box-general--wide">
+            <div class="box-white">
+              <span class="box-white__title">母に表情が戻りました</span>
+              <p>入居前の母はまるで能面のように表情がなく、会話もほとんどありませんでした。<br>しかし、やすらぎの里での生活が始まってからは、笑顔を見せてくれたり、声を出して会話をするように。こんな母の姿を見るのは初めてで、本当に感動しました。</p>
+              <span class="text-right">（長男様）</span>
+            </div>
+
+            <div class="box-white">
+              <span class="box-white__title">まるで人が変わったように穏やかになりました</span>
+              <p>入居前は父との関係がうまくいっておらず、会話もままならない状態でした。<br>しかし、やすらぎの里で過ごすうちに表情が和らぎ、面会のたびに会話ができるように。父が何を思っていたのかが分かり合えるようになり、親子関係も大きく改善されました。</p>
+              <span class="text-right">（長女様）</span>
+            </div>
+
+            <div class="box-white">
+              <span class="box-white__title">楽しそうな毎日が、肌まで変えてくれました</span>
+              <p>以前の施設では、母はほとんど笑わず、肌も乾燥してガサガサの状態でした。年齢的にも大きな回復は望めないと諦めていましたが、やすらぎの里に入居してからは表情が明るくなり、肌の調子も明らかに良くなりました。面会に行くのが楽しみになっています。</p>
+              <span class="text-right">（長女様・次女様）</span>
+            </div>
+
+            <div class="box-white">
+              <span class="box-white__title">「ただいま」と笑顔で帰ってくる父の姿に感動しました</span>
+              <p>一時的に自宅に戻った際には全く話さなかった父が、やすらぎの里に帰ってきた時には、「ただいま」と満面の笑みで元気に声をかけてくれました。<br>その姿を見て、ここが父にとって本当に安心できる“終の住まい”なんだと実感し、心から感謝しています。</p>
+              <span class="text-right">（長女様）</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="anc-08" class="qa-inner">
+      <div class="qa-inner__contents">
+        <h3 class="hdg-line">よくある質問</h3>
+
+        <div class="qa-list">
+          <ul>
+            <li class="qa-list__item">
+              <div class="qa-dist js-accordion">
+                <dl>
+                  <dt class="qa-dist__question">
+                    <button class="qa-dist__button js-accordion__toggle" 
+                            aria-expanded="false" 
+                            aria-controls="qa-content-1">
+                      <span class="qa-dist__question-text">
+                        <img class="qa-dist__icon qa-dist__icon--question" src="/tmp-yours/assets/img/icon/question.svg" alt="">
+                        どのような方が入居されていますか？
+                      </span>
+                      <img class="accordion__icon accordion__icon--orange" src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="">
+                    </button>
+                  </dt>
+                  <dd class="js-accordion__content" id="qa-content-1" aria-hidden="true">
+                    <div class="qa-dist__answer">
+                      <img class="qa-dist__icon qa-dist__icon--answer" src="/tmp-yours/assets/img/icon/answer.svg" alt="">
+                      当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </li>
+            <li class="qa-list__item">
+              <div class="qa-dist js-accordion">
+                <dl>
+                  <dt class="qa-dist__question">
+                    <button class="qa-dist__button js-accordion__toggle" 
+                            aria-expanded="false" 
+                            aria-controls="qa-content-2">
+                            <span class="qa-dist__question-text">
+                              <img class="qa-dist__icon qa-dist__icon--question" src="/tmp-yours/assets/img/icon/question.svg" alt="">
+                              面会時間はありますか？
+                            </span>
+                      <img class="accordion__icon accordion__icon--orange" src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="">
+                    </button>
+                  </dt>
+                  <dd class="js-accordion__content" id="qa-content-2" aria-hidden="true">
+                    <div class="qa-dist__answer">
+                      <img class="qa-dist__icon qa-dist__icon--answer" src="/tmp-yours/assets/img/icon/answer.svg" alt="">
+                      はい。重度の認知症の方や寝たきりの方など、幅広い受け入れ実績がございます。各種専門職が連携し、その方に合ったケアを提供いたします。
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="footer-inner">
+    <div class="footer__banner">
+      <img src="/tmp-yours/assets/img/footer/footer-banner.jpg" alt="老いても人らしく Enjoy Being Old." class="footer__logo">
+    </div>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer-company__inner">
+          <div class="footer-company__logo-inner">
+            <img class="footer-company__logo" src="/tmp-yours/assets/img/logo/footer-logo.svg" loading="lazy" alt="">
+          </div>
+          <div class="footer-company__address">
+            <span class="footer-company__address-text">〒161-0033　東京都新宿区下落合1-12-2-403<br>TEL:03-5330-6628　FAX:03-5389-9231</span>
+          </div>
+          <div class="footer-contact__inner">
+            <a href="dummy" class="footer-contact__link">
+              <span class="footer-contact__icon">
+                <img src="/tmp-yours/assets/img/icon/mail.svg" alt="">
+              </span>
+              <span class="footer-contact__link-text">
+                お問い合わせ
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-list__inner">
+          <div class="footer-list">
+            <ul>
+              <li class="footer-list__item"><a href="/tmp-yours/" class="footer-list__link">トップページ</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/company/" class="footer-list__link">会社案内</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/news/" class="footer-list__link">新着情報</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-desc">
+            <dl>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/care/" data-submenu-trigger aria-expanded="false">介護保険</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/home-care/" class="footer-list__link">訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/regular-patrol/" class="footer-list__link">定期巡回・随時対応型訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/care-support/" class="footer-list__link">居宅介護支援</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/welfare/" data-submenu-trigger aria-expanded="false">障害福祉</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/home-care/" class="footer-list__link">居宅介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/intensive-home-care/" class="footer-list__link">重度訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/mobility-support/" class="footer-list__link">移動支援</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/housing/" data-submenu-trigger aria-expanded="false">やすらぎの里</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/" class="footer-list__link">やすらぎの里とは</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/iogi/" class="footer-list__link">やすらぎの里　井荻</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/syoan/" class="footer-list__link">やすらぎの里　松庵</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="footer-list">
+            <ul>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/" class="footer-list__link">採用情報</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/job/" class="footer-list__link">募集職種</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/entry/" class="footer-list__link">採用エントリー</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-to-top">
+        <a href="#" class="footer-to-top__link">トップへ戻る
+          <img class="footer-to-top__icon" src="/tmp-yours/assets/img/icon/chevron.svg"></a>
+      </div>
+      <div class="footer__copyright">
+        <small>your-s. All rights reserved.</small>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

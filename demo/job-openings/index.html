@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <base href="/tmp-yours/tmp-yours/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yours</title>
+  <link rel="stylesheet" href="/tmp-yours/dist/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script type="module" defer src="/tmp-yours/dist/js/main.js"></script>
+</head>
+<body>
+    <header class="header">
+    <div class="header__content">
+      <!-- ロゴ・アイコン -->
+      <div class="header__logo">
+        <h1>
+          <a href="/tmp-yours/" class="header__logo-link">
+            <img src="/tmp-yours/assets/img/logo/header-logo.svg" alt="Yours" class="header__logo-img">
+          </a>
+        </h1>
+      </div>
+
+      <!-- ハンバーガーメニューボタン -->
+      <button class="header__burger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="header-nav"
+              aria-label="メニューを開く">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </button>
+
+      <!-- メインナビゲーション -->
+      <nav class="header__nav" id="header-nav" role="navigation" aria-label="メインナビゲーション">
+        <!-- 上部メニュー -->
+        <div class="header-menu">
+          <ul class="header-menu__list">
+            <li class="header-menu__item">
+              <a href="tel:0120-000-000" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/phone.svg" alt="">
+                </span>
+                0120-000-000
+              </a>
+            </li>
+            <li class="header-menu__item">
+              <a href="/tmp-yours/contact/" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/mail.svg" alt="">
+                </span>
+                お問い合わせ</a>
+            </li>
+            <li class="header-menu__item">
+              <a href="/tmp-yours/recruit/" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/entry.svg" alt="">
+                </span>
+                採用エントリー</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- メインメニュー -->
+        <div class="header__main-menu">
+          <ul class="header__main-list">
+            <li class="header__main-item">
+              <a href="/tmp-yours/" class="header__main-link">トップページ</a>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/company/" class="header__main-link">会社案内</a>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/news/" class="header__main-link">新着情報</a>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/care/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-care">
+                介護保険
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-care" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-01.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">訪問介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/regular-patrol/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">定期巡回・随時対応型訪問介護看護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/care-support/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">居宅介護支援</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/welfare/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-welfare">
+                障害福祉
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-welfare" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-02.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">居宅介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/intensive-home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">重度訪問介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/mobility-support/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">移動支援</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/housing/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-housing">
+                住まい事業
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-housing" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-03.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里とは</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/iogi/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里 井荻</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/syoan/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里 松庵</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/recruit/" class="header__main-link">採用情報</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- ドロップダウン時のオーバーレイ -->
+    <div class="header__overlay" aria-hidden="true"></div>
+  </header>
+
+  <div class="main-inner">
+    <div class="list-breadcrumb">
+      <ul>
+        <li class="list-breadcrumb__item"><a href="/tmp-yours/" class="list-breadcrumb__link">トップ</a></li>
+        <li class="list-breadcrumb__item"><span class="list-breadcrumb__text">募集職種</span></li>
+      </ul>
+    </div>
+
+    <div class="hdg-main__inner hdg-main__inner--recruit">
+      <h2 class="hdg-main__text">募集職種
+        <span class="hdg-main__small-text">Job Openings</span>
+      </h2>
+    </div>
+
+    <main class="main-content">
+      <section class="section-general">
+        <p class="text-center">ユアーズがこの街にあってよかった――<br class="sp-hidden">そんなふうに、地域の方に思っていただける存在に。<br class="sp-hidden">そして、ここで働くことを、家族や友人に自慢できるような職場に。<br class="sp-hidden">その想いに共感し、共に歩んでくださる方を、心よりお待ちしています。</p>
+
+        <div class="list-img">
+          <ul>
+            <li class="list-img__item">
+              <img loading="lazy" class="list-img__img" src="/tmp-yours/assets/img/recruit/list-img-01.jpg" alt="">
+            </li>
+            <li class="list-img__item">
+              <img loading="lazy" class="list-img__img" src="/tmp-yours/assets/img/recruit/list-img-02.jpg" alt="">
+            </li>
+            <li class="list-img__item">
+              <img loading="lazy" class="list-img__img" src="/tmp-yours/assets/img/recruit/list-img-03.jpg" alt="">
+            </li>
+            <li class="list-img__item">
+              <img loading="lazy" class="list-img__img" src="/tmp-yours/assets/img/recruit/list-img-04.jpg" alt="">
+            </li>
+          </ul>
+        </div>
+
+        <div class="company-top-inner">
+          <h3 class="hdg-line">募集中の職種</h3>
+
+          <div class="lead-more js-lead-more">
+            <div class="lead-more__content js-lead-more__content" id="accordion-content-1" aria-labelledby="accordion-toggle-1">
+              <div class="lead-more-desc">
+                <dl>
+                  <dt class="lead-more-desc__text-inner">
+                    <h4 class="lead-more-desc__title">介護士<span class="lead-more-desc__sub-text">正社員</span></h4>
+                    <div class="list-label">
+                      <ul>
+                        <li class="list-label__item">初心者歓迎</li>
+                        <li class="list-label__item">交通費支給</li>
+                        <li class="list-label__item">副業・WワークOK</li>
+                        <li class="list-label__item">副業・WワークOK</li>
+                        <li class="list-label__item">副業・WワークOK</li>
+                        <li class="list-label__item">タグ1</li>
+                        <li class="list-label__item">タグ2</li>
+                      </ul>
+                    </div>
+                  </dt>
+                  <dd class="lead-more-desc__detail-inner">
+                    <div class="list-desc list-desc--wrap">
+                      <dl>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【業務内容】</dt>
+                          <dd class="list-desc__detail">
+                            <div class="list-simple">
+                              <ul>
+                                <li class="list-simple__item">当社施設にてお客様の日常的なお手伝い（介助を含む）</li>
+                                <li class="list-simple__item">掃除や洗濯などの簡単な家事</li>
+                              </ul>
+                            </div>
+                            <p>サービス提供責任者が作成した訪問介護計画書をもとに決められた内容と時間でサービス提供するお仕事です。在宅での生活を支えるために必要な生活支援（調理・洗濯・生活必需品の買い物、掃除等）や身体介護（食事介助・入浴の介助・排泄介助等）行います。</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【必要資格】</dt>
+                          <dd class="list-desc__detail">
+                            <div class="list-simple">
+                              <ul>
+                                <li class="list-simple__item">特に必要ありませんが、介護福祉士・ヘルパー・基礎研修・初任者研修などをお持ちの方は歓迎いたします。</li>
+                              </ul>
+                            </div>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【募集人数】</dt>
+                          <dd class="list-desc__detail">
+                            <p>若干名</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【給与】</dt>
+                          <dd class="list-desc__detail">
+                            <p>170,000円～（経験や能力によって考慮）</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【手当】</dt>
+                          <dd class="list-desc__detail">
+                            <div class="list-simple">
+                              <ul>
+                                <li class="list-simple__item">資格手当（介護福祉士の方、15,000円/月など）</li>
+                                <li class="list-simple__item">夜勤手当</li>
+                                <li class="list-simple__item">役職手当</li>
+                                <li class="list-simple__item">季節手当　など</li>
+                              </ul>
+                            </div>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【勤務時間】</dt>
+                          <dd class="list-desc__detail">
+                            <p>早番　7:30～16:30<br>日勤　8:30～17:30<br>遅番　10:00～19:00<br>夜勤　16:00～翌9:00<br>休憩時間は法定通り<br>※1ヶ月単位の変形労働時間制</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【就業場所】</dt>
+                          <dd class="list-desc__detail">
+                            <p>①やすらぎの里　井荻　（杉並区井草3-8-19）<br>西武新宿線「井荻駅」より徒歩2分<br>②やすらぎの里　松庵　（杉並区松庵2-13-5）<br>JR中央線「西荻窪駅」より徒歩13分</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【休日】</dt>
+                          <dd class="list-desc__detail">
+                            <p>シフトに応じる</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【通勤手当】</dt>
+                          <dd class="list-desc__detail">
+                            <p>実費（上限20,000円まで）※規定有</p>
+                          </dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+              <div class="button-block">
+                <a href="dummy" class="button button--type-orange">この募集に応募する</a>
+              </div>
+            </div>
+
+            <button
+              class="lead-more__toggle js-lead-more__toggle"
+              id="accordion-toggle-1"
+              aria-expanded="false"
+              aria-controls="accordion-content-1"
+              type="button"
+            >
+              <span class="lead-more__toggle-text js-lead-more__toggle-text" data-text-collapsed="詳しくみる" data-text-expanded="閉じる">詳しくみる</span>
+            </button>
+          </div>
+          <div class="lead-more js-lead-more">
+            <div class="lead-more__content js-lead-more__content" id="accordion-content-2" aria-labelledby="accordion-toggle-2">
+              <div class="lead-more-desc">
+                <dl>
+                  <dt class="lead-more-desc__text-inner">
+                    <h4 class="lead-more-desc__title">介護士<span class="lead-more-desc__sub-text">正社員</span></h4>
+                    <div class="list-label">
+                      <ul>
+                        <li class="list-label__item">初心者歓迎</li>
+                        <li class="list-label__item">交通費支給</li>
+                        <li class="list-label__item">副業・WワークOK</li>
+                        <li class="list-label__item">副業・WワークOK</li>
+                        <li class="list-label__item">副業・WワークOK</li>
+                        <li class="list-label__item">タグ1</li>
+                        <li class="list-label__item">タグ2</li>
+                      </ul>
+                    </div>
+                  </dt>
+                  <dd class="lead-more-desc__detail-inner">
+                    <div class="list-desc list-desc--wrap">
+                      <dl>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【業務内容】</dt>
+                          <dd class="list-desc__detail">
+                            <div class="list-simple">
+                              <ul>
+                                <li class="list-simple__item">当社施設にてお客様の日常的なお手伝い（介助を含む）</li>
+                                <li class="list-simple__item">掃除や洗濯などの簡単な家事</li>
+                              </ul>
+                            </div>
+                            <p>サービス提供責任者が作成した訪問介護計画書をもとに決められた内容と時間でサービス提供するお仕事です。在宅での生活を支えるために必要な生活支援（調理・洗濯・生活必需品の買い物、掃除等）や身体介護（食事介助・入浴の介助・排泄介助等）行います。</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【必要資格】</dt>
+                          <dd class="list-desc__detail">
+                            <div class="list-simple">
+                              <ul>
+                                <li class="list-simple__item">特に必要ありませんが、介護福祉士・ヘルパー・基礎研修・初任者研修などをお持ちの方は歓迎いたします。</li>
+                              </ul>
+                            </div>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【募集人数】</dt>
+                          <dd class="list-desc__detail">
+                            <p>若干名</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【給与】</dt>
+                          <dd class="list-desc__detail">
+                            <p>170,000円～（経験や能力によって考慮）</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【手当】</dt>
+                          <dd class="list-desc__detail">
+                            <div class="list-simple">
+                              <ul>
+                                <li class="list-simple__item">資格手当（介護福祉士の方、15,000円/月など）</li>
+                                <li class="list-simple__item">夜勤手当</li>
+                                <li class="list-simple__item">役職手当</li>
+                                <li class="list-simple__item">季節手当　など</li>
+                              </ul>
+                            </div>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【勤務時間】</dt>
+                          <dd class="list-desc__detail">
+                            <p>早番　7:30～16:30<br>日勤　8:30～17:30<br>遅番　10:00～19:00<br>夜勤　16:00～翌9:00<br>休憩時間は法定通り<br>※1ヶ月単位の変形労働時間制</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【就業場所】</dt>
+                          <dd class="list-desc__detail">
+                            <p>①やすらぎの里　井荻　（杉並区井草3-8-19）<br>西武新宿線「井荻駅」より徒歩2分<br>②やすらぎの里　松庵　（杉並区松庵2-13-5）<br>JR中央線「西荻窪駅」より徒歩13分</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【休日】</dt>
+                          <dd class="list-desc__detail">
+                            <p>シフトに応じる</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【通勤手当】</dt>
+                          <dd class="list-desc__detail">
+                            <p>実費（上限20,000円まで）※規定有</p>
+                          </dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+              <div class="button-block">
+                <a href="dummy" class="button button--type-orange">この募集に応募する</a>
+              </div>
+            </div>
+
+            <button
+              class="lead-more__toggle js-lead-more__toggle"
+              id="accordion-toggle-1"
+              aria-expanded="false"
+              aria-controls="accordion-content-1"
+              type="button"
+            >
+              <span class="lead-more__toggle-text js-lead-more__toggle-text" data-text-collapsed="詳しくみる" data-text-expanded="閉じる">詳しくみる</span>
+            </button>
+          </div>
+          <div class="lead-more js-lead-more">
+            <div class="lead-more__content js-lead-more__content" id="accordion-content-3" aria-labelledby="accordion-toggle-3">
+              <div class="lead-more-desc">
+                <dl>
+                  <dt class="lead-more-desc__text-inner">
+                    <h4 class="lead-more-desc__title">介護士<span class="lead-more-desc__sub-text">正社員</span></h4>
+                    <div class="list-label">
+                      <ul>
+                        <li class="list-label__item">初心者歓迎</li>
+                        <li class="list-label__item">交通費支給</li>
+                        <li class="list-label__item">副業・WワークOK</li>
+                        <li class="list-label__item">副業・WワークOK</li>
+                        <li class="list-label__item">副業・WワークOK</li>
+                        <li class="list-label__item">タグ1</li>
+                        <li class="list-label__item">タグ2</li>
+                      </ul>
+                    </div>
+                  </dt>
+                  <dd class="lead-more-desc__detail-inner">
+                    <div class="list-desc list-desc--wrap">
+                      <dl>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【業務内容】</dt>
+                          <dd class="list-desc__detail">
+                            <div class="list-simple">
+                              <ul>
+                                <li class="list-simple__item">当社施設にてお客様の日常的なお手伝い（介助を含む）</li>
+                                <li class="list-simple__item">掃除や洗濯などの簡単な家事</li>
+                              </ul>
+                            </div>
+                            <p>サービス提供責任者が作成した訪問介護計画書をもとに決められた内容と時間でサービス提供するお仕事です。在宅での生活を支えるために必要な生活支援（調理・洗濯・生活必需品の買い物、掃除等）や身体介護（食事介助・入浴の介助・排泄介助等）行います。</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【必要資格】</dt>
+                          <dd class="list-desc__detail">
+                            <div class="list-simple">
+                              <ul>
+                                <li class="list-simple__item">特に必要ありませんが、介護福祉士・ヘルパー・基礎研修・初任者研修などをお持ちの方は歓迎いたします。</li>
+                              </ul>
+                            </div>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【募集人数】</dt>
+                          <dd class="list-desc__detail">
+                            <p>若干名</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【給与】</dt>
+                          <dd class="list-desc__detail">
+                            <p>170,000円～（経験や能力によって考慮）</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【手当】</dt>
+                          <dd class="list-desc__detail">
+                            <div class="list-simple">
+                              <ul>
+                                <li class="list-simple__item">資格手当（介護福祉士の方、15,000円/月など）</li>
+                                <li class="list-simple__item">夜勤手当</li>
+                                <li class="list-simple__item">役職手当</li>
+                                <li class="list-simple__item">季節手当　など</li>
+                              </ul>
+                            </div>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【勤務時間】</dt>
+                          <dd class="list-desc__detail">
+                            <p>早番　7:30～16:30<br>日勤　8:30～17:30<br>遅番　10:00～19:00<br>夜勤　16:00～翌9:00<br>休憩時間は法定通り<br>※1ヶ月単位の変形労働時間制</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【就業場所】</dt>
+                          <dd class="list-desc__detail">
+                            <p>①やすらぎの里　井荻　（杉並区井草3-8-19）<br>西武新宿線「井荻駅」より徒歩2分<br>②やすらぎの里　松庵　（杉並区松庵2-13-5）<br>JR中央線「西荻窪駅」より徒歩13分</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【休日】</dt>
+                          <dd class="list-desc__detail">
+                            <p>シフトに応じる</p>
+                          </dd>
+                        </div>
+                        <div class="list-desc__item">
+                          <dt class="list-desc__text list-desc__text--black">【通勤手当】</dt>
+                          <dd class="list-desc__detail">
+                            <p>実費（上限20,000円まで）※規定有</p>
+                          </dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+              <div class="button-block">
+                <a href="dummy" class="button button--type-orange">この募集に応募する</a>
+              </div>
+            </div>
+
+            <button
+              class="lead-more__toggle js-lead-more__toggle"
+              id="accordion-toggle-1"
+              aria-expanded="false"
+              aria-controls="accordion-content-1"
+              type="button"
+            >
+              <span class="lead-more__toggle-text js-lead-more__toggle-text" data-text-collapsed="詳しくみる" data-text-expanded="閉じる">詳しくみる</span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+    <div class="footer-inner">
+    <div class="footer__banner">
+      <img src="/tmp-yours/assets/img/footer/footer-banner.jpg" alt="老いても人らしく Enjoy Being Old." class="footer__logo">
+    </div>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer-company__inner">
+          <div class="footer-company__logo-inner">
+            <img class="footer-company__logo" src="/tmp-yours/assets/img/logo/footer-logo.svg" loading="lazy" alt="">
+          </div>
+          <div class="footer-company__address">
+            <span class="footer-company__address-text">〒161-0033　東京都新宿区下落合1-12-2-403<br>TEL:03-5330-6628　FAX:03-5389-9231</span>
+          </div>
+          <div class="footer-contact__inner">
+            <a href="dummy" class="footer-contact__link">
+              <span class="footer-contact__icon">
+                <img src="/tmp-yours/assets/img/icon/mail.svg" alt="">
+              </span>
+              <span class="footer-contact__link-text">
+                お問い合わせ
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-list__inner">
+          <div class="footer-list">
+            <ul>
+              <li class="footer-list__item"><a href="/tmp-yours/" class="footer-list__link">トップページ</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/company/" class="footer-list__link">会社案内</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/news/" class="footer-list__link">新着情報</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-desc">
+            <dl>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/care/" data-submenu-trigger aria-expanded="false">介護保険</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/home-care/" class="footer-list__link">訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/regular-patrol/" class="footer-list__link">定期巡回・随時対応型訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/care-support/" class="footer-list__link">居宅介護支援</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/welfare/" data-submenu-trigger aria-expanded="false">障害福祉</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/home-care/" class="footer-list__link">居宅介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/intensive-home-care/" class="footer-list__link">重度訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/mobility-support/" class="footer-list__link">移動支援</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/housing/" data-submenu-trigger aria-expanded="false">やすらぎの里</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/" class="footer-list__link">やすらぎの里とは</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/iogi/" class="footer-list__link">やすらぎの里　井荻</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/syoan/" class="footer-list__link">やすらぎの里　松庵</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="footer-list">
+            <ul>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/" class="footer-list__link">採用情報</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/job/" class="footer-list__link">募集職種</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/entry/" class="footer-list__link">採用エントリー</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-to-top">
+        <a href="#" class="footer-to-top__link">トップへ戻る
+          <img class="footer-to-top__icon" src="/tmp-yours/assets/img/icon/chevron.svg"></a>
+      </div>
+      <div class="footer__copyright">
+        <small>your-s. All rights reserved.</small>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

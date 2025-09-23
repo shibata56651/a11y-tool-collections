@@ -1,15 +1,20 @@
 // パス設定管理
 const path = require('path');
 const fs = require('fs');
+require('dotenv').config();
 
 class PathConfig {
   constructor() {
     this.isDevelopment = process.env.NODE_ENV !== 'production' && !process.env.BUILD_ENV;
     // 環境別baseURL設定
     if (process.env.BUILD_ENV === 'demo') {
-      this.baseUrl = '/tmp-yours/'; // デモサーバー用
+      // .envファイルからディレクトリ名を取得（デフォルトは tmp-yours）
+      const demoDir = process.env.DEMO_DIRECTORY_NAME || 'tmp-yours';
+      this.baseUrl = `/${demoDir}/`;
     } else if (process.env.BUILD_ENV === 'production') {
-      this.baseUrl = '/'; // 本番サーバー用
+      // 本番環境用（必要に応じて.envから取得）
+      const prodDir = process.env.PRODUCTION_DIRECTORY_NAME || '';
+      this.baseUrl = prodDir ? `/${prodDir}/` : '/';
     } else {
       this.baseUrl = '/'; // ローカル開発用
     }
@@ -45,7 +50,7 @@ class PathConfig {
         }
       );
     } else {
-      // プロダクション環境：ルート相対パスをbaseURLに変換
+      // プロダクション環境：ルート相対パスをbaseURLに変換（アセットファイル）
       processed = processed.replace(
         /(?:src|href)="\/([^"]*\.(?:css|js|jpg|jpeg|png|gif|svg|ico))"/gi,
         (match, path) => {
@@ -53,6 +58,27 @@ class PathConfig {
           return match.replace(`/${path}`, newPath);
         }
       );
+      
+      // demo環境：HTMLページへのリンク（絶対パス /xxx/ や /xxx/xxx/ など）をbaseURLに変換
+      if (process.env.BUILD_ENV === 'demo') {
+        processed = processed.replace(
+          /href="\/([^"#]*?)(?:\/)?"/gi,
+          (match, path) => {
+            // アセットファイル、外部リンク、ハッシュリンクは除外
+            if (!/\.(css|js|jpg|jpeg|png|gif|svg|ico)$/i.test(path) && 
+                !path.includes('http') && 
+                !path.includes('mailto') && 
+                !path.includes('tel')) {
+              const cleanPath = path === '' ? '' : path; // ルートパスの場合は空文字
+              const newPath = cleanPath === '' ? 
+                this.baseUrl : 
+                (this.baseUrl.endsWith('/') ? `${this.baseUrl}${cleanPath}/` : `${this.baseUrl}/${cleanPath}/`);
+              return `href="${newPath}"`;
+            }
+            return match;
+          }
+        );
+      }
     }
 
     return processed;

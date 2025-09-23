@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <!--#include file="/include/head.html" -->
+<body>
+  <!--#include file="/include/header.html" -->
+
+  <div class="main-inner">
+    <div class="list-breadcrumb">
+      <ul>
+        <li class="list-breadcrumb__item"><a href="/a11y-modules/" class="list-breadcrumb__link">a11y考慮モジュール集トップ</a></li>
+        <li class="list-breadcrumb__item"><span class="list-breadcrumb__text">トグル実装時の注意点</span></li>
+      </ul>
+    </div>
+
+    <div class="hdg-main__inner hdg-main__inner--housing">
+      <h2 class="hdg-main__text">トグル実装時の注意点</h2>
+    </div>
+
+    <main class="main-content">
+      <section class="section-general">
+        <h3 class="hdg-line">基本的な要素選択</h3>
+        <p>見た目がボタンのものを実装する場合は極力、ボタン要素を使用しましょう。</p>
+        <p>仕様上aタグにて実装しないといけない場合は、role="button"を付与しましょう。</p>
+
+        <h3 class="hdg-line">必須のアクセシビリティ属性</h3>
+        <p>トグル機能には以下のARIA属性が必須です：</p>
+        <p><strong>aria-expanded</strong>：コンテンツの開閉状態を示します。開いている場合は"true"、閉じている場合は"false"を設定します。</p>
+        <p><strong>aria-controls</strong>：操作対象となる要素のIDを指定します。これによりスクリーンリーダーがボタンと関連コンテンツの関係を理解できます。</p>
+        <p><strong>aria-hidden</strong>：非表示コンテンツに設定します。表示時は"false"、非表示時は"true"にします。</p>
+
+        <h3 class="hdg-line">キーボード操作の考慮</h3>
+        <p>トグルボタンはキーボードでフォーカス可能である必要があります。Enterキー・Spaceキーでの操作に対応しましょう。</p>
+        <p>フォーカス時には視覚的なインジケータ（フォーカスリング）を表示し、ユーザーがどの要素にフォーカスが当たっているか明確にします。</p>
+
+        <h3 class="hdg-line">スクリーンリーダー対応</h3>
+        <p>ボタンのテキストは単独で理解できる内容にします。「開く」「閉じる」などの状態を含めて読み上げられるよう配慮しましょう。</p>
+        <p>アイコンのみのボタンの場合は、適切なaria-labelまたはvisually-hiddenクラスでのテキスト追加が必要です。</p>
+
+        <h3 class="hdg-line">アニメーション配慮</h3>
+        <p>開閉アニメーションは、prefers-reduced-motionメディアクエリに対応し、モーション設定を無効にしているユーザーへの配慮を行います。</p>
+        <p>アニメーション中もaria-expanded属性は適切なタイミングで更新し、スクリーンリーダーユーザーに正確な状態を伝えましょう。</p>
+
+        <h3 class="hdg-line">実装時の注意点</h3>
+        <p>コンテンツが非表示の際は、display:noneまたはvisibility:hiddenを使用してスクリーンリーダーからも隠します。<br>opacity:0のみでは音声で読み上げられてしまいます。</p>
+        <p>複数のトグルが存在する場合は、それぞれに一意のIDを割り当て、aria-controlsで正確に関連付けを行います。</p>
+        <p>ページ読み込み時の初期状態（開いているか閉じているか）をCSSとJavaScriptで一致させ、視覚表示と属性値に矛盾が生じないよう注意しましょう。</p>
+
+        <h3 class="hdg-line">このサイトで実装されているアコーディオンモジュールの特徴</h3>
+        <p>以下のサンプルアコーディオンは、上記の考慮点をすべて満たして実装されています：</p>
+        <p><strong>セマンティックな構造</strong>：dl/dt/dd要素を使用し、質問と回答の関係性を明確化。</p>
+        <p><strong>ARIA属性の完全実装</strong>：aria-expanded、aria-controls、aria-hiddenを適切に設定・更新。</p>
+        <p><strong>キーボード対応</strong>：button要素使用により自動的にフォーカス可能、Enter/Spaceキーでの操作に対応。</p>
+        <p><strong>アニメーション配慮</strong>：CSSトランジションによるスムーズな開閉、ただしprefers-reduced-motionには未対応（改善余地あり）。</p>
+        <p><strong>一意ID管理</strong>：各アコーディオンに個別のIDを割り当て、複数存在時も正確に動作。</p>
+        <p><strong>初期状態管理</strong>：JavaScript初期化時にaria-expanded="false"、aria-hidden="true"を設定し、CSSと整合性を保持。</p>
+
+        <h4>Q&Aアコーディオン（シンプル版）</h4>
+        <div class="qa-list">
+          <ul>
+            <li class="qa-list__item">
+              <div class="qa-dist js-accordion">
+                <dl>
+                  <dt class="qa-dist__question">
+                    <button class="qa-dist__button js-accordion__toggle" 
+                            aria-expanded="false" 
+                            aria-controls="qa-content-1">
+                      <span class="qa-dist__question-text">
+                        <img class="qa-dist__icon qa-dist__icon--question" src="/assets/img/icon/question.svg" alt="">
+                        どのような方が入居されていますか？
+                      </span>
+                      <img class="accordion__icon accordion__icon--orange" src="/assets/img/icon/arrow-bottom.svg" alt="">
+                    </button>
+                  </dt>
+                  <dd class="js-accordion__content" id="qa-content-1" aria-hidden="true">
+                    <div class="qa-dist__answer">
+                      <img class="qa-dist__icon qa-dist__icon--answer" src="/assets/img/icon/answer.svg" alt="">
+                      当施設には、要介護2から5までの方が入居されています。また、認知症の方や身体に障害をお持ちの方もいらっしゃいます。
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </li>
+            <li class="qa-list__item">
+              <div class="qa-dist js-accordion">
+                <dl>
+                  <dt class="qa-dist__question">
+                    <button class="qa-dist__button js-accordion__toggle" 
+                            aria-expanded="false" 
+                            aria-controls="qa-content-2">
+                            <span class="qa-dist__question-text">
+                              <img class="qa-dist__icon qa-dist__icon--question" src="/assets/img/icon/question.svg" alt="">
+                              面会時間はありますか？
+                            </span>
+                      <img class="accordion__icon accordion__icon--orange" src="/assets/img/icon/arrow-bottom.svg" alt="">
+                    </button>
+                  </dt>
+                  <dd class="js-accordion__content" id="qa-content-2" aria-hidden="true">
+                    <div class="qa-dist__answer">
+                      <img class="qa-dist__icon qa-dist__icon--answer" src="/assets/img/icon/answer.svg" alt="">
+                      はい。重度の認知症の方や寝たきりの方など、幅広い受け入れ実績がございます。各種専門職が連携し、その方に合ったケアを提供いたします。
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <h4 style="margin-top: 3rem;">求人詳細トグル（複雑版）</h4>
+        <p>より詳細な情報を段階的に開示する形式のトグル実装例：</p>
+        
+        <div class="lead-more js-lead-more" style="margin-top: 2rem;">
+          <div class="lead-more__content js-lead-more__content" id="job-content-1" aria-labelledby="job-toggle-1">
+            <div class="lead-more-desc">
+              <dl>
+                <dt class="lead-more-desc__text-inner">
+                  <h5 class="lead-more-desc__title">介護士<span class="lead-more-desc__sub-text">正社員</span></h5>
+                  <div class="list-label">
+                    <ul>
+                      <li class="list-label__item">初心者歓迎</li>
+                      <li class="list-label__item">交通費支給</li>
+                      <li class="list-label__item">副業・WワークOK</li>
+                    </ul>
+                  </div>
+                </dt>
+                <dd class="lead-more-desc__detail-inner">
+                  <div class="list-desc list-desc--wrap">
+                    <dl>
+                      <div class="list-desc__item">
+                        <dt class="list-desc__text list-desc__text--black">【業務内容】</dt>
+                        <dd class="list-desc__detail">
+                          <div class="list-simple">
+                            <ul>
+                              <li class="list-simple__item">当社施設にてお客様の日常的なお手伝い（介助を含む）</li>
+                              <li class="list-simple__item">掃除や洗濯などの簡単な家事</li>
+                            </ul>
+                          </div>
+                          <p>サービス提供責任者が作成した訪問介護計画書をもとに決められた内容と時間でサービス提供するお仕事です。</p>
+                        </dd>
+                      </div>
+                      <div class="list-desc__item">
+                        <dt class="list-desc__text list-desc__text--black">【必要資格】</dt>
+                        <dd class="list-desc__detail">
+                          <p>特に必要ありませんが、介護福祉士・ヘルパー・基礎研修・初任者研修などをお持ちの方は歓迎いたします。</p>
+                        </dd>
+                      </div>
+                      <div class="list-desc__item">
+                        <dt class="list-desc__text list-desc__text--black">【給与】</dt>
+                        <dd class="list-desc__detail">
+                          <p>170,000円～（経験や能力によって考慮）</p>
+                        </dd>
+                      </div>
+                      <div class="list-desc__item">
+                        <dt class="list-desc__text list-desc__text--black">【勤務時間】</dt>
+                        <dd class="list-desc__detail">
+                          <p>9:00～18:00（休憩60分）</p>
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                  <div class="button-block">
+                    <a href="#" class="button button--type-orange">この募集に応募する</a>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+          </div>
+
+          <button class="lead-more__toggle js-lead-more__toggle"
+                  id="job-toggle-1"
+                  aria-expanded="false"
+                  aria-controls="job-content-1"
+                  type="button">
+            <span class="lead-more__toggle-text js-lead-more__toggle-text" 
+                  data-text-collapsed="詳しくみる" 
+                  data-text-expanded="閉じる">詳しくみる</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!--#include file="/include/footer.html" -->
+</body>
+</html>

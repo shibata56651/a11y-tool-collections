@@ -7,6 +7,10 @@ import { TopSlider } from './modules/top-slider.js';
 import { SmoothScroll } from './modules/smooth-scroll.js';
 import { initAccordions } from './modules/accordion.js';
 import { initLeadMores } from './modules/lead-more.js';
+import { TableScroll } from './modules/table-scroll.js';
+import { FadeInAnimation } from './modules/fade-in-animation.js';
+import { CountupAnimation } from './modules/countup-animation.js';
+import { initPaginations } from './modules/pagination.js';
 import { addEventListener } from './utils/events.js';
 
 
@@ -21,6 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initAccordions();
   initLeadMores();
+  initTableScroll();
+  initFadeInAnimation();
+  initCountupAnimation();
+  initPaginations();
 });
 
 function initHeader(): void {
@@ -158,6 +166,39 @@ function initSmoothScroll(): void {
     ]);
   } catch (error) {
     console.error('Failed to initialize smooth scroll:', error);
+  }
+}
+
+function initTableScroll(): void {
+  try {
+    const tableScrollElements = document.querySelectorAll('.js-table-scroll');
+    if (tableScrollElements.length > 0) {
+      new TableScroll();
+    }
+  } catch (error) {
+    console.error('Failed to initialize table scroll:', error);
+  }
+}
+
+function initFadeInAnimation(): void {
+  try {
+    const fadeInElements = document.querySelectorAll('.js-fade-container');
+    if (fadeInElements.length > 0) {
+      new FadeInAnimation();
+    }
+  } catch (error) {
+    console.error('Failed to initialize fade in animation:', error);
+  }
+}
+
+function initCountupAnimation(): void {
+  try {
+    const countupElements = document.querySelectorAll('.js-count');
+    if (countupElements.length > 0) {
+      new CountupAnimation();
+    }
+  } catch (error) {
+    console.error('Failed to initialize countup animation:', error);
   }
 }
 

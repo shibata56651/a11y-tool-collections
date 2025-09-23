@@ -272,6 +272,15 @@ export class Header {
 
     switch (event.key) {
       case 'Enter':
+        if (this.isDesktop) {
+          // PC環境では通常のリンク遷移を許可（preventDefault()しない）
+          return;
+        } else {
+          // SP環境ではアコーディオン動作
+          event.preventDefault();
+          this.toggleSubmenu(event);
+        }
+        break;
       case ' ':
         event.preventDefault();
         this.toggleSubmenu(event);

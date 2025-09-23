@@ -58,6 +58,7 @@
     &[aria-hidden="false"] {
       max-height: none;
       overflow: visible;
+      background: $light-cream;
 
       &::after {
         opacity: 0;
@@ -72,17 +73,16 @@
     cursor: pointer;
     transition: $transition;
     position: relative;
+    text-align: center;
     background: transparent;
 
     @media (width <= 768px) {
       padding: 12px 20px;
     }
 
-    &:hover {
-      background: $light-cream;
-    }
-
     &[aria-expanded="true"] {
+      background: $light-cream;
+
       .lead-more__toggle-text::before {
         transform: rotate(180deg);
       }
@@ -97,6 +97,7 @@
     gap: 8px;
     font-size: 1.5rem;
     font-weight: 500;
+    color: $black;
 
     &::before {
       content: '';
@@ -203,29 +204,28 @@
   }
 
   &__content {
-    display: none;
-    overflow: hidden;
-    max-height: 0;
     padding: 30px;
-    transition: max-height .3s ease-out, padding-top .3s ease-out, padding-bottom .3s ease-out;
-
-    &[aria-hidden="false"] {
-      display: block;
-    }
   }
 
   &__icon {
-    width: 14px;
+    width: 16px;
     transition: $transition;
     object-fit: contain;
-    filter: invert(16%) sepia(97%) saturate(3087%) hue-rotate(116deg) brightness(50%) contrast(108%);
+
+    @media (width <= 768px) {
+      width: 14px;
+    }
+
+    &--green {
+      filter: invert(16%) sepia(97%) saturate(3087%) hue-rotate(116deg) brightness(50%) contrast(108%);
+    }
+
+    &--orange {
+      filter: invert(42%) sepia(95%) saturate(1837%) hue-rotate(16deg) brightness(101%) contrast(103%);
+    }
   }
 
   &__toggle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
     font-weight: 600;
     font-size: 2.2rem;
     padding: 16px 32px 16px 16px;
@@ -238,7 +238,29 @@
 
     &[aria-expanded="true"] {
       color: $darker-green;
+    }
+  }
+}
 
+.js-accordion {
+    &__content {
+    display: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .3s ease-out, padding-top .3s ease-out, padding-bottom .3s ease-out;
+
+    &[aria-hidden="false"] {
+      display: block;
+    }
+  }
+
+  &__toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    &[aria-expanded="true"] {
       .accordion__icon {
         transform: rotate(180deg);
       }

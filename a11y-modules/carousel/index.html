@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!--#include file="/include/head.html" -->
+<body>
+  <!--#include file="/include/header.html" -->
+
+    <!-- MV カルーセル -->
+  <section class="mv">
+    <div class="mv__container">
+      <div class="mv__carousel" data-carousel>
+        <div class="mv__slide mv__slide--active" data-slide="0">
+          <img src="/assets/img/top/mv-01.jpg" alt="" class="mv__image">
+        </div>
+        <div class="mv__slide" data-slide="1">
+          <img src="/assets/img/top/mv-02.jpg" alt="" class="mv__image">
+        </div>
+        <div class="mv__slide" data-slide="2">
+          <img src="/assets/img/top/mv-03.jpg" alt="" class="mv__image">
+        </div>
+        <div class="mv__slide" data-slide="3">
+          <img src="/assets/img/top/mv-04.jpg" alt="" class="mv__image">
+        </div>
+        <div class="mv__slide" data-slide="4">
+          <img src="/assets/img/top/mv-05.jpg" alt="" class="mv__image">
+        </div>
+      </div>
+
+      <div class="mv__content">
+        <span class="mv__title"><span class="mv__title--em">やすらぎ</span>と<br><span class="mv__title--em">安心</span>を<br><span class="mv__title--em">あなた</span>に</span>
+      </div>
+
+      <div class="mv__controls">
+        <button class="mv__play-pause" data-play-pause aria-label="再生・停止">
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="top-content">
+    <section class="top-section">
+      <div class="hdg-leaf__block">
+        <h2 class="hdg-leaf__text">カルーセル・スライドショー実装時の注意点</h2>
+      </div>
+
+      <p>上の自動アニメーション以外にも、下の画像を横にスライドさせるタイプも自動でアニメーションしているので、a11yの考慮が必要です。</p>
+      <p>音声の有無に関わらず、ユーザーがコンテンツの変化を認識できるようにするための配慮が求められます。</p>
+      <p>対策としては、再生停止ボタンを設置することでこの問題は回避できます。</p>
+      <div class="link-text">
+        <a class="link-text__text" target="_blank" href="https://waic.jp/translations/WCAG-TECHS/F93">文献：達成基準 1.4.2 の失敗例</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="top-slider" data-slider role="img" aria-label="施設の外観画像">
+    <div class="top-slider__track">
+      <img src="/assets/img/top/top-slider.jpg" loading="lazy" alt="施設の外観" class="top-slider__image">
+    </div>
+    <button class="top-slider__play-pause" data-play-pause aria-label="スライダーの再生・停止">
+    </button>
+  </div>
+
+  <!--#include file="/include/footer.html" -->
+</body>
+</html>

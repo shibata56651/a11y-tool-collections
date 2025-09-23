@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <base href="/tmp-yours/tmp-yours/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yours</title>
+  <link rel="stylesheet" href="/tmp-yours/dist/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script type="module" defer src="/tmp-yours/dist/js/main.js"></script>
+</head>
+<body>
+    <header class="header">
+    <div class="header__content">
+      <!-- ロゴ・アイコン -->
+      <div class="header__logo">
+        <h1>
+          <a href="/tmp-yours/" class="header__logo-link">
+            <img src="/tmp-yours/assets/img/logo/header-logo.svg" alt="Yours" class="header__logo-img">
+          </a>
+        </h1>
+      </div>
+
+      <!-- ハンバーガーメニューボタン -->
+      <button class="header__burger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="header-nav"
+              aria-label="メニューを開く">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </button>
+
+      <!-- メインナビゲーション -->
+      <nav class="header__nav" id="header-nav" role="navigation" aria-label="メインナビゲーション">
+        <!-- 上部メニュー -->
+        <div class="header-menu">
+          <ul class="header-menu__list">
+            <li class="header-menu__item">
+              <a href="tel:0120-000-000" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/phone.svg" alt="">
+                </span>
+                0120-000-000
+              </a>
+            </li>
+            <li class="header-menu__item">
+              <a href="/tmp-yours/contact/" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/mail.svg" alt="">
+                </span>
+                お問い合わせ</a>
+            </li>
+            <li class="header-menu__item">
+              <a href="/tmp-yours/recruit/" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/entry.svg" alt="">
+                </span>
+                採用エントリー</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- メインメニュー -->
+        <div class="header__main-menu">
+          <ul class="header__main-list">
+            <li class="header__main-item">
+              <a href="/tmp-yours/" class="header__main-link">トップページ</a>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/company/" class="header__main-link">会社案内</a>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/news/" class="header__main-link">新着情報</a>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/care/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-care">
+                介護保険
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-care" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-01.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">訪問介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/regular-patrol/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">定期巡回・随時対応型訪問介護看護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/care-support/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">居宅介護支援</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/welfare/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-welfare">
+                障害福祉
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-welfare" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-02.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">居宅介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/intensive-home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">重度訪問介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/mobility-support/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">移動支援</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/housing/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-housing">
+                住まい事業
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-housing" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-03.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里とは</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/iogi/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里 井荻</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/syoan/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里 松庵</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/recruit/" class="header__main-link">採用情報</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- ドロップダウン時のオーバーレイ -->
+    <div class="header__overlay" aria-hidden="true"></div>
+  </header>
+
+  <div class="main-inner">
+    <div class="list-breadcrumb">
+      <ul>
+        <li class="list-breadcrumb__item"><a href="/tmp-yours/" class="list-breadcrumb__link">トップ</a></li>
+        <li class="list-breadcrumb__item"><span class="list-breadcrumb__text">新着情報</span></li>
+      </ul>
+    </div>
+
+    <div class="hdg-main__inner">
+      <h2 class="hdg-main__text">新着情報
+        <span class="hdg-main__small-text">News</span>
+      </h2>
+    </div>
+
+    <main class="main-content">
+      <section class="section-general">
+        <div class="general-inner">
+          <div class="list-news js-pagination-container">
+            <ul>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.07.01</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">介護福祉士国家試験受験対策！！開催</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.07.02</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">介護力UP勉強会）服薬介助～薬がもたらす影響を知るとケアが変わる勉強会～</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.07.03</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">【採用情報】募集職種を更新しました！</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.07.04</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">ホームページをリニューアルしました！</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.07.05</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">夏季休暇のお知らせ</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.07.06</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">研修会のご案内</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.07.07</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">新しい介護サービスを開始します</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.07.08</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">職員募集について</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.07.09</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">感染症対策の強化について</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.07.10</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">7月のイベント情報</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.06.11</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">利用者様向けアンケート結果発表</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.06.12</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">新型コロナウイルス対策状況</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.06.13</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">介護保険制度改正に伴う変更点</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.06.14</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.06.15</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.06.16</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.06.17</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.06.18</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.06.19</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.06.20</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.08.21</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.08.22</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.08.23</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.08.24</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.08.25</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.08.26</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.08.27</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.08.28</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.08.29</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.08.30</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.31</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.32</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.33</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.34</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.35</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.36</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.37</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.38</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.39</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.40</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.41</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.42</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.43</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.44</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.45</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.46</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.47</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.48</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.49</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+              <li class="list-news__item">
+                <span class="list-news__date">2025.09.50</span>
+
+                <a href="dummy" class="list-news__link">
+                  <span class="list-news__link-text">地域交流イベント開催報告</span>
+                </a>
+              </li>
+            </ul>
+
+            <!-- ページャー -->
+            <div class="pagination js-pagination" role="navigation" aria-label="ページネーション">
+              <div class="pagination__nav">
+                <button class="pagination__arrow pagination__arrow--prev js-pagination-prev" type="button" aria-label="前のページへ移動">
+                  <span class="pagination__icon-wrap">
+                    <img class="pagination__icon" src="/tmp-yours/assets/img/icon/arrow-right.svg" alt="">
+                  </span>
+                  前のページ
+                </button>
+                <ul class="pagination__list js-pagination-list">
+                  <!-- ページ番号はJavaScriptで動的に生成 -->
+                </ul>
+                <button class="pagination__arrow pagination__arrow--next js-pagination-next" type="button" aria-label="次のページへ移動">
+                  次のページ
+                  <span class="pagination__icon-wrap">
+                    <img class="pagination__icon" src="/tmp-yours/assets/img/icon/arrow-right.svg" alt="">
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+    <div class="footer-inner">
+    <div class="footer__banner">
+      <img src="/tmp-yours/assets/img/footer/footer-banner.jpg" alt="老いても人らしく Enjoy Being Old." class="footer__logo">
+    </div>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer-company__inner">
+          <div class="footer-company__logo-inner">
+            <img class="footer-company__logo" src="/tmp-yours/assets/img/logo/footer-logo.svg" loading="lazy" alt="">
+          </div>
+          <div class="footer-company__address">
+            <span class="footer-company__address-text">〒161-0033　東京都新宿区下落合1-12-2-403<br>TEL:03-5330-6628　FAX:03-5389-9231</span>
+          </div>
+          <div class="footer-contact__inner">
+            <a href="dummy" class="footer-contact__link">
+              <span class="footer-contact__icon">
+                <img src="/tmp-yours/assets/img/icon/mail.svg" alt="">
+              </span>
+              <span class="footer-contact__link-text">
+                お問い合わせ
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-list__inner">
+          <div class="footer-list">
+            <ul>
+              <li class="footer-list__item"><a href="/tmp-yours/" class="footer-list__link">トップページ</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/company/" class="footer-list__link">会社案内</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/news/" class="footer-list__link">新着情報</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-desc">
+            <dl>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/care/" data-submenu-trigger aria-expanded="false">介護保険</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/home-care/" class="footer-list__link">訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/regular-patrol/" class="footer-list__link">定期巡回・随時対応型訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/care-support/" class="footer-list__link">居宅介護支援</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/welfare/" data-submenu-trigger aria-expanded="false">障害福祉</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/home-care/" class="footer-list__link">居宅介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/intensive-home-care/" class="footer-list__link">重度訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/mobility-support/" class="footer-list__link">移動支援</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/housing/" data-submenu-trigger aria-expanded="false">やすらぎの里</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/" class="footer-list__link">やすらぎの里とは</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/iogi/" class="footer-list__link">やすらぎの里　井荻</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/syoan/" class="footer-list__link">やすらぎの里　松庵</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="footer-list">
+            <ul>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/" class="footer-list__link">採用情報</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/job/" class="footer-list__link">募集職種</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/entry/" class="footer-list__link">採用エントリー</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-to-top">
+        <a href="#" class="footer-to-top__link">トップへ戻る
+          <img class="footer-to-top__icon" src="/tmp-yours/assets/img/icon/chevron.svg"></a>
+      </div>
+      <div class="footer__copyright">
+        <small>your-s. All rights reserved.</small>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

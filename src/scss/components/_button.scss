@@ -13,8 +13,6 @@
   position: relative;
   display: inline-block;
   text-align: center;
-
-  // padding: 20px 36px;
   padding: 20px 68px;
   border-radius: $border-radius-full;
   font-weight: 700;
@@ -28,6 +26,10 @@
     max-width: 380px;
     width: 100%;
     padding: 14px 60px;
+  }
+
+  &--narrow {
+    padding: 14px 58px;
   }
 
   &--text-center {
@@ -281,5 +283,42 @@
         right: 27px;
       }
     }
+  }
+}
+
+.button-square {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+  border-radius: 20px;
+  border: solid 1px $primary-green;
+  padding: 24px 50px;
+  font-weight: 700;
+  background: $light-cream;
+  transition: $transition;
+
+  @media (width <= 768px) {
+    padding: 16px 40px;
+  }
+
+  &:hover {
+    background: $primary-cream;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 35%;
+    right: 24px;
+
+    @media (width <= 768px) {
+      right: 14px;
+    }
+  }
+
+  &__text {
+    color: $darker-green;
+    font-size: 1.8rem;
   }
 }

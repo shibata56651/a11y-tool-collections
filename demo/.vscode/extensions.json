@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    "biomejs.biome",
+    "ms-vscode.vscode-typescript-next"
+  ]
+}

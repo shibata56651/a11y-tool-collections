@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <base href="/tmp-yours/tmp-yours/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yours</title>
+  <link rel="stylesheet" href="/tmp-yours/dist/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script type="module" defer src="/tmp-yours/dist/js/main.js"></script>
+</head>
+<body>
+    <header class="header">
+    <div class="header__content">
+      <!-- ロゴ・アイコン -->
+      <div class="header__logo">
+        <h1>
+          <a href="/tmp-yours/" class="header__logo-link">
+            <img src="/tmp-yours/assets/img/logo/header-logo.svg" alt="Yours" class="header__logo-img">
+          </a>
+        </h1>
+      </div>
+
+      <!-- ハンバーガーメニューボタン -->
+      <button class="header__burger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="header-nav"
+              aria-label="メニューを開く">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </button>
+
+      <!-- メインナビゲーション -->
+      <nav class="header__nav" id="header-nav" role="navigation" aria-label="メインナビゲーション">
+        <!-- 上部メニュー -->
+        <div class="header-menu">
+          <ul class="header-menu__list">
+            <li class="header-menu__item">
+              <a href="tel:0120-000-000" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/phone.svg" alt="">
+                </span>
+                0120-000-000
+              </a>
+            </li>
+            <li class="header-menu__item">
+              <a href="/tmp-yours/contact/" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/mail.svg" alt="">
+                </span>
+                お問い合わせ</a>
+            </li>
+            <li class="header-menu__item">
+              <a href="/tmp-yours/recruit/" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/entry.svg" alt="">
+                </span>
+                採用エントリー</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- メインメニュー -->
+        <div class="header__main-menu">
+          <ul class="header__main-list">
+            <li class="header__main-item">
+              <a href="/tmp-yours/" class="header__main-link">トップページ</a>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/company/" class="header__main-link">会社案内</a>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/news/" class="header__main-link">新着情報</a>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/care/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-care">
+                介護保険
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-care" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-01.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">訪問介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/regular-patrol/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">定期巡回・随時対応型訪問介護看護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/care-support/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">居宅介護支援</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/welfare/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-welfare">
+                障害福祉
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-welfare" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-02.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">居宅介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/intensive-home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">重度訪問介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/mobility-support/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">移動支援</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/housing/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-housing">
+                住まい事業
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-housing" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-03.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里とは</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/iogi/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里 井荻</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/syoan/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里 松庵</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/recruit/" class="header__main-link">採用情報</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- ドロップダウン時のオーバーレイ -->
+    <div class="header__overlay" aria-hidden="true"></div>
+  </header>
+
+  <div class="main-inner">
+    <div class="list-breadcrumb">
+      <ul>
+        <li class="list-breadcrumb__item"><a href="/tmp-yours/" class="list-breadcrumb__link">トップ</a></li>
+        <li class="list-breadcrumb__item"><span class="list-breadcrumb__text">採用情報</span></li>
+      </ul>
+    </div>
+
+    <div class="hdg-main__inner hdg-main__inner--recruit">
+      <h2 class="hdg-main__text">採用情報
+        <span class="hdg-main__small-text">Recruit</span>
+      </h2>
+    </div>
+
+    <main class="main-content">
+      <section class="section-general">
+        <p class="text-center">「誰かのために働く」を、あなたの誇りに。<br class="sp-hidden">私たちユアーズは、介護・福祉の現場で20年以上にわたり多くのご利用者様の暮らしを支えてきました。<br class="sp-hidden">この仕事の魅力は、誰かに必要とされ、心から「ありがとう」と言っていただけること。<br class="sp-hidden">経験の有無よりも、「人の役に立ちたい」「あたたかいチームの中で働きたい」という想いを大切にしています。<br class="sp-hidden">私たちと一緒に、地域に安心を届ける仕事をはじめてみませんか？</p>
+
+        <div class="button-block">
+          <a href="dummy" class="button button--type-green">募集職種はこちら</a>
+        </div>
+      </section>
+
+      <section class="section-general">
+        <div class="box-general box-general--center">
+          <img class="box-general__icon" src="/tmp-yours/assets/img/logo/logo.svg" alt="">
+          <h3 class="box-general__hdg">ユアーズを知る</h3>
+        </div>
+
+        <div class="list-anchor">
+          <ul>
+            <li class="list-anchor__item">
+              <a href="#anc-01" class="list-anchor__link">ユアーズで働く理由</a>
+            </li>
+            <li class="list-anchor__item">
+              <a href="#anc-02" class="list-anchor__link">社員構成について</a>
+            </li>
+            <li class="list-anchor__item">
+              <a href="#anc-03" class="list-anchor__link">働きやすさの理由</a>
+            </li>
+            <li class="list-anchor__item">
+              <a href="#anc-04" class="list-anchor__link">数字で見るユアーズ</a>
+            </li>
+            <li class="list-anchor__item">
+              <a href="#anc-05" class="list-anchor__link">教育制度（介護職の場合）</a>
+            </li>
+            <li class="list-anchor__item">
+              <a href="#anc-06" class="list-anchor__link">社員インタビュー</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section-general" id="anc-01">
+        <h3 class="hdg-line">ユアーズで働く理由</h3>
+
+        <div class="general-inner">
+          <div class="lyt-img lyt-img--point">
+            <div class="lyt-img__img-inner">
+              <img loading="lazy" src="/tmp-yours/assets/img/recruit/img-reason-01.jpg" alt="">
+            </div>
+            <div class="lyt-img__text-inner">
+              <div class="lyt-img__point-inner">
+                <span class="lyt-img__point">POINT 1</span>
+              </div>
+              <span class="text-lead text-center">幅広い年代の職員が活躍できる！</span>
+              <p>20代から80代まで幅広い年代の職員が活躍しています。一人ひとりの働き方に合わせたシフト調整が可能なため、勤続年数10年以上の職員も多数在籍！</p>
+            </div>
+          </div>
+
+          <div class="lyt-img lyt-img--point lyt-img--reverse">
+            <div class="lyt-img__img-inner">
+              <img loading="lazy" src="/tmp-yours/assets/img/recruit/img-reason-02.jpg" alt="">
+            </div>
+            <div class="lyt-img__text-inner">
+              <div class="lyt-img__point-inner">
+                <span class="lyt-img__point">POINT 2</span>
+              </div>
+              <span class="text-lead text-center">幅広い年代の職員が活躍できる！</span>
+              <p>20代から80代まで幅広い年代の職員が活躍しています。一人ひとりの働き方に合わせたシフト調整が可能なため、勤続年数10年以上の職員も多数在籍！</p>
+            </div>
+          </div>
+
+          <div class="lyt-img lyt-img--point">
+            <div class="lyt-img__img-inner">
+              <img loading="lazy" src="/tmp-yours/assets/img/recruit/img-reason-03.png" alt="1年目 初任者研修 2年目 実務者研修、正社員登用 3-4年目 介護福祉士（国家資格）、施設リーダー、サービス提供責任者など">
+            </div>
+            <div class="lyt-img__text-inner">
+              <div class="lyt-img__point-inner">
+                <span class="lyt-img__point">POINT 3</span>
+              </div>
+              <span class="text-lead text-center">幅広い年代の職員が活躍できる！</span>
+              <p>20代から80代まで幅広い年代の職員が活躍しています。一人ひとりの働き方に合わせたシフト調整が可能なため、勤続年数10年以上の職員も多数在籍！</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="cream-inner">
+      <div id="anc-02" class="section-general">
+        <h3 class="hdg-line">社員構成について</h3>
+
+        <div class="general-inner js-fade-container">
+          <div class="lyt-box-col3">
+            <ul>
+              <li class="lyt-box-col3__item js-fade-item">
+                <div class="lyt-box-col3__title-inner">
+                  <span class="lyt-box-col3__title">年齢層</span>
+                </div>
+                <div class="lyt-box-col3__img-inner">
+                  <img class="lyt-box-col3__img" src="/tmp-yours/assets/img/recruit/img-about-01.png" alt="20代から80代まで幅広い年齢層の職員が活躍！">
+                </div>
+              </li>
+              <li class="lyt-box-col3__item lyt-box-col3__item--not-padding js-fade-item">
+                <div class="lyt-box-col3__title-inner">
+                  <span class="lyt-box-col3__title">男女比</span>
+                </div>
+                <div class="lyt-box-col3__img-inner">
+                  <img class="lyt-box-col3__img lyt-box-col3__img--width-auto" src="/tmp-yours/assets/img/recruit/img-about-02.png" alt="男女比は50%:50% 男女の隔たりなく、誰もが誰もが活躍しています。">
+                </div>
+              </li>
+              <li class="lyt-box-col3__item js-fade-item">
+                <div class="lyt-box-col3__title-inner">
+                  <span class="lyt-box-col3__title">勤続年数</span>
+                </div>
+                <div class="lyt-box-col3__img-inner">
+                  <img class="lyt-box-col3__img" src="/tmp-yours/assets/img/recruit/img-about-03.png" alt="10年以上 厚生労働省「平成29年賃金構造基本統計調査」では、介護職員の平均勤続年数はホームヘルパーで6.6年、施設介護職員で6.4年となっていますが、10年以上活躍している職員が多数！">
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="lyt-box js-fade-item">
+            <div class="lyt-box__title-inner">
+              <span class="lyt-box__title">資格状況</span>
+            </div>
+            <div class="lyt-box__img-inner">
+              <img class="lyt-box__img" src="/tmp-yours/assets/img/recruit/img-about-04.png" alt="入社時、無資格78%,有資格22% 入社1年後、有資格100%">
+            </div>
+            <div class="lyt-box__text-inner">
+              <span class="text-center text-bold">入職後には全職員資格取得！！</span>
+              <p class="text-center">無資格からのスタートした職員が入職後に、初任者研修や実務者研修、介護福祉士などの資格を取得。<br>すでに有資格者の方も、さらに上位資格にチャレンジしながら、スキルアップ・キャリアアップの道を歩んでいます。</p>
+              <span class="text-center text-bold">【介護福祉士在籍率も2025年時点で40％超え】</span>
+              <span class="text-center">※特定事業所加算要件の30％を上回る</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="anc-03" class="section-general">
+        <h3 class="hdg-line">働きやすさの理由</h3>
+
+        <div class="general-inner">
+          <span class="text-lead text-center">充実した福利厚生</span>
+
+          <div class="lyt-box-col3 lyt-box-col3--center js-fade-container">
+            <ul>
+              <li class="lyt-box-col3__item lyt-box-col3__item--flex js-fade-item">
+                <div class="lyt-box-col3__icon-inner">
+                  <img class="lyt-box-col3__icon" src="/tmp-yours/assets/img/icon/benefits/icon-02.svg" alt="">
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__text">ボーナス支給<span class="lyt-box-col3__detail-text">（業績による・過去5年毎年支給）</span></span>
+                </div>
+              </li>
+              <li class="lyt-box-col3__item lyt-box-col3__item--flex js-fade-item">
+                <div class="lyt-box-col3__icon-inner">
+                  <img class="lyt-box-col3__icon" src="/tmp-yours/assets/img/icon/benefits/icon-01.svg" alt="">
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__text">社会保険完備</span>
+                </div>
+              </li>
+              <li class="lyt-box-col3__item lyt-box-col3__item--flex js-fade-item">
+                <div class="lyt-box-col3__icon-inner">
+                  <img class="lyt-box-col3__icon" src="/tmp-yours/assets/img/icon/benefits/icon-03.svg" alt="">
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__text">インフルエンザ<br class="sp-hidden">予防接種半額助成</span>
+                </div>
+              </li>
+              <li class="lyt-box-col3__item lyt-box-col3__item--flex js-fade-item">
+                <div class="lyt-box-col3__icon-inner">
+                  <img class="lyt-box-col3__icon" src="/tmp-yours/assets/img/icon/benefits/icon-04.svg" alt="">
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__text">健康診断<span class="lyt-box-col3__detail-text">（年1〜2回）</span></span>
+                </div>
+              </li>
+              <li class="lyt-box-col3__item lyt-box-col3__item--flex js-fade-item">
+                <div class="lyt-box-col3__icon-inner">
+                  <img class="lyt-box-col3__icon" src="/tmp-yours/assets/img/icon/benefits/icon-01.svg" alt="">
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__text">社会保険完備</span>
+                </div>
+              </li>
+              <li class="lyt-box-col3__item lyt-box-col3__item--flex js-fade-item">
+                <div class="lyt-box-col3__icon-inner">
+                  <img class="lyt-box-col3__icon" src="/tmp-yours/assets/img/icon/benefits/icon-05.svg" alt="">
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__text">職金制度<span class="lyt-box-col3__detail-text">（はぐくみ基金）</span></span>
+                </div>
+              </li>
+              <li class="lyt-box-col3__item lyt-box-col3__item--flex js-fade-item">
+                <div class="lyt-box-col3__icon-inner">
+                  <img class="lyt-box-col3__icon" src="/tmp-yours/assets/img/icon/benefits/icon-06.svg" alt="">
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__text">通勤手当・資格手当<br class="sp-hidden">夜勤手当・事業所手当など諸手当</span>
+                </div>
+              </li>
+              <li class="lyt-box-col3__item lyt-box-col3__item--flex js-fade-item">
+                <div class="lyt-box-col3__icon-inner">
+                  <img class="lyt-box-col3__icon" src="/tmp-yours/assets/img/icon/benefits/icon-07.svg" alt="">
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__text">シフト調整による休暇の取りやすさ</span>
+                </div>
+              </li>
+              <li class="lyt-box-col3__item lyt-box-col3__item--flex js-fade-item">
+                <div class="lyt-box-col3__icon-inner">
+                  <img class="lyt-box-col3__icon" src="/tmp-yours/assets/img/icon/benefits/icon-08.svg" alt="">
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__text">低い離職率<span class="lyt-box-col3__detail-text">（過去10年、正社員離職率0％！）</span></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="anc-04" class="section-general">
+        <h3 class="hdg-line">数字で見るユアーズ</h3>
+
+        <div class="general-inner">
+          <div class="lyt-box-col3">
+            <ul>
+              <li class="lyt-box-col3__item">
+                <div class="lyt-box-col3__title-inner">
+                  <span class="lyt-box-col3__title lyt-box-col3__title--not-line">育休からの復帰率</span>
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__number font-roboto js-count">100<span class="lyt-box-col3__number--percent">%</span></span>
+                </div>
+              </li>
+              <li class="lyt-box-col3__item">
+                <div class="lyt-box-col3__title-inner">
+                  <span class="lyt-box-col3__title">有給取得率</span>
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__number font-roboto js-count">53<span class="lyt-box-col3__number--percent">%</span></span>
+                </div>
+              </li>
+              <li class="lyt-box-col3__item">
+                <div class="lyt-box-col3__title-inner">
+                  <span class="lyt-box-col3__title">1ヵ月の残業平均</span>
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__number font-roboto js-count">4<span class="lyt-box-col3__number--unit">時間</span></span>
+                </div>
+              </li>
+              <li class="lyt-box-col3__item">
+                <div class="lyt-box-col3__title-inner">
+                  <span class="lyt-box-col3__title">管理職平均年齢</span>
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__number font-roboto js-count">43<span class="lyt-box-col3__number--unit">歳</span></span>
+                </div>
+              </li>
+              <li class="lyt-box-col3__item">
+                <div class="lyt-box-col3__title-inner">
+                  <span class="lyt-box-col3__title">女性管理職の割合</span>
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__number font-roboto js-count">50<span class="lyt-box-col3__number--percent">%</span></span>
+                </div>
+              </li>
+              <li class="lyt-box-col3__item">
+                <div class="lyt-box-col3__title-inner">
+                  <span class="lyt-box-col3__title">事業所数</span>
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__number font-roboto js-count">10<span class="lyt-box-col3__number--unit">営業所</span></span>
+                </div>
+              </li>
+              <li class="lyt-box-col3__item">
+                <div class="lyt-box-col3__title-inner">
+                  <span class="lyt-box-col3__title">グループ会社</span>
+                </div>
+                <div class="lyt-box-col3__text-inner">
+                  <span class="lyt-box-col3__number font-roboto js-count">3<span class="lyt-box-col3__number--unit">法人</span></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="anc-05" class="section-general">
+        <h3 class="hdg-line">教育制度（介護職の場合）</h3>
+
+        <div class="general-inner">
+          <div class="lyt-box-education">
+            <ul>
+              <li class="lyt-box-education__item lyt-box-education__item--short">
+                <span class="lyt-box-education__title lyt-box-education__title--big font-roboto">OJT</span>
+                <span class="text-lead text-center">原則1名以上の指導係ができるまで伴走</span>
+                <div class="list-desc-general">
+                  <dl>
+                    <div class="list-desc-general__item">
+                      <dt class="list-desc-general__title">【新人研修】</dt>
+                      <dd class="list-desc-general__text">介護の基礎からビジネスマナーまで…入社3か月以内</dd>
+                    </div>
+                    <div class="list-desc-general__item">
+                      <dt class="list-desc-general__title">【社内研修】</dt>
+                      <dd class="list-desc-general__text">感染症予防、接遇力、認知症の理解など…年3回以上</dd>
+                    </div>
+                  </dl>
+                </div>
+              </li>
+              <li class="lyt-box-education__item lyt-box-education__item--medium">
+                <span class="lyt-box-education__title lyt-box-education__title--big font-roboto">Off-JT</span>
+                <span class="text-lead text-center">社外の介護関係や<br class="sp-hidden">ビジネスにおける<br class="sp-hidden">セミナーなどの受講</span>
+
+                <div class="list-simple">
+                  <ul>
+                    <li class="list-simple__item">伝え方</li>
+                    <li class="list-simple__item">アンガーマネジメント</li>
+                    <li class="list-simple__item">コーチング</li>
+                    <li class="list-simple__item">チームワーク強化</li>
+                    <li class="list-simple__item">ポジティブ心理学</li>
+                    <li class="list-simple__item">マーケティング戦略</li>
+                    <li class="list-simple__item">タイムマネジメント</li>
+                    <li class="list-simple__item">マナー</li>
+                    <li class="list-simple__item">人事戦略、など</li>
+                  </ul>
+                </div>
+              </li>
+              <li class="lyt-box-education__item lyt-box-education__item--long">
+                <span class="lyt-box-education__title">資格取得支援による<br class="sp-hidden">キャリアアップ</span>
+                <span class="text-lead text-center">未経験から<br class="sp-hidden">プロフェッショナルへ</span>
+
+                <div class="list-simple">
+                  <ul>
+                    <li class="list-simple__item">介護職員初任者研修</li>
+                    <li class="list-simple__item">実務者研修</li>
+                    <li class="list-simple__item">介護福祉士</li>
+                    <li class="list-simple__item">医療的ケア研修、など</li>
+                  </ul>
+                </div>
+
+                <div class="lyt-box-education__icon-inner">
+                  <img src="/tmp-yours/assets/img/icon/benefits/icon-09.svg" alt="">
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <section class="section-general" id="anc-06">
+        <div class="hdg-leaf__block">
+          <h3 class="hdg-leaf__text">社員インタビュー</h3>
+        </div>
+
+        <div class="general-inner">
+          <div class="list-employee">
+            <ul>
+              <li class="list-employee__item">
+                <a class="list-employee__link" href="">
+                  <div class="list-employee__img-inner">
+                    <img loading="lazy" class="list-employee__img" src="/tmp-yours/assets/img/recruit/interview/interview-thumbnail-02.jpg" alt="">
+                  </div>
+                  <div class="list-employee__text-inner">
+                    <span class="list-employee__date">H.T.さん | 2023年入社</span>
+                    <span class="list-employee__job">介護職員</span>
+                  </div>
+                </a>
+              </li>
+              <li class="list-employee__item">
+                <a class="list-employee__link" href="">
+                  <div class="list-employee__img-inner">
+                    <img loading="lazy" class="list-employee__img" src="/tmp-yours/assets/img/recruit/interview/interview-thumbnail-03.jpg" alt="">
+                  </div>
+                  <div class="list-employee__text-inner">
+                    <span class="list-employee__date">K.M.さん | 2021年入社</span>
+                    <span class="list-employee__job">副施設長</span>
+                  </div>
+                </a>
+              </li>
+              <li class="list-employee__item">
+                <a class="list-employee__link" href="">
+                  <div class="list-employee__img-inner">
+                    <img loading="lazy" class="list-employee__img" src="/tmp-yours/assets/img/recruit/interview/interview-thumbnail-04.jpg" alt="">
+                  </div>
+                  <div class="list-employee__text-inner">
+                    <span class="list-employee__date">T.T.さん | 2021年入社</span>
+                    <span class="list-employee__job">サービス提供責任者</span>
+                  </div>
+                </a>
+              </li>
+              <li class="list-employee__item">
+                <a class="list-employee__link" href="">
+                  <div class="list-employee__img-inner">
+                    <img loading="lazy" class="list-employee__img" src="/tmp-yours/assets/img/recruit/interview/interview-thumbnail-05.jpg" alt="">
+                  </div>
+                  <div class="list-employee__text-inner">
+                    <span class="list-employee__date">Y.M.さん | 2016年入社</span>
+                    <span class="list-employee__job">サービス提供責任者</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+    <div class="footer-inner">
+    <div class="footer__banner">
+      <img src="/tmp-yours/assets/img/footer/footer-banner.jpg" alt="老いても人らしく Enjoy Being Old." class="footer__logo">
+    </div>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer-company__inner">
+          <div class="footer-company__logo-inner">
+            <img class="footer-company__logo" src="/tmp-yours/assets/img/logo/footer-logo.svg" loading="lazy" alt="">
+          </div>
+          <div class="footer-company__address">
+            <span class="footer-company__address-text">〒161-0033　東京都新宿区下落合1-12-2-403<br>TEL:03-5330-6628　FAX:03-5389-9231</span>
+          </div>
+          <div class="footer-contact__inner">
+            <a href="dummy" class="footer-contact__link">
+              <span class="footer-contact__icon">
+                <img src="/tmp-yours/assets/img/icon/mail.svg" alt="">
+              </span>
+              <span class="footer-contact__link-text">
+                お問い合わせ
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-list__inner">
+          <div class="footer-list">
+            <ul>
+              <li class="footer-list__item"><a href="/tmp-yours/" class="footer-list__link">トップページ</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/company/" class="footer-list__link">会社案内</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/news/" class="footer-list__link">新着情報</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-desc">
+            <dl>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/care/" data-submenu-trigger aria-expanded="false">介護保険</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/home-care/" class="footer-list__link">訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/regular-patrol/" class="footer-list__link">定期巡回・随時対応型訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/care-support/" class="footer-list__link">居宅介護支援</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/welfare/" data-submenu-trigger aria-expanded="false">障害福祉</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/home-care/" class="footer-list__link">居宅介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/intensive-home-care/" class="footer-list__link">重度訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/mobility-support/" class="footer-list__link">移動支援</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/housing/" data-submenu-trigger aria-expanded="false">やすらぎの里</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/" class="footer-list__link">やすらぎの里とは</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/iogi/" class="footer-list__link">やすらぎの里　井荻</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/syoan/" class="footer-list__link">やすらぎの里　松庵</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="footer-list">
+            <ul>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/" class="footer-list__link">採用情報</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/job/" class="footer-list__link">募集職種</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/entry/" class="footer-list__link">採用エントリー</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-to-top">
+        <a href="#" class="footer-to-top__link">トップへ戻る
+          <img class="footer-to-top__icon" src="/tmp-yours/assets/img/icon/chevron.svg"></a>
+      </div>
+      <div class="footer__copyright">
+        <small>your-s. All rights reserved.</small>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

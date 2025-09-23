@@ -37,11 +37,7 @@ export class Accordion {
   private setInitialState(): void {
     this.toggleButton.setAttribute('aria-expanded', 'false');
     this.content.setAttribute('aria-hidden', 'true');
-    
-    // aria-labelで開閉状態を示す
-    const buttonText = this.toggleButton.textContent?.trim() || '';
-    this.toggleButton.setAttribute('aria-label', `${buttonText} 折りたたみメニュー（閉じています）`);
-    
+    this.content.style.maxHeight = '0px';
     this.isExpanded = false;
   }
 
@@ -77,17 +73,6 @@ export class Accordion {
     this.content.setAttribute('aria-hidden', 'false');
     addClass(this.element, 'js-accordion--expanded');
     
-    // aria-labelを更新
-    const buttonText = this.toggleButton.textContent?.trim() || '';
-    this.toggleButton.setAttribute('aria-label', `${buttonText} 折りたたみメニュー（開いています）`);
-    
-    // display:noneを解除してから高さを測定
-    this.content.style.display = 'block';
-    
-    // CSS側で定義されたpadding値を復元
-    this.content.style.paddingTop = '';
-    this.content.style.paddingBottom = '';
-    
     // 実際の高さを測定して設定
     this.setContentHeight();
     
@@ -97,67 +82,31 @@ export class Accordion {
   private collapse(): void {
     this.isExpanded = false;
     this.toggleButton.setAttribute('aria-expanded', 'false');
-    this.content.setAttribute('aria-hidden', 'true');
     removeClass(this.element, 'js-accordion--expanded');
     
-    // aria-labelを更新
-    const buttonText = this.toggleButton.textContent?.trim() || '';
-    this.toggleButton.setAttribute('aria-label', `${buttonText} 折りたたみメニュー（閉じています）`);
-    
-    // CSS側から現在のpadding値を取得
-    const computedStyle = getComputedStyle(this.content);
-    const currentPaddingTop = computedStyle.paddingTop;
-    const currentPaddingBottom = computedStyle.paddingBottom;
-    
-    // 現在の高さを取得してからアニメーション
+    // 現在の高さを一度設定してからアニメーションで0に縮める
     const currentHeight = this.content.scrollHeight;
     this.content.style.maxHeight = `${currentHeight}px`;
-    this.content.style.paddingTop = currentPaddingTop;
-    this.content.style.paddingBottom = currentPaddingBottom;
     
-    // 強制的にリフローを発生させる
-    this.content.offsetHeight;
-    
-    // 次のフレームで0に設定（アニメーション開始）
+    // 次のフレームで0に設定（アニメーション効果）
     requestAnimationFrame(() => {
       this.content.style.maxHeight = '0px';
-      this.content.style.paddingTop = '0px';
-      this.content.style.paddingBottom = '0px';
       
-      // アニメーション終了後にdisplay: noneを設定
+      // アニメーション完了後にdisplay:noneを適用（a11y対応）
       setTimeout(() => {
-        if (!this.isExpanded) { // 途中で開かれていない場合のみ
-          this.content.style.display = 'none';
-        }
-      }, 300); // transitionの時間と合わせる
+        this.content.setAttribute('aria-hidden', 'true');
+      }, 200); // transitionの時間と合わせる
     });
     
     this.announceChange('閉じました');
   }
 
   private setContentHeight(): void {
-    // 元のスタイルを保存
-    const originalDisplay = this.content.style.display;
-    const originalVisibility = this.content.style.visibility;
-    const originalPosition = this.content.style.position;
-    const originalMaxHeight = this.content.style.maxHeight;
-    
-    // 一時的にdisplay:blockで測定（ちらつき防止のため非表示）
-    this.content.style.display = 'block';
-    this.content.style.visibility = 'hidden';
-    this.content.style.position = 'absolute';
+    // 一時的にmax-heightをautoにして実際の高さを測定
     this.content.style.maxHeight = 'auto';
-    
-    // 実際の高さを測定
     const height = this.content.scrollHeight;
     
-    // 元のスタイルに戻す
-    this.content.style.display = originalDisplay;
-    this.content.style.visibility = originalVisibility;
-    this.content.style.position = originalPosition;
-    this.content.style.maxHeight = originalMaxHeight;
-    
-    // アニメーション開始：0から実際の高さへ
+    // 測定後、アニメーション用に0に戻してから実際の高さに設定
     this.content.style.maxHeight = '0px';
     
     // 次のフレームで実際の高さを設定（アニメーション効果）

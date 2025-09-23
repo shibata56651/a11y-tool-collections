@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+  <base href="/tmp-yours/tmp-yours/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yours</title>
+  <link rel="stylesheet" href="/tmp-yours/dist/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script type="module" defer src="/tmp-yours/dist/js/main.js"></script>
+</head>
+<body>
+    <header class="header">
+    <div class="header__content">
+      <!-- ロゴ・アイコン -->
+      <div class="header__logo">
+        <h1>
+          <a href="/tmp-yours/" class="header__logo-link">
+            <img src="/tmp-yours/assets/img/logo/header-logo.svg" alt="Yours" class="header__logo-img">
+          </a>
+        </h1>
+      </div>
+
+      <!-- ハンバーガーメニューボタン -->
+      <button class="header__burger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="header-nav"
+              aria-label="メニューを開く">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </button>
+
+      <!-- メインナビゲーション -->
+      <nav class="header__nav" id="header-nav" role="navigation" aria-label="メインナビゲーション">
+        <!-- 上部メニュー -->
+        <div class="header-menu">
+          <ul class="header-menu__list">
+            <li class="header-menu__item">
+              <a href="tel:0120-000-000" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/phone.svg" alt="">
+                </span>
+                0120-000-000
+              </a>
+            </li>
+            <li class="header-menu__item">
+              <a href="/tmp-yours/contact/" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/mail.svg" alt="">
+                </span>
+                お問い合わせ</a>
+            </li>
+            <li class="header-menu__item">
+              <a href="/tmp-yours/recruit/" class="header-menu__link">
+                <span class="header-menu__icon">
+                  <img src="/tmp-yours/assets/img/icon/entry.svg" alt="">
+                </span>
+                採用エントリー</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- メインメニュー -->
+        <div class="header__main-menu">
+          <ul class="header__main-list">
+            <li class="header__main-item">
+              <a href="/tmp-yours/" class="header__main-link">トップページ</a>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/company/" class="header__main-link">会社案内</a>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/news/" class="header__main-link">新着情報</a>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/care/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-care">
+                介護保険
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-care" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-01.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">訪問介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/regular-patrol/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">定期巡回・随時対応型訪問介護看護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/care/care-support/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">居宅介護支援</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/welfare/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-welfare">
+                障害福祉
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-welfare" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-02.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">居宅介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/intensive-home-care/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">重度訪問介護</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/welfare/mobility-support/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">移動支援</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item header__main-item--has-submenu">
+              <a href="/tmp-yours/housing/" class="header__main-link header__submenu-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-controls="submenu-housing">
+                住まい事業
+                <img src="/tmp-yours/assets/img/icon/arrow-bottom.svg" alt="" class="header__submenu-icon">
+              </a>
+              <div class="header__submenu" id="submenu-housing" role="menu" aria-hidden="true">
+                <div class="header__submenu-content">
+                  <div class="header__submenu-image">
+                    <img src="/tmp-yours/assets/img/header/header-submenu-03.jpg" alt="" class="header__submenu-img">
+                  </div>
+                  <div class="header__submenu-links">
+                    <ul class="header__submenu-list">
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里とは</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/iogi/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里 井荻</span>
+                        </a>
+                      </li>
+                      <li class="header__submenu-item">
+                        <a href="/tmp-yours/housing/syoan/" class="header__submenu-link" role="menuitem">
+                          <span class="header__submenu-text">やすらぎの里 松庵</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="header__main-item">
+              <a href="/tmp-yours/recruit/" class="header__main-link">採用情報</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- ドロップダウン時のオーバーレイ -->
+    <div class="header__overlay" aria-hidden="true"></div>
+  </header>
+
+  <div class="main-inner">
+    <div class="list-breadcrumb">
+      <ul>
+        <li class="list-breadcrumb__item"><a href="/tmp-yours/" class="list-breadcrumb__link">トップ</a></li>
+        <li class="list-breadcrumb__item"><span class="list-breadcrumb__text">会社案内</span></li>
+      </ul>
+    </div>
+
+    <div class="hdg-main__inner">
+      <h2 class="hdg-main__text">会社案内
+        <span class="hdg-main__small-text">Company Profile</span>
+      </h2>
+    </div>
+
+    <div class="list-anchor">
+      <ul>
+        <li class="list-anchor__item">
+          <a href="#anc-01" class="list-anchor__link">代表者メッセージ</a>
+        </li>
+        <li class="list-anchor__item">
+          <a href="#anc-02" class="list-anchor__link">これまでの歩み</a>
+        </li>
+        <li class="list-anchor__item">
+          <a href="#anc-03" class="list-anchor__link">今後のビジョン</a>
+        </li>
+        <li class="list-anchor__item">
+          <a href="#anc-04" class="list-anchor__link">会社概要</a>
+        </li>
+        <li class="list-anchor__item">
+          <a href="#anc-05" class="list-anchor__link">アクセス</a>
+        </li>
+        <li class="list-anchor__item">
+          <a href="#anc-06" class="list-anchor__link">グループ会社</a>
+        </li>
+      </ul>
+    </div>
+
+    <main class="main-content">
+      <section id="anc-01" class="section-general">
+        <h3 class="hdg-line">代表者メッセージ</h3>
+
+        <div class="company-top-inner">
+          <div class="lyt-ceo">
+            <div class="lyt-ceo__text">
+              <span class="lyt-ceo__title">“老いても人らしく”</span>
+              <p>有限会社ユアーズは、2002年の設立以来「老いても人らしく」を経営理念に老人ホーム、訪問介護、ケアマネ事業を中心に、地域の皆様に寄り添ったサービスを提供してまいりました。これもひとえに、皆様の日頃のご支援ご愛顧の賜物と深く感謝申し上げます。<br class="sp-hidden">さて、近年、高齢化が進む社会において、お客様のニーズは多様化の一途を辿っております。弊社では、そのような状況に対応するため、グループ会社を通じてシニアライフにおける様々な支援や介護事業者への支援など、より幅広いサービスを展開しております。<br class="sp-hidden">私たちは、常にお客様の視点に立ち、質の高いサービスを提供することで、地域社会の皆様の生活をより豊かにしたいと考えております。今後とも、お客様にご満足いただけるよう、社員一同、邁進して参ります。</p>
+
+              <span class="lyt-ceo__name">代表取締役 菅原都子</span>
+            </div>
+            <div class="lyt-ceo__img-inner">
+              <img loading="lazy" src="/tmp-yours/assets/img/company/img-ceo.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="anc-02" class="section-general">
+        <h3 class="hdg-line">これまでの歩み</h3>
+
+        <div class="company-top-inner">
+          <div class="list-history">
+            <ul>
+              <li class="list-history__item">
+                <div class="list-desc-history">
+                  <dl>
+                    <dt class="list-desc-history__text">平成<span class="list-desc-history__number">14</span>年<span class="list-desc-history__number">3</span>月</dt>
+                    <dd class="list-desc-history__detail">有限会社ユアーズ設立</dd>
+                  </dl>
+                </div>
+              </li>
+              <li class="list-history__item">
+                <div class="list-desc-history">
+                  <dl>
+                    <dt class="list-desc-history__text"><span class="list-desc-history__number">5</span>月</dt>
+                    <dd class="list-desc-history__detail">訪問介護事業、居宅介護事業の東京都指定を受ける</dd>
+                  </dl>
+                </div>
+              </li>
+              <li class="list-history__item">
+                <div class="list-desc-history">
+                  <dl>
+                    <dt class="list-desc-history__text"><span class="list-desc-history__number">5</span>月</dt>
+                    <dd class="list-desc-history__detail">やすらぎの里井荻の運営開始</dd>
+                  </dl>
+                </div>
+              </li>
+              <li class="list-history__item">
+                <div class="list-desc-history">
+                  <dl>
+                    <dt class="list-desc-history__text">平成<span class="list-desc-history__number">16</span>年<span class="list-desc-history__number">4</span>月</dt>
+                    <dd class="list-desc-history__detail">やすらぎの里　上石神井の運営開始</dd>
+                  </dl>
+                </div>
+              </li>
+              <li class="list-history__item">
+                <div class="list-desc-history">
+                  <dl>
+                    <dt class="list-desc-history__text">平成<span class="list-desc-history__number">17</span>年<span class="list-desc-history__number">4</span>月</dt>
+                    <dd class="list-desc-history__detail">やすらぎの里　清水の運営開始</dd>
+                  </dl>
+                </div>
+              </li>
+              <li class="list-history__item">
+                <div class="list-desc-history">
+                  <dl>
+                    <dt class="list-desc-history__text">平成<span class="list-desc-history__number">25</span>年<span class="list-desc-history__number">2</span>月</dt>
+                    <dd class="list-desc-history__detail">清水と上石神井を統合し、やすらぎの里松庵として運営開始</dd>
+                  </dl>
+                </div>
+              </li>
+              <li class="list-history__item">
+                <div class="list-desc-history">
+                  <dl>
+                    <dt class="list-desc-history__text"><span class="list-desc-history__number">9</span>月</dt>
+                    <dd class="list-desc-history__detail">居宅介護、重度訪問介護事業の東京都指定を受ける</dd>
+                  </dl>
+                </div>
+              </li>
+              <li class="list-history__item">
+                <div class="list-desc-history">
+                  <dl>
+                    <dt class="list-desc-history__text">令和<span class="list-desc-history__number">4</span>年<span class="list-desc-history__number">4</span>月</dt>
+                    <dd class="list-desc-history__detail">定期巡回・臨時対応訪問介護看護の東京都指定を受ける</dd>
+                  </dl>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="anc-03" class="section-general">
+        <h3 class="hdg-line">今後のビジョン</h3>
+
+        <div class="company-top-inner">
+          <h4 class="hdg-vision hdg-vision--type-a"><img loading="lazy" src="/tmp-yours/assets/img/company/img-hdg-01.png" alt=""></h4>
+          <p>これまで築いてきた地域からの信頼を礎に、高齢者介護事業ではドミナント戦略を活かし、さらなる売上の拡大と事業の深化を目指します。<br class="sp-hidden">また、介護にとどまらず、障害福祉や見守り支援など他分野への展開を進めることで、地域にとって欠かせない存在としての役割を一層強化し、<br class="sp-hidden">「この街にユアーズがあってよかった」と心から感じていただける企業を目指してまいります。</p>
+
+          <h4 class="hdg-vision hdg-vision--type-b"><img loading="lazy" src="/tmp-yours/assets/img/company/img-hdg-02.png" alt=""></h4>
+          <p>「老いても人らしく」を理念の核に据え、顧客・従業員・地域・会社、それぞれにとって価値ある“四方よし”の実現を目指します。<br class="sp-hidden">単なる事業拡大ではなく、人と人とのつながりを大切にしながら、持続可能で地域に根ざした成長を志向してまいります。</p>
+        </div>
+      </section>
+
+      <section id="anc-04" class="section-general">
+        <h3 class="hdg-line">会社概要</h3>
+
+        <div class="company-top-inner">
+          <div class="table-tbody-only">
+            <table>
+              <tbody>
+                <tr class="table-tbody-only__row">
+                  <th class="table-tbody-only__header">会社名</th>
+                  <td class="table-tbody-only__data">ユアーズ株式会社</td>
+                </tr>
+                <tr class="table-tbody-only__row">
+                  <th class="table-tbody-only__header">代表者</th>
+                  <td class="table-tbody-only__data">代表取締役　菅原都子（すがわらみやこ）</td>
+                </tr>
+                <tr class="table-tbody-only__row">
+                  <th class="table-tbody-only__header">設立年月日</th>
+                  <td class="table-tbody-only__data">平成14年3月14日</td>
+                </tr>
+                <tr class="table-tbody-only__row">
+                  <th class="table-tbody-only__header">資本金</th>
+                  <td class="table-tbody-only__data">350万円</td>
+                </tr>
+                <tr class="table-tbody-only__row">
+                  <th class="table-tbody-only__header">電話番号</th>
+                  <td class="table-tbody-only__data">050-3535-9866</td>
+                </tr>
+                <tr class="table-tbody-only__row">
+                  <th class="table-tbody-only__header">FAX</th>
+                  <td class="table-tbody-only__data">03-5389-9231</td>
+                </tr>
+                <tr class="table-tbody-only__row">
+                  <th class="table-tbody-only__header">所在地</th>
+                  <td class="table-tbody-only__data">〒161-0033　東京都新宿区下落合1-12-2　カーサ中村403</td>
+                </tr>
+                <tr class="table-tbody-only__row">
+                  <th class="table-tbody-only__header">事業内容</th>
+                  <td class="table-tbody-only__data">
+                    <div class="list-simple">
+                      <ul>
+                        <li class="list-simple__item">指定訪問介護事業　[事業所番号]1371300938</li>
+                        <li class="list-simple__item">指定定期巡回・随時対応型訪問介護看護事業</li>
+                        <li class="list-simple__item">指定居宅介護支援事業（ケアマネジャー）</li>
+                        <li class="list-simple__item">指定障害福祉サービス事業
+                          <div class="list-simple">
+                            <ul>
+                              <li class="list-simple__item">居宅介護</li>
+                              <li class="list-simple__item">重度訪問介護</li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li class="list-simple__item">地域生活支援事業
+                          <div class="list-simple">
+                            <ul>
+                              <li class="list-simple__item">居宅介護</li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li class="list-simple__item">自費訪問介護</li>
+                        <li class="list-simple__item">住宅型有料老人ホーム「やすらぎの里」シリーズの運営</li>
+                      </ul>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="anc-05" class="section-general">
+        <h3 class="hdg-line">アクセス</h3>
+          <div class="company-top-inner">
+            <span class="access-address">〒161-0033<br>東京都新宿区下落合1-12-2 カーサ中村403</span>
+
+          <div class="access-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.43269351346!2d139.69444297593003!3d35.71557567257623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d499d77e609%3A0xa03d08edc5d8022c!2z44CSMTYxLTAwMzMg5p2x5Lqs6YO95paw5a6_5Yy65LiL6JC95ZCI77yR5LiB55uu77yR77yS4oiS77ySIOOCq-ODvOOCteS4readkQ!5e0!3m2!1sja!2sjp!4v1755360412154!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="anc-06" class="section-general">
+        <h3 class="hdg-line">グループ会社</h3>
+
+        <div class="company-top-inner">
+          <div class="pnl-simple pnl-simple--col3">
+            <ul>
+              <li class="pnl-simple__item">
+                <a class="pnl-simple__link" target="_blank" href="dummy">
+                  <div class="pnl-simple__img-inner">
+                    <img class="pnl-simple__img" loading="lazy" src="/tmp-yours/assets/img/company/img-group-01.png" alt="">
+                  </div>
+                  <div class="pnl-simple__text-inner">
+                    <span class="pnl-simple__text">ライフエッジ株式会社</span>
+                    <img class="icon--window" src="/tmp-yours/assets//img/icon/window.svg" alt="別窓で開く">
+                  </div>
+                </a>
+              </li>
+              <li class="pnl-simple__item">
+                <a class="pnl-simple__link" target="_blank" href="dummy">
+                  <div class="pnl-simple__img-inner">
+                    <img class="pnl-simple__img" loading="lazy" src="/tmp-yours/assets/img/company/img-group-02.png" alt="">
+                  </div>
+                  <div class="pnl-simple__text-inner">
+                    <span class="pnl-simple__text">ごしきぐも株式会社</span>
+                    <img class="icon--window" src="/tmp-yours/assets//img/icon/window.svg" alt="別窓で開く">
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+    <div class="footer-inner">
+    <div class="footer__banner">
+      <img src="/tmp-yours/assets/img/footer/footer-banner.jpg" alt="老いても人らしく Enjoy Being Old." class="footer__logo">
+    </div>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer-company__inner">
+          <div class="footer-company__logo-inner">
+            <img class="footer-company__logo" src="/tmp-yours/assets/img/logo/footer-logo.svg" loading="lazy" alt="">
+          </div>
+          <div class="footer-company__address">
+            <span class="footer-company__address-text">〒161-0033　東京都新宿区下落合1-12-2-403<br>TEL:03-5330-6628　FAX:03-5389-9231</span>
+          </div>
+          <div class="footer-contact__inner">
+            <a href="dummy" class="footer-contact__link">
+              <span class="footer-contact__icon">
+                <img src="/tmp-yours/assets/img/icon/mail.svg" alt="">
+              </span>
+              <span class="footer-contact__link-text">
+                お問い合わせ
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-list__inner">
+          <div class="footer-list">
+            <ul>
+              <li class="footer-list__item"><a href="/tmp-yours/" class="footer-list__link">トップページ</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/company/" class="footer-list__link">会社案内</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/news/" class="footer-list__link">新着情報</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-desc">
+            <dl>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/care/" data-submenu-trigger aria-expanded="false">介護保険</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/home-care/" class="footer-list__link">訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/regular-patrol/" class="footer-list__link">定期巡回・随時対応型訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/care-support/" class="footer-list__link">居宅介護支援</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/welfare/" data-submenu-trigger aria-expanded="false">障害福祉</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/home-care/" class="footer-list__link">居宅介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/intensive-home-care/" class="footer-list__link">重度訪問介護</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/care/mobility-support/" class="footer-list__link">移動支援</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+              <div class="footer-desc__item">
+                <dt class="footer-desc__text">
+                  <a class="footer-desc__link" href="/tmp-yours/housing/" data-submenu-trigger aria-expanded="false">やすらぎの里</a>
+                </dt>
+                <dd class="footer-desc__detail" aria-hidden="true">
+                  <div class="footer-list">
+                    <ul>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/" class="footer-list__link">やすらぎの里とは</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/iogi/" class="footer-list__link">やすらぎの里　井荻</a></li>
+                      <li class="footer-list__item"><a href="/tmp-yours/housing/syoan/" class="footer-list__link">やすらぎの里　松庵</a></li>
+                    </ul>
+                  </div>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="footer-list">
+            <ul>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/" class="footer-list__link">採用情報</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/job/" class="footer-list__link">募集職種</a></li>
+              <li class="footer-list__item"><a href="/tmp-yours/recruit/entry/" class="footer-list__link">採用エントリー</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-to-top">
+        <a href="#" class="footer-to-top__link">トップへ戻る
+          <img class="footer-to-top__icon" src="/tmp-yours/assets/img/icon/chevron.svg"></a>
+      </div>
+      <div class="footer__copyright">
+        <small>your-s. All rights reserved.</small>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

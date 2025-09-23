@@ -166,7 +166,7 @@
     flex-wrap: wrap;
     gap: 36px;
 
-    @media (width <= 425px) {
+    @media (width <= 445px) {
       gap: 26px;
       justify-content: center;
     }

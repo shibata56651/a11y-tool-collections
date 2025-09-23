@@ -1,9 +1,33 @@
 const fs = require('fs');
 const path = require('path');
 const http = require('http');
+const net = require('net');
 const { spawn } = require('child_process');
 
-const PORT = 3001;
+const DEFAULT_PORT = 3001;
+
+// 利用可能なポートを見つける関数
+function findAvailablePort(port) {
+  return new Promise((resolve, reject) => {
+    const server = net.createServer();
+    
+    server.listen(port, () => {
+      const actualPort = server.address().port;
+      server.close(() => {
+        resolve(actualPort);
+      });
+    });
+    
+    server.on('error', (err) => {
+      if (err.code === 'EADDRINUSE') {
+        // ポートが使用中の場合、次のポートを試す
+        findAvailablePort(port + 1).then(resolve).catch(reject);
+      } else {
+        reject(err);
+      }
+    });
+  });
+}
 
 const mimeTypes = {
   '.html': 'text/html',
@@ -51,10 +75,49 @@ const server = http.createServer((req, res) => {
   
   const stats = fs.statSync(fullPath);
   if (stats.isDirectory()) {
-    console.log(`404: Directory request - ${fullPath}`);
-    res.writeHead(404, { 'Content-Type': 'text/html' });
-    res.end('Not Found');
-    return;
+    // ディレクトリアクセス時はindex.htmlを探す
+    const indexPath = path.join(fullPath, 'index.html');
+    if (fs.existsSync(indexPath)) {
+      console.log(`Directory request: Serving ${indexPath}`);
+      const content = fs.readFileSync(indexPath, 'utf8');
+      const fileDir = path.dirname(indexPath);
+      let processedContent = processSSI(content, fileDir);
+      
+      // Browser-sync用のリロードスクリプトを自動挿入
+      const reloadScript = `
+<script>
+(function() {
+  function connectWebSocket() {
+    const ws = new WebSocket('ws://localhost:' + window.location.port);
+    ws.onmessage = function(event) {
+      if (event.data === 'reload') {
+        window.location.reload();
+      }
+    };
+    ws.onclose = function() {
+      setTimeout(connectWebSocket, 1000);
+    };
+  }
+  connectWebSocket();
+})();
+</script>`;
+      
+      if (processedContent.includes('</body>')) {
+        processedContent = processedContent.replace('</body>', reloadScript + '</body>');
+      }
+      
+      res.writeHead(200, { 
+        'Content-Type': 'text/html; charset=utf-8',
+        'Cache-Control': 'no-cache'
+      });
+      res.end(processedContent);
+      return;
+    } else {
+      console.log(`404: No index.html in directory - ${fullPath}`);
+      res.writeHead(404, { 'Content-Type': 'text/html' });
+      res.end('Not Found');
+      return;
+    }
   }
   
   if (ext === '.html') {
@@ -70,7 +133,7 @@ const server = http.createServer((req, res) => {
 <script>
 (function() {
   function connectWebSocket() {
-    const ws = new WebSocket('ws://localhost:3001');
+    const ws = new WebSocket('ws://localhost:' + window.location.port);
     ws.onmessage = function(event) {
       if (event.data === 'reload') {
         window.location.reload();
@@ -127,18 +190,30 @@ function watchFiles() {
   });
 }
 
-server.listen(PORT, () => {
-  console.log(`SSI Server with auto-reload running on http://localhost:${PORT}`);
-  
-  // WebSocketサーバーをHTTPサーバーと同じポートで起動
-  wss = new WebSocket.Server({ server });
-  
-  wss.on('connection', (ws) => {
-    clients.add(ws);
-    ws.on('close', () => {
-      clients.delete(ws);
+// サーバーを起動する関数
+async function startServer() {
+  try {
+    const port = await findAvailablePort(process.env.PORT || DEFAULT_PORT);
+    
+    server.listen(port, () => {
+      console.log(`SSI Server with auto-reload running on http://localhost:${port}`);
+      
+      // WebSocketサーバーをHTTPサーバーと同じポートで起動
+      wss = new WebSocket.Server({ server });
+      
+      wss.on('connection', (ws) => {
+        clients.add(ws);
+        ws.on('close', () => {
+          clients.delete(ws);
+        });
+      });
+      
+      watchFiles();
     });
-  });
-  
-  watchFiles();
-});
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  }
+}
+
+startServer();

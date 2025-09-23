@@ -18,10 +18,31 @@ function processDirectory(sourceDir, outputDir) {
 
     if (stat.isDirectory()) {
       // ディレクトリの場合は再帰処理（除外リストを拡張）
-      if (!['node_modules', '.git', 'scripts', 'build', '.npm', '.cache'].includes(item)) {
+      if (!['node_modules', '.git', 'scripts', 'build', 'demo', '.npm', '.cache', 'src'].includes(item)) {
         processDirectory(sourcePath, outputPath);
       }
     } else if (stat.isFile()) {
+      // 除外するファイル名のリスト
+      const excludedFiles = [
+        'CLAUDE.md',
+        'README.md',
+        'biome.json',
+        'package-lock.json',
+        'package.json',
+        'ssi-server.js',
+        'tsconfig.json',
+        '.gitignore',
+        '.gitattributes',
+        '.prettierrc.json',
+        '.stylelintrc.json',
+        '.htaccess'
+      ];
+      
+      // ファイル名が除外リストに含まれている場合はスキップ
+      if (excludedFiles.includes(item)) {
+        return;
+      }
+      
       const ext = path.extname(item).toLowerCase();
       
       if (ext === '.html') {
@@ -80,7 +101,9 @@ function processSSI(content, basePath) {
 
 // ビルド実行
 const sourceDir = path.join(__dirname, '..');
-const outputDir = path.join(__dirname, '..', 'build');
+// 環境に応じて出力ディレクトリを決定
+const outputDirName = process.env.BUILD_ENV === 'demo' ? 'demo' : 'build';
+const outputDir = path.join(__dirname, '..', outputDirName);
 
 console.log('Starting production build...');
 console.log(`Source: ${sourceDir}`);
