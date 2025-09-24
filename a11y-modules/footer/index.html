@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <!--#include file="/include/head.html" -->
+<body>
+  <!--#include file="/include/header.html" -->
+
+  <div class="main-inner">
+    <div class="list-breadcrumb">
+      <ul>
+        <li class="list-breadcrumb__item"><a href="/a11y-modules/" class="list-breadcrumb__link">a11y考慮モジュール集トップ</a></li>
+        <li class="list-breadcrumb__item"><span class="list-breadcrumb__text">フッター実装時の注意点</span></li>
+      </ul>
+    </div>
+
+    <div class="hdg-main__inner hdg-main__inner--housing">
+      <h2 class="hdg-main__text">フッター実装時の注意点</h2>
+    </div>
+
+    <main class="main-content">
+      <section class="section-general">
+        <h3 class="hdg-line">フッターの基本的なセマンティック構造</h3>
+        <p>フッターはサイトの補完情報を提供する重要な領域で、適切なマークアップが必要です：</p>
+        <p><strong>&lt;footer&gt;</strong>：サイトまたはセクションのフッター部分を定義</p>
+        <p><strong>ランドマークロール</strong>：contentinfo役割の自動付与</p>
+        <p><strong>補完ナビゲーション</strong>：サイトマップ的な役割を持つリンク集</p>
+        <p><strong>メタ情報</strong>：著作権、会社情報、連絡先の配置</p>
+
+        <h3 class="hdg-line">フッターのアクセシビリティ機能</h3>
+
+        <h4>ランドマークロール</h4>
+        <p><strong>contentinfo</strong>：footer要素により自動的に付与されるランドマーク</p>
+        <p><strong>ナビゲーション支援</strong>：スクリーンリーダーでの効率的なページ構造理解</p>
+        <p><strong>スキップリンク</strong>：フッター内の主要セクションへのジャンプ機能</p>
+
+        <h4>キーボードナビゲーション</h4>
+        <p><strong>Tab順序</strong>：論理的で予測可能なフォーカス移動</p>
+        <p><strong>アコーディオン操作</strong>：モバイル時の展開・折りたたみ機能</p>
+        <p><strong>フォーカス表示</strong>：現在位置の明確な視覚的表示</p>
+
+        <h3 class="hdg-line">テスト・検証方法</h3>
+        <p>フッター実装後の確認項目：</p>
+        <p><strong>スクリーンリーダー</strong>：contentinfoランドマークとして認識されるか</p>
+        <p><strong>キーボード操作</strong>：すべてのリンクがキーボードでアクセス可能か</p>
+        <p><strong>レスポンシブ表示</strong>：異なるデバイスサイズでの適切な表示</p>
+        <p><strong>リンク確認</strong>：すべてのリンクが正しく動作するか</p>
+        <p><strong>構造化データ</strong>：検索エンジンでの適切な認識</p>
+
+        <div style="margin-top: 3rem; padding: 2rem; background-color: #f5f5f5; border-radius: 8px;">
+          <h4 style="margin-top: 0;">参考：実装例の確認</h4>
+          <p>このページ下部のフッター実装が実際の例です。以下の操作で機能を確認してみてください：</p>
+          <p>• スクリーンリーダーでcontentinfoランドマークとして認識されるか</p>
+          <p>• キーボードのTabキーですべてのリンクにアクセス可能か</p>
+          <p>• モバイルサイズでアコーディオン機能が動作するか</p>
+          <p>• 「トップに戻る」リンクが適切に機能するか</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!--#include file="/include/footer.html" -->
+</body>
+</html>

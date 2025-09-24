@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <!--#include file="/include/head.html" -->
+<body>
+  <!--#include file="/include/header.html" -->
+
+  <div class="main-inner">
+    <div class="list-breadcrumb">
+      <ul>
+        <li class="list-breadcrumb__item"><a href="/a11y-modules/" class="list-breadcrumb__link">a11y考慮モジュール集トップ</a></li>
+        <li class="list-breadcrumb__item"><span class="list-breadcrumb__text">ヘッダー実装時の注意点</span></li>
+      </ul>
+    </div>
+
+    <div class="hdg-main__inner hdg-main__inner--housing">
+      <h2 class="hdg-main__text">ヘッダー実装時の注意点</h2>
+    </div>
+
+    <main class="main-content">
+      <section class="section-general">
+        <h3 class="hdg-line">ヘッダーの基本的なセマンティック構造</h3>
+        <p><strong>&lt;header&gt;</strong>：サイトまたはセクションの導入部分を定義</p>
+        <p><strong>&lt;h1&gt;</strong>：サイト名やサービス名を含む最上位見出し</p>
+        <p><strong>&lt;nav&gt;</strong>：メインナビゲーション領域の明示</p>
+        <p><strong>ランドマーク</strong>：スクリーンリーダーでのページ構造理解を支援</p>
+
+        <h3 class="hdg-line">ドロップダウンメニューの実装</h3>
+        <p>階層的な情報を効率的に表示するドロップダウンメニューのアクセシブル実装：</p>
+
+        <p><strong>重要なARIA属性：</strong></p>
+        <p>• <strong>aria-expanded</strong>：サブメニューの開閉状態（true/false）</p>
+        <p>• <strong>aria-haspopup</strong>：サブメニューの存在を示す（true）</p>
+        <p>• <strong>aria-controls</strong>：操作対象のサブメニューのID</p>
+        <p>• <strong>role="menu"</strong>：サブメニュー領域のロール</p>
+        <p>• <strong>role="menuitem"</strong>：各メニュー項目のロール</p>
+
+        <h3 class="hdg-line">ハンバーガーメニューの実装</h3>
+        <p>モバイルデバイスでのメニュー表示を制御するハンバーガーメニューボタン：</p>
+
+        <p><strong>重要な実装ポイント：</strong></p>
+        <p>• <strong>aria-label</strong>：ボタンの目的を明確に説明</p>
+        <p>• <strong>aria-expanded</strong>：メニューの開閉状態を動的に更新</p>
+        <p>• <strong>aria-controls</strong>：制御するメニューのIDを指定</p>
+
+        <h3 class="hdg-line">キーボードナビゲーション</h3>
+        <p>ヘッダーナビゲーションでのキーボード操作実装：</p>
+
+        <h4>対応すべきキー操作</h4>
+        <p><strong>Tab / Shift+Tab</strong>：メニュー項目間のフォーカス移動</p>
+        <p><strong>Enter / Space</strong>：リンクの実行、ドロップダウンの開閉</p>
+        <p><strong>Escape</strong>：開いたドロップダウンを閉じる</p>
+        <p><strong>矢印キー</strong>：ドロップダウン内でのフォーカス移動</p>
+        <p><strong>Home / End</strong>：メニューの最初・最後への移動</p>
+
+        <h4>フォーカス管理</h4>
+        <p><strong>フォーカストラップ</strong>：モバイルメニュー表示時のフォーカス制御</p>
+        <p><strong>フォーカス復帰</strong>：ドロップダウンを閉じた際の元位置への復帰</p>
+        <p><strong>視覚的表示</strong>：フォーカス状態の明確な表示</p>
+
+        <h3 class="hdg-line">テスト・検証方法</h3>
+        <p>ヘッダー実装後の確認項目：</p>
+        <p><strong>スクリーンリーダー</strong>：ナビゲーション構造とラベルが正しく読み上げられるか</p>
+        <p><strong>キーボード操作</strong>：すべての機能がキーボードのみで操作可能か</p>
+        <p><strong>フォーカス表示</strong>：現在位置が視覚的に明確に表示されるか</p>
+        <p><strong>レスポンシブ動作</strong>：異なるデバイスサイズでの適切な表示・操作</p>
+        <p><strong>パフォーマンス</strong>：読み込み速度と動作の滑らかさ</p>
+
+        <div style="margin-top: 3rem; padding: 2rem; background-color: #f5f5f5; border-radius: 8px;">
+          <h4 style="margin-top: 0;">参考：実装例の確認</h4>
+          <p>このページ上部のヘッダー実装が実際の例です。以下の操作で機能を確認してみてください：</p>
+          <p>• キーボードのTabキーでメニュー項目を移動</p>
+          <p>• ドロップダウンメニューをキーボード（Enter、Escape）で操作</p>
+          <p>• スクリーンリーダーでナビゲーション構造を確認</p>
+          <p>• モバイルサイズでハンバーガーメニューの動作確認</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!--#include file="/include/footer.html" -->
+</body>
+</html>

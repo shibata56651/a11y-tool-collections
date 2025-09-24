@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <!--#include file="/include/head.html" -->
+<body>
+  <!--#include file="/include/header.html" -->
+
+  <div class="main-inner">
+    <div class="list-breadcrumb">
+      <ul>
+        <li class="list-breadcrumb__item"><a href="/a11y-modules/" class="list-breadcrumb__link">a11y考慮モジュール集トップ</a></li>
+        <li class="list-breadcrumb__item"><span class="list-breadcrumb__text">画像実装時の注意点</span></li>
+      </ul>
+    </div>
+
+    <div class="hdg-main__inner hdg-main__inner--housing">
+      <h2 class="hdg-main__text">画像実装時の注意点</h2>
+    </div>
+
+    <main class="main-content">
+      <section class="section-general">
+        <h3 class="hdg-line">alt属性の基本的な考え方</h3>
+        <p>alt属性は画像の代替テキストとして、視覚的に画像を確認できないユーザーに情報を提供する重要な要素です：</p>
+        <p><strong>情報提供の原則</strong>：画像が伝える情報を文字で表現</p>
+        <p><strong>文脈への配慮</strong>：周囲のテキストとの関係性を考慮した内容</p>
+        <p><strong>簡潔性</strong>：必要な情報を簡潔で分かりやすい文章で表現</p>
+        <p><strong>装飾と情報の区別</strong>：画像の役割に応じて適切に判断</p>
+
+        <p>画像にテキストが含まれる場合は、テキストの内容を考慮してalt属性を設定する必要があります。</p>
+
+        <p>ただ、画像に書いてあるテキスト通りにalt属性を設定して、目の見えるユーザーと目の見えないユーザーとで受け取る情報に齟齬が生まれる場合は、補足として画像にないテキストを記載し視覚的ギャップを埋める必要があります。</p>
+      </section>
+    </main>
+  </div>
+
+  <!--#include file="/include/footer.html" -->
+</body>
+</html>

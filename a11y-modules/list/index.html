@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <!--#include file="/include/head.html" -->
+<body>
+  <!--#include file="/include/header.html" -->
+
+  <div class="main-inner">
+    <div class="list-breadcrumb">
+      <ul>
+        <li class="list-breadcrumb__item"><a href="/a11y-modules/" class="list-breadcrumb__link">a11y考慮モジュール集トップ</a></li>
+        <li class="list-breadcrumb__item"><span class="list-breadcrumb__text">リスト実装時の注意点</span></li>
+      </ul>
+    </div>
+
+    <div class="hdg-main__inner hdg-main__inner--housing">
+      <h2 class="hdg-main__text">リスト実装時の注意点</h2>
+    </div>
+
+    <main class="main-content">
+      <section class="section-general">
+        <h3 class="hdg-line">ul（順序なしリスト）とol（順序ありリスト）の基本的な違い</h3>
+        <p>リスト要素の選択は、情報の性質と文脈によって決定すべき重要な要素です：</p>
+        <p><strong>&lt;ul&gt;</strong>：順序や優先度に意味がない項目の羅列</p>
+        <p><strong>&lt;ol&gt;</strong>：順序や手順が重要な意味を持つ項目の連続</p>
+        <p><strong>セマンティックな意味</strong>：スクリーンリーダーは要素に応じて「箇条書きリスト」「番号付きリスト」と読み上げ</p>
+
+        <h3 class="hdg-line">ul（順序なしリスト）の適切な使用場面</h3>
+        <p>以下のような場面ではul要素を使用します：</p>
+
+        <h4>ナビゲーションメニュー</h4>
+        <div style="margin: 1rem 0; padding: 1rem; border: 1px solid #ddd; border-radius: 4px;">
+          <ul style="list-style: disc; margin-left: 2rem;">
+            <li>トップページ</li>
+            <li>会社案内</li>
+            <li>サービス紹介</li>
+            <li>お問い合わせ</li>
+          </ul>
+        </div>
+        <p>メニュー項目の順序を変更してもコンテンツの意味は変わらないため、ul要素が適切です。</p>
+
+        <h4>特徴・メリットの一覧</h4>
+        <div style="margin: 1rem 0; padding: 1rem; border: 1px solid #ddd; border-radius: 4px;">
+          <ul style="list-style: disc; margin-left: 2rem;">
+            <li>24時間対応可能</li>
+            <li>経験豊富なスタッフ</li>
+            <li>全国どこでも対応</li>
+            <li>リーズナブルな価格設定</li>
+          </ul>
+        </div>
+        <p>各特徴に優劣や順序はなく、すべて等価な価値を持つためul要素が適切です。</p>
+
+        <h4>関連リンク・参考資料</h4>
+        <div style="margin: 1rem 0; padding: 1rem; border: 1px solid #ddd; border-radius: 4px;">
+          <ul style="list-style: disc; margin-left: 2rem;">
+            <li><a href="#">厚生労働省ホームページ</a></li>
+            <li><a href="#">介護保険制度について</a></li>
+            <li><a href="#">地域包括支援センター</a></li>
+            <li><a href="#">相談窓口一覧</a></li>
+          </ul>
+        </div>
+        <p>参考リンクの順序に特別な意味はないため、ul要素を使用します。</p>
+
+        <h3 class="hdg-line">ol（順序ありリスト）の適切な使用場面</h3>
+        <p>以下のような場面ではol要素を使用します：</p>
+
+        <h4>手順・プロセスの説明</h4>
+        <div style="margin: 1rem 0; padding: 1rem; border: 1px solid #ddd; border-radius: 4px;">
+          <ol style="list-style: decimal; margin-left: 2rem;">
+            <li>お問い合わせフォームからご連絡</li>
+            <li>担当者からお電話でヒアリング</li>
+            <li>現地調査・お見積もり作成</li>
+            <li>ご契約・サービス開始</li>
+          </ol>
+        </div>
+        <p>手順は必ず順序通りに進行する必要があるため、ol要素が必須です。</p>
+
+        <h4>ランキング・優先順位</h4>
+        <div style="margin: 1rem 0; padding: 1rem; border: 1px solid #ddd; border-radius: 4px;">
+          <ol style="list-style: decimal; margin-left: 2rem;">
+            <li>安全性の確保</li>
+            <li>利用者様の尊厳</li>
+            <li>自立支援の促進</li>
+            <li>家族様との連携</li>
+          </ol>
+        </div>
+        <p>優先度が高い順に並んでおり、順序に意味があるためol要素を使用します。</p>
+
+        <h4>時系列・年代順の情報</h4>
+        <div style="margin: 1rem 0; padding: 1rem; border: 1px solid #ddd; border-radius: 4px;">
+          <ol style="list-style: decimal; margin-left: 2rem;">
+            <li>2018年4月：会社設立</li>
+            <li>2019年6月：訪問介護事業開始</li>
+            <li>2021年3月：住宅型有料老人ホーム開設</li>
+            <li>2023年10月：障害福祉サービス開始</li>
+          </ol>
+        </div>
+        <p>時系列の情報は順序が重要な意味を持つため、ol要素が適切です。</p>
+
+        <h3 class="hdg-line">よくある誤用パターンと修正例</h3>
+
+        <h4>❌ 間違った使用例：手順にulを使用</h4>
+        <div style="margin: 1rem 0; padding: 1rem; border: 1px solid #ffebee; background-color: #fce4ec; border-radius: 4px;">
+          <p><strong>問題のあるコード：</strong></p>
+          <ul style="list-style: disc; margin-left: 2rem;">
+            <li>ユーザー登録を行う</li>
+            <li>ログイン情報を入力する</li>
+            <li>プロフィール設定を完了する</li>
+          </ul>
+          <p style="color: #c62828; margin-top: 1rem;">この場合、順序が重要な手順なのでul要素は不適切です。</p>
+        </div>
+
+        <h4>✅ 修正例：手順にolを使用</h4>
+        <div style="margin: 1rem 0; padding: 1rem; border: 1px solid #e8f5e8; background-color: #f1f8e9; border-radius: 4px;">
+          <p><strong>適切なコード：</strong></p>
+          <ol style="list-style: decimal; margin-left: 2rem;">
+            <li>ユーザー登録を行う</li>
+            <li>ログイン情報を入力する</li>
+            <li>プロフィール設定を完了する</li>
+          </ol>
+          <p style="color: #2e7d32; margin-top: 1rem;">順序通りに実行する必要があるため、ol要素が適切です。</p>
+        </div>
+
+        <h4>❌ 間違った使用例：並列な情報にolを使用</h4>
+        <div style="margin: 1rem 0; padding: 1rem; border: 1px solid #ffebee; background-color: #fce4ec; border-radius: 4px;">
+          <p><strong>問題のあるコード：</strong></p>
+          <ol style="list-style: decimal; margin-left: 2rem;">
+            <li>訪問介護サービス</li>
+            <li>デイサービス</li>
+            <li>有料老人ホーム</li>
+          </ol>
+          <p style="color: #c62828; margin-top: 1rem;">サービスの種類に順序はないため、ol要素は不適切です。</p>
+        </div>
+
+        <h4>✅ 修正例：並列な情報にulを使用</h4>
+        <div style="margin: 1rem 0; padding: 1rem; border: 1px solid #e8f5e8; background-color: #f1f8e9; border-radius: 4px;">
+          <p><strong>適切なコード：</strong></p>
+          <ul style="list-style: disc; margin-left: 2rem;">
+            <li>訪問介護サービス</li>
+            <li>デイサービス</li>
+            <li>有料老人ホーム</li>
+          </ul>
+          <p style="color: #2e7d32; margin-top: 1rem;">各サービスは等価な位置づけなので、ul要素が適切です。</p>
+        </div>
+
+        <h3 class="hdg-line">リスト要素のアクセシビリティ機能</h3>
+
+        <h4>スクリーンリーダーでの読み上げ</h4>
+        <p>リスト要素は支援技術に重要な情報を提供します：</p>
+        <p><strong>ul要素</strong>：「箇条書きリスト、4項目」→「箇条書き、項目1、...」</p>
+        <p><strong>ol要素</strong>：「番号付きリスト、4項目」→「1、項目1、...」→「2、項目2、...」</p>
+        <p><strong>項目数の通知</strong>：リスト開始時に全体の項目数が通知される</p>
+        <p><strong>現在位置の通知</strong>：「3番目の項目」などの位置情報が提供される</p>
+
+        <h4>ナビゲーション支援</h4>
+        <p>適切なリスト構造によるナビゲーション支援：</p>
+        <p><strong>リストスキップ</strong>：支援技術でリスト全体をスキップ可能</p>
+        <p><strong>項目間移動</strong>：効率的な項目間のジャンプ機能</p>
+        <p><strong>構造の理解</strong>：情報の階層と関係性の把握</p>
+
+        <h3 class="hdg-line">判断に迷う場合の選択基準</h3>
+        <p>ul要素とol要素の選択で迷った場合の判断基準：</p>
+
+        <h4>「順序を変えても意味が通るか？」テスト</h4>
+        <p><strong>順序を変えても問題ない</strong>：ul要素を使用</p>
+        <p><strong>順序を変えると意味が変わる</strong>：ol要素を使用</p>
+        <p><strong>具体例</strong>：「手順1と手順3を入れ替えても実行可能か？」→ 不可能ならol要素</p>
+
+        <h4>「番号に意味があるか？」テスト</h4>
+        <p><strong>番号自体に意味がある</strong>：ol要素（「まず1番目に...」）</p>
+        <p><strong>番号は単なる目安</strong>：ul要素を検討</p>
+
+        <h4>「読み上げ時に番号が重要か？」テスト</h4>
+        <p><strong>「1番目、2番目」の情報が有用</strong>：ol要素</p>
+        <p><strong>項目名だけで十分</strong>：ul要素</p>
+
+        <h3 class="hdg-line">よくある実装ミス</h3>
+        <p><strong>divやpでのリスト模倣</strong>：見た目だけのためにlist要素を使わない</p>
+        <p><strong>単独のli要素</strong>：li要素をul/ol要素の外で単独使用</p>
+        <p><strong>間違った順序選択</strong>：意味と異なるリスト要素の選択</p>
+        <p><strong>空のli要素</strong>：スペーサー目的での空要素作成</p>
+        <p><strong>不適切なネスト</strong>：li要素の直下に別のul/ol以外の要素を配置</p>
+
+        <h3 class="hdg-line">テスト・検証方法</h3>
+        <p>リスト実装後の確認項目：</p>
+        <p><strong>スクリーンリーダー</strong>：リスト種別と項目数が正しく読み上げられるか</p>
+        <p><strong>順序の検証</strong>：ol要素の場合、順序を変えると意味が変わるか</p>
+        <p><strong>ナビゲーション</strong>：支援技術でリスト項目間を効率的に移動できるか</p>
+        <p><strong>構造の確認</strong>：HTMLバリデーターでの構造チェック</p>
+        <p><strong>CSS無効化</strong>：スタイルを無効にしても意味が理解できるか</p>
+
+        <div style="margin-top: 3rem; padding: 2rem; background-color: #f5f5f5; border-radius: 8px;">
+          <h4 style="margin-top: 0;">参考：実装例の確認</h4>
+          <p>上記のリスト例をスクリーンリーダーで確認してみてください。ul要素では「箇条書きリスト」、ol要素では「番号付きリスト」と読み上げられ、それぞれ異なる意味が伝わるはずです。</p>
+          <p>また、項目数の通知や現在位置の通知機能も確認してみてください。適切なリスト要素の選択により、ユーザーの理解と操作性が大幅に向上します。</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!--#include file="/include/footer.html" -->
+</body>
+</html>
